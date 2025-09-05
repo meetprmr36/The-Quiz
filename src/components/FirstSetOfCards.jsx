@@ -51,7 +51,7 @@ const FirstCards = () => {
                 </div>
             </div>
         </div>
-    )
+    )   
 }
 
 export default FirstCards

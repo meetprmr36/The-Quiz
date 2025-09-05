@@ -1,7 +1,7 @@
 import React from "react";
-import MainDashboard from "./MainDashboard";
+import Contentpart from "../components/DasboardCompo";
 
-const Thecontentpart = () => {
+const Dashboard = () => {
   return (
     <div className="Thecontent">
       <div className="welcome">
@@ -9,10 +9,10 @@ const Thecontentpart = () => {
         <p>Welcome to quiz managment system</p>
       </div>
       <div className="dashboard Flex-column">
-        <MainDashboard />
+        <Contentpart />
       </div>
     </div>
   );
 }
 
-export default Thecontentpart;
+export default Dashboard;

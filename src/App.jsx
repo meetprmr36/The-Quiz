@@ -1,5 +1,4 @@
-import React from 'react'
-import Themaincomponent from './components/Themaincomponent'
+import Themaincomponent from './components/DashboardRouter'
 import './App.css'
 
 function App() {

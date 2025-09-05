@@ -2,7 +2,7 @@ import React from "react";
 import FirstCards from "./FirstSetOfCards";
 import SecondSetCards from "./SecondSetOfCards";
 
-const MainDashboard = () => {
+const Contentpart = () => {
     return (
         <div className="Dashboardcard Flex-column">
             <FirstCards />
@@ -11,4 +11,4 @@ const MainDashboard = () => {
     )
 }
 
-export default MainDashboard
+export default Contentpart
