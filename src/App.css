@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: var(--darkblue);
+}
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #f4f4f4;
+    --lightGray: #d2d4d9;
+    --darkblue: rgb(39, 39, 68);
+}
+
+.maincomponent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: var(--darkblue);
+    width: 15%;
+    color: white;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.sidebar h1 {
+    font-size: 24px;
+}
+
+.Logo-Name {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logoimg {
+    font-size: 40px;
+    color: skyblue;
+    margin: 10px;
+}
+
+.color-bg {
+    color: white;
+}
+
+.Side {
+    justify-content: center;
+    align-items: start;
+}
+
+.Side p {
+    margin: 15px;
+    font-size: 12px;
+}
+
+.Side span {
+    margin: 10px;
+}
+
+.Flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.Flex-Row {
+    display: flex;
+    flex-direction: row;
+}
+
+.toggles {
+    margin: 15px;
+    align-items: start;
+    cursor: default;
+}
+
+.toggles span {
+    margin: 10px;
+}
+
+.toggles a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    font-size: 12px;
+}
+
+.Thecontent {
+    width: 100%;
+    background-color: var(--gray);
+}
+
+.welcome h1 {
+    margin: 10px;
+}
+
+.welcome p {
+    margin: 10px;
+}
+
+.dashboard {
+    width: 98%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.Dashboardcard {
+    justify-content: space-around;
+}
+
+/* .Card-shadow {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+} */
+
+.Firstline {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 0px;
+}
+
+.secondline {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 0px;
+}
+
+.Card,
+.secondCard {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(39, 39, 68, 0.10);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    transition: box-shadow 0.2s;
+}
+
+.Card:hover,
+.secondCard:hover {
+    box-shadow: 0 8px 24px rgba(39, 39, 68, 0.18);
+    cursor: pointer;
+}
+
+.Card {
+    width: 29%;
+    min-height: 90px;
+    margin: 10px 0;
+}
+
+.Three-cards {
+    width: 100%;
+    gap: 5%;
+}
+
+.secondCard {
+    width: 45%;
+    min-height: 90px;
+    margin: 10px 0;
+}
+
+.Icon {
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Icon div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.card-blue {
+    background-color: rgba(101, 101, 255, 0.3);
+    color: blue;
+    font-size: 18px;
+}
+
+.card-green{
+    background-color: rgba(18, 255, 18, 0.3);
+    color: rgb(1, 255, 1);
+    font-size: 18px;
+}
+
+.card-purple{
+    background-color: rgba(255, 66, 255, 0.3);
+    color: rgb(255, 0, 255);
+    font-size: 18px;
+}
