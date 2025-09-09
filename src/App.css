@@ -1,12 +1,9 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
+/* * {
     margin: 0;
     padding: 0;
-}
+} */
+@import "tailwindcss";
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,9 +24,64 @@ body {
 }
 
 .maincomponent {
+    margin-left: 15%;
+    width: 85%;
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+}
+
+.Button-style {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .5s;
+    position: relative;
+}
+
+.Button-style:hover {
+    border-color: #646cff;
+    background-color: transparent;
+}
+
+.Button-style:focus,
+.Button-style:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.TooltipText {
+    visibility: hidden;
+    width: 80px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 50;
+    top: 110%;
+    left: 90%;
+    margin-left: -60px;
+}
+
+.Button-style:hover .TooltipText {
+    visibility: visible;
+}
+
+.Red-border:hover {
+    border-color: red;
+}
+
+.Blue-text:hover {
+    color: #2563eb;
+}
+
+.Border-bottom {
+    border-bottom: 0.5px solid rgb(183, 183, 183);
+    letter-spacing: 0.3px;
 }
 
 .white {
@@ -37,11 +89,17 @@ body {
 }
 
 .sidebar {
-    background-color: var(--darkblue);
-    width: 15%;
-    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
+    width: 15%;
+    background-color: var(--darkblue);
+    color: white;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    z-index: 100;
 }
 
 .sidebar h1 {
@@ -76,15 +134,17 @@ body {
 .Side p {
     padding: 15px 0px;
     padding-left: 15px;
-    width: 90%;
+    width: 100%;
     font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 
-    .Side p:hover {
-        background: rgba(255, 255, 255, 0.08);
-        color: #a5b4fc;
-        cursor: default;
-    }
+.Side p:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #a5b4fc;
+    cursor: default;
+}
 
 .Side span {
     margin: 10px;
@@ -234,16 +294,12 @@ body {
     width: 98%;
     justify-content: center;
     margin: auto;
-    margin-top: 30px;
 }
 
 .Dashboardcard {
     justify-content: space-around;
 }
 
-/* .Card-shadow {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-} */
 
 .Firstline {
     flex-direction: row;
@@ -331,7 +387,7 @@ body {
 }
 
 .Inside-technology p {
-    margin: 10px;
+    margin: 6px;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -364,55 +420,73 @@ body {
 }
 
 .recent-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #222;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #222;
 }
 
 .recent-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 95%;
 }
 
 .question-card {
-  background: #f9fafb;
-  border-radius: 12px;
-  padding: 16px;    
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 16px;
 }
 
 .question-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
 }
 
 .tags {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
 }
 
 .tag {
-  font-size: 14px;
-  padding: 4px 12px;
-  border-radius: 8px;
-  font-weight: 500;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 500;
 }
 
 .tag.blue {
-  background: #dbeafe;
-  color: #1e40af;
+    background: #dbeafe;
+    color: #1e40af;
 }
 
 .tag.green {
-  background: #dcfce7;
-  color: #166534;
+    background: #dcfce7;
+    color: #166534;
 }
 
-/* Responsive Design */
+.whole-table {
+    box-shadow: var(--card-shadow);
+    border-radius: 20px;
+}
+
+.Table-head {
+    padding: 5px 0px;
+    background-color: var(--Gray);
+}
+
+.Table-head th {
+    font-weight: 300;
+    color: rgb(131, 131, 131);
+}
+
+.Table-body {
+    background-color: var(--white);
+}
+
 @media (max-width: 900px) {
     .maincomponent {
         flex-direction: column;

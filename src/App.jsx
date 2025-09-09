@@ -1,12 +1,19 @@
 import Themaincomponent from './components/DashboardRouter'
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Thesidebar from "../src/components/Thesidebar";
 
 function App() {
 
   return (
-    <div className="App">
-      <Themaincomponent />
-    </div>
+    <Router>
+      <div className="maincomponent flex">
+        <Thesidebar />
+        <div className="Thecontent flex-1">
+          <Themaincomponent />
+        </div>
+      </div>
+    </Router>
   )
 }
 

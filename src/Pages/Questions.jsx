@@ -1,11 +1,13 @@
 import React from "react";
-import MainQuestion from "../components/MainQuestion"
+import ManageQuestion from "../components/ManageQuestion"
 
-const ManageQuestion = () =>{
+const Question = () => {
     return (
         <div>
-            <MainQuestion />
+            <div className="dashboard Flex-column">
+            <ManageQuestion />
+            </div>
         </div>
     )
 }
-export default ManageQuestion
+export default Question

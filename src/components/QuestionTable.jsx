@@ -1,20 +1,20 @@
 import React from "react";
-import TechnologyRow from "./TechnologyRow";
+import QuestionRow from "./QuestionRow";
 
-const TechnologyTable = ({ data, onDelete, onEdit }) => {
+const QuestionTable = ({ data, onDelete, onEdit }) => {
   return (
     <table className="whole-table w-full border-collapse shadow-md rounded-lg overflow-hidden">
       <thead className="Table-head">
         <tr className="text-left p-10">
-          <th className="p-3 px-5">Technology</th>
+          <th className="p-3 px-5">Technologies</th>
           <th className="p-3">Status</th>
-          <th className="p-3">Created Date</th>
+          <th className="p-3">Options</th>
           <th className="p-3 px-10">Actions</th>
         </tr>
       </thead>
       <tbody className="Table-body">
         {data.map((tech) => (
-          <TechnologyRow
+          <QuestionRow
             key={tech.id}
             tech={tech}
             onDelete={onDelete}
@@ -26,4 +26,4 @@ const TechnologyTable = ({ data, onDelete, onEdit }) => {
   );
 };
 
-export default TechnologyTable;
+export default QuestionTable;

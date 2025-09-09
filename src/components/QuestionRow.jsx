@@ -5,14 +5,14 @@ import { FaTrash } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 
 
-const TechnologyRow = ({ tech, onDelete, onEdit }) => {
+const QuestionRow = ({ tech, onDelete, onEdit }) => {
   return (
     <tr className="Border-bottom hover:bg-gray-50">
-      <td className="p-3 px-5">{tech.name}</td>
+      <td className="p-3 px-5">{tech.question}</td>
       <td className="p-3">
         <StatusBadge status={tech.status} />
       </td>
-      <td className="p-3">{tech.date}</td>
+      <td className="p-3">{tech.options.length}</td>
       <td className="p-3 space-x-3">
         <button
           onClick={() => onEdit?.(tech)}
@@ -33,4 +33,4 @@ const TechnologyRow = ({ tech, onDelete, onEdit }) => {
   );
 };
 
-export default TechnologyRow;
+export default QuestionRow;
