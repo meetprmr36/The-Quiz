@@ -7,24 +7,22 @@ import { FaEdit } from "react-icons/fa";
 
 const QuestionRow = ({ tech, onDelete, onEdit }) => {
   return (
-    <tr className="Border-bottom hover:bg-gray-50">
+    <tr className="Border-bottom hover:bg-[var(--gray)]">
       <td className="p-3 px-5">{tech.question}</td>
       <td className="p-3">
         <StatusBadge status={tech.status} />
       </td>
       <td className="p-3">{tech.options.length}</td>
-      <td className="p-3 space-x-3">
+      <td className="p-3 space-x-3 overflow-visible">
         <button
           onClick={() => onEdit?.(tech)}
-          className="Button-style text-blue-600 hover:underline"
-        >
+          className="Button-style text-blue-600 hover:underline">
           <FaEdit />
           <span className="TooltipText">Edit</span>
         </button>
         <button
           onClick={() => onDelete?.(tech.id)}
-          className="Button-style Red-border text-red-600 hover:underline"
-        >
+          className="Button-style Red-border text-red-600 hover:underline">
           <FaTrash />
           <span className="TooltipText">Delete</span>
         </button>

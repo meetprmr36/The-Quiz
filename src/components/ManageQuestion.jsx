@@ -25,7 +25,7 @@ const ManageQuestion = () => {
 
   const [showForm, setShowForm] = useState(false);
 
-  // Form states
+
   const initialForm = {
     question: "",
     technology: "",
@@ -39,7 +39,6 @@ const ManageQuestion = () => {
   const [formData, setFormData] = useState(initialForm);
   const [modalMessage, setModalMessage] = useState("");
 
-  
   const handleOptionChange = (updatedOption) => {
     const selectedCount = formData.options.filter((o) => o.isCorrect).length;
     const current = formData.options.find((o) => o.id === updatedOption.id);
@@ -72,12 +71,12 @@ const ManageQuestion = () => {
     }));
   };
 
-  
+
   const handleReset = () => {
     setFormData(initialForm);
   };
 
-  
+
   const handleSave = () => {
     if (!formData.question.trim()) {
       setModalMessage("Question text cannot be empty");
@@ -105,140 +104,149 @@ const ManageQuestion = () => {
     alert("Editing: " + question.question);
   };
 
+  const handleBack = () => {
+    handleReset();
+    setShowForm(false);
+  };
+
   return (
-    <div className="Manage-Question p-6">
+    <div className="Manage-Question p-6 bg-[var(--white)] text-[var(--black)] min-h-screen">
       <div className="my-5 mx-0">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-4xl font-semibold">Manage Questions</h2>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-800"
+            className="bg-[var(--accent)] text-[var(--white)] px-4 py-2 rounded hover:opacity-90"
           >
             + Add Question
           </button>
         </div>
-        <p className="text-lg text-gray-500 mb-4">
+        <p className="text-lg text-[var(--lightGray)] mb-4">
           Create and manage questions for your quizzes
         </p>
       </div>
 
+
       <QuestionTable data={questions} onDelete={handleDelete} onEdit={handleEdit} />
 
-
       {showForm && (
-        <div className="max-w-xl mt-10 bg-white p-6 rounded-lg shadow">
-          <div className="mb-6">
-            <h1 className="text-2xl items-center flex font-semibold py-3">
-              <span className="px-3 text-lg">
-                <FaArrowLeft />
-              </span>
-              Add Question
-            </h1>
-            <p className="text-gray-600 text-sm">
-              Create a new quiz question with options
-            </p>
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-gray-700 font-medium mb-1">
-              Question Text <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              placeholder="Enter Your Question Here"
-              value={formData.question}
-              onChange={(e) =>
-                setFormData({ ...formData, question: e.target.value })
-              }
-              className="w-full max-h-32 min-h-20 border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
-
-          {/* Options */}
-          <h2 className="text-2xl font-semibold mb-4 flex justify-between items-center">
-            Options
-            <button
-              onClick={handleAddOption}
-              className="bg-indigo-600 text-white px-2 py-1 rounded hover:bg-indigo-800 text-sm"
-            >
-              + Add Option
-            </button>
-          </h2>
-          {formData.options.map((option) => (
-            <OptionBar
-              key={option.id}
-              option={option}
-              onChange={handleOptionChange}
-            />
-          ))}
-
-          {/* Status */}
-          <div className="mb-6 mt-4">
-            <label className="block text-gray-700 font-medium mb-2">Status</label>
-            <div className="flex items-center space-x-6">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="status"
-                  value="Active"
-                  checked={formData.status === "Active"}
-                  onChange={(e) =>
-                    setFormData({ ...formData, status: e.target.value })
-                  }
-                  className="text-blue-600 rounded-full focus:ring-blue-500"
-                />
-                <span>Active</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="status"
-                  value="Inactive"
-                  checked={formData.status === "Inactive"}
-                  onChange={(e) =>
-                    setFormData({ ...formData, status: e.target.value })
-                  }
-                  className="text-blue-600 focus:ring-blue-500"
-                />
-                <span>Inactive</span>
-              </label>
+        <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
+          <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
+            <div className="mb-6 flex flex-col">
+              <div className="flex flex-row text-left">
+                <button onClick={handleBack} className="px-3 cursor- text-[var(--white)] text-lg">
+                  <FaArrowLeft />
+                </button>
+                <h1 className="text-2xl items-center flex font-semibold text-[var(--white)] py-3">
+                  Add Question
+                </h1>
+              </div>
+              <p className="text-[var(--lightGray)] text-left text-sm">
+                Create a new quiz question with options
+              </p>
             </div>
-          </div>
 
-          {/* Actions */}
-          <div className="flex space-x-3">
-            <button
-              onClick={handleSave}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center"
-            >
-              <span className="px-2">
-                <IoIosSave />
-              </span>
-              Save Question
-            </button>
-            <button
-              onClick={handleReset}
-              className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300"
-            >
-              Reset
-            </button>
+            <div className="mb-4 text-left">
+              <label className="block text-[var(--lightGray)] font-medium mb-1">
+                Question Text <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                placeholder="Enter Your Question Here"
+                value={formData.question}
+                onChange={(e) =>
+                  setFormData({ ...formData, question: e.target.value })
+                }
+                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(black)]"
+              />
+            </div>
+
+
+            <h2 className="text-2xl font-semibold mb-4 flex justify-between text-[var(--white)] items-center">
+              Options
+              <button
+                onClick={handleAddOption}
+                className="bg-indigo-600 text-white px-2 py-1 rounded hover:bg-indigo-800 text-sm dark:bg-indigo-500 dark:hover:bg-indigo-700"
+              >
+                + Add Option
+              </button>
+            </h2>
+            <div className="Option-Bar">
+              {formData.options.map((option) => (
+                <OptionBar
+                  key={option.id}
+                  option={option}
+                  onChange={handleOptionChange}
+                />
+              ))}
+            </div>
+
+            <div className="mb-6 mt-4">
+              <label className="block text-gray-700 dark:text-gray-300 text-left font-medium mb-2">
+                Status
+              </label>
+              <div className="flex items-center space-x-6">
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="status"
+                    value="Active"
+                    checked={formData.status === "Active"}
+                    onChange={(e) =>
+                      setFormData({ ...formData, status: e.target.value })}
+                    className="text-blue-600 rounded-full focus:ring-blue-500" />
+
+                  <span className="text-[var(--white)]">Active</span>
+                </label>
+                <label className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="status"
+                    value="Inactive"
+                    checked={formData.status === "Inactive"}
+                    onChange={(e) =>
+                      setFormData({ ...formData, status: e.target.value })
+                    }
+                    className="text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-[var(--white)]">Inactive</span>
+                </label>
+              </div>
+            </div>
+
+
+            <div className="flex space-x-3">
+              <button
+                onClick={handleSave}
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center dark:bg-blue-500 dark:hover:bg-blue-700">
+                <span className="px-2">
+                  <IoIosSave />
+                </span>
+                Save Question
+              </button>
+              <button
+                onClick={handleReset}
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500">
+                Reset
+              </button>
+            </div>
           </div>
         </div>
       )}
 
       {modalMessage && (
-        <div className="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
+        <div className="fixed inset-0 bg-black bg-opacity-20 dark:bg-opacity-60 flex items-center justify-center z-999">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm">
             <h3 className="text-lg font-semibold mb-3">{modalMessage}</h3>
             <button
               onClick={() => setModalMessage("")}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-            >
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-700">
               Okay
             </button>
           </div>
         </div>
       )}
     </div>
+
   );
 };
 

@@ -22,16 +22,15 @@ const questions = [
 
 const SecondSetCards = () => {
     return (
-        <div className="secondline Flex-column">
-            <div className="secondCard Flex-column Card-shadow">
-                <div>
-                    <h2> Recent Technology</h2>
-                </div>
+        <div className="secondline Flex-column gap-4">
+            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+                <h2 className="font-semibold text-[var(--black)]  mb-2">Recent Technology</h2>
                 <div className="Inside-technology">
                     {techList.map((tech, idx) => (
-                        <p key={idx}>
+                        <p key={idx} 
+                        className="text-[var(--black)]">
                             {tech.name}{" "}
-                            <span className={tech.status === "Active" ? "status-active" :"status-inactive"}>
+                            <span className={tech.status === "Active" ? "status-active" : "status-inactive"}>
                                 {tech.status}
                             </span>
                         </p>
@@ -39,12 +38,12 @@ const SecondSetCards = () => {
                 </div>
             </div>
 
-            <div className="secondCard Flex-column Card-shadow">
-                <h2 className="recent-title">Recent Questions</h2>
+            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+                <h2 className="recent-title text-[var(--black)]">Recent Questions</h2>
                 <div className="recent-list">
                     {questions.map((q) => (
-                        <div key={q.id} className="question-card">
-                            <p className="question-title">{q.title}</p>
+                        <div key={q.id} className="question-card text-[var(--black)]">
+                            <p className="question-title text-[var(--black)]">{q.title}</p>
                             <div className="tags">
                                 <span className="tag blue">{q.tag}</span>
                                 <span className="tag green">{q.status}</span>
@@ -54,6 +53,7 @@ const SecondSetCards = () => {
                 </div>
             </div>
         </div>
+
     )
 }
 

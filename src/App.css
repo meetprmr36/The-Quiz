@@ -1,27 +1,34 @@
-/* * {
-    margin: 0;
-    padding: 0;
-} */
 @import "tailwindcss";
 
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: white;
-    color: var(--darkblue);
 }
 
 :root {
     --white: #ffffff;
     --black: #000000;
     --gray: #f4f4f4;
-    --lightGray: #d2d4d9;
+    --lightGray: #959595;
     --darkblue: rgb(39, 39, 68);
     --accent: #6366f1;
     --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
     --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
     --card-hover-shadow: 0 8px 32px rgba(39, 39, 68, 0.18);
 }
+
+.dark {
+    --white: #18181b;
+    --black: #f4f4f5;
+    --gray: #27272a;
+    --lightGray: #ababab;
+    --darkblue: #0f172a;
+    --accent: #818cf8;
+    --sidebar-gradient: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
 
 .maincomponent {
     margin-left: 15%;
@@ -50,6 +57,10 @@ body {
 .Button-style:focus,
 .Button-style:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+table {
+    overflow: visible;
 }
 
 .TooltipText {
@@ -140,6 +151,10 @@ body {
     align-items: center;
 }
 
+.Dark-light {
+    width: 100%;
+}
+
 .Side p:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #a5b4fc;
@@ -206,6 +221,7 @@ body {
     animation: fadeInBg 0.3s;
 }
 
+
 @keyframes fadeInBg {
     from {
         background: rgba(0, 0, 0, 0);
@@ -216,8 +232,45 @@ body {
     }
 }
 
+
+.Technology-form-model{
+    position: absolute;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    animation: fadeIn 0.3s;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+}
+
+
+.Technology-form {
+    padding: 30px 20px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    animation: popOut 0.35s cubic-bezier(.68, -0.55, .27, 1.55);
+    transform-origin: center;
+    width: 100%;
+}
+
+
 .logout-modal-content {
-    background: #fff;
     padding: 32px 24px;
     border-radius: 12px;
     box-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
@@ -360,8 +413,8 @@ body {
 }
 
 .card-blue {
-    background-color: rgba(101, 101, 255, 0.15);
-    color: #6366f1;
+    /* background-color: rgba(101, 101, 255, 0.15);
+    color: #6366f1; */
     font-size: 20px;
     font-weight: 600;
 }
@@ -423,7 +476,6 @@ body {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 16px;
-    color: #222;
 }
 
 .recent-list {
@@ -434,7 +486,7 @@ body {
 }
 
 .question-card {
-    background: #f9fafb;
+    background-color: var(--gray);
     border-radius: 12px;
     padding: 16px;
 }
@@ -442,7 +494,6 @@ body {
 .question-title {
     font-size: 16px;
     font-weight: 500;
-    color: #333;
     margin-bottom: 8px;
 }
 
@@ -485,6 +536,16 @@ body {
 
 .Table-body {
     background-color: var(--white);
+}
+
+.Option-Bar{
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.Question-table{
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 @media (max-width: 900px) {

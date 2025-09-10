@@ -18,7 +18,7 @@ const OptionBar = ({ option, onChange }) => {
     };
 
     return (
-        <div className="flex items-center gap-3 p-2 border-gray-500 rounded-lg shadow-sm mb-2">
+        <div className="flex items-center gap-3 p-2 rounded-xl shadow-lg mb-2 hover:border-indigo-400 transition">
             <input
                 type="checkbox"
                 checked={isCorrect}
@@ -30,7 +30,7 @@ const OptionBar = ({ option, onChange }) => {
                 value={text}
                 onChange={handleTextChange}
                 placeholder="Enter Option"
-                className="flex-1 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="flex-1 border-1 border-gray-50 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-[var(--white)]"
             />
         </div>
     );
