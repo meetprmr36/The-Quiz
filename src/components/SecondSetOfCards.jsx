@@ -1,34 +1,13 @@
 import React from "react";
-const techList = [
-    { name: "React.js", status: "Active" },
-    { name: "Node.js", status: "Active" },
-    { name: "Python", status: "Non Active" }
-];
 
-const questions = [
-    {
-        id: 1,
-        title: "What is JSX in React?",
-        tag: "React.js",
-        status: "Active",
-    },
-    {
-        id: 2,
-        title: "Explain Node.js event loop",
-        tag: "Node.js",
-        status: "Active",
-    },
-];
-
-const SecondSetCards = () => {
+function SecondSetCards({ techList, questions }) {
     return (
-        <div className="secondline Flex-column gap-4">
+        <div className="secondline Flex-column">
             <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
-                <h2 className="font-semibold text-[var(--black)]  mb-2">Recent Technology</h2>
+                <h2 className="font-semibold text-[var(--black)] mb-2">Recent Technology</h2>
                 <div className="Inside-technology">
-                    {techList.map((tech, idx) => (
-                        <p key={idx} 
-                        className="text-[var(--black)]">
+                    {techList.slice(-3).map((tech, idx) => (
+                        <p key={idx} className="text-[var(--black)]">
                             {tech.name}{" "}
                             <span className={tech.status === "Active" ? "status-active" : "status-inactive"}>
                                 {tech.status}
@@ -41,12 +20,14 @@ const SecondSetCards = () => {
             <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
                 <h2 className="recent-title text-[var(--black)]">Recent Questions</h2>
                 <div className="recent-list">
-                    {questions.map((q) => (
+                    {questions.slice(-2).map((q) => (
                         <div key={q.id} className="question-card text-[var(--black)]">
-                            <p className="question-title text-[var(--black)]">{q.title}</p>
+                            <p className="question-title text-[var(--black)]">{q.question}</p>
                             <div className="tags">
-                                <span className="tag blue">{q.tag}</span>
-                                <span className="tag green">{q.status}</span>
+                                <span className="tag blue">{q.technology}</span>
+                                <span className={`tag ${q.status === "Active" ? "green" : "red"}`}>
+                                    {q.status}
+                                </span>
                             </div>
                         </div>
                     ))}
@@ -54,7 +35,7 @@ const SecondSetCards = () => {
             </div>
         </div>
 
-    )
+    );
 }
 
 export default SecondSetCards

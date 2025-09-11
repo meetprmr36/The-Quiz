@@ -1,15 +1,15 @@
 import React from "react";
 import Contentpart from "../components/DasboardCompo";
 
-const Dashboard = () => {
+const Dashboard = ({ techCount,questionCount }) => {
   return (
-    <div className=" min-h-screen">
-      <div className="welcome">
+    <div className="min-h-screen p-6">
+      <div className="welcome mt-5">
         <h1 className="text-[var(--black)]">Dashboard</h1>
-        <p className="text-[var(--black)]">Welcome to quiz managment system</p>
+        <p className="text-[var(--lightGray)]">Welcome to quiz managment system</p>
       </div>
       <div className="dashboard Flex-column">
-        <Contentpart />
+       <Contentpart technologies={techCount} question={questionCount}/>
       </div>
     </div>
   );

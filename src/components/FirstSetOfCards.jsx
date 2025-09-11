@@ -1,11 +1,11 @@
 import React from "react";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { FaQuestion } from "react-icons/fa";
-import { HiTrendingUp } from "react-icons/hi";
+import { FaUser } from "react-icons/fa";
 
-const FirstCards = () => {
+const FirstCards = ({ techCount, QueCount }) => {
     return (
-        <div className="Firstline Flex-column gap-4">
+        <div className="Firstline Flex-column">
             <div className="Card Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
                 <div className="Flex-Row Three-cards">
                     <div className="Icon">
@@ -15,7 +15,7 @@ const FirstCards = () => {
                     </div>
                     <div className="Content-names">
                         <h2 className="font-semibold text-[var(--black)]">Technologies</h2>
-                        <p className="text-[var(--lightGray)]">5</p>
+                        <p className="text-[var(--lightGray)]">{techCount}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ const FirstCards = () => {
                     </div>
                     <div className="Content-names">
                         <h2 className="font-semibold text-[var(--black)]">Questions</h2>
-                        <p className="text-[var(--lightGray)]">12</p>
+                        <p className="text-[var(--lightGray)]">{QueCount}</p>
                     </div>
                 </div>
             </div>
@@ -37,12 +37,12 @@ const FirstCards = () => {
             <div className="Card Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
                 <div className="Flex-Row Three-cards">
                     <div className="Icon">
-                        <div className="card-purple">
-                            <HiTrendingUp />
+                        <div className="card-pink">
+                            <FaUser />
                         </div>
                     </div>
                     <div className="Content-names">
-                        <h2 className="font-semibold text-[var(--black)]">Trends</h2>
+                        <h2 className="font-semibold text-[var(--black)]">Users</h2>
                         <p className="text-[var(--lightGray)]">8</p>
                     </div>
                 </div>

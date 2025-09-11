@@ -3,7 +3,7 @@ import QuestionRow from "./QuestionRow";
 
 const QuestionTable = ({ data, onDelete, onEdit }) => {
   return (
-    <div className="max-h-[75vh] overflow-y-scroll mb-5 shadow-md rounded-lg">
+    <div className="max-h-[70vh] overflow-y-scroll mb-5 shadow-md rounded-lg">
       <table className="w-full border-collapse table-fixed">
         <thead className="Table-head">
           <tr className="text-left">

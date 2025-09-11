@@ -6,23 +6,7 @@ import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
 
-const ManageQuestion = () => {
-  const [questions, setQuestions] = useState([
-    {
-      id: 1,
-      question: "What is React?",
-      technology: "React.js",
-      options: ["A JS library", "A framework", "A DB"],
-      status: "Active",
-    },
-    {
-      id: 2,
-      question: "Explain Node.js event loop",
-      technology: "Node.js",
-      options: ["Async process", "Database engine"],
-      status: "Active",
-    },
-  ]);
+const ManageQuestion = ({questions,setQuestions}) => {
 
   const [showForm, setShowForm] = useState(false);
 
@@ -161,6 +145,19 @@ const ManageQuestion = () => {
                   setFormData({ ...formData, question: e.target.value })
                 }
                 className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--lightGray)] text-[var(--black)]" />
+            </div>
+
+            <div className="mb-4 text-left">
+              <label className="block text-[var(--gray)] font-medium mb-1">
+                Technology <span className="text-red-500">*</span>
+              </label>
+              <input
+                placeholder="Enter Technology"
+                value={formData.technology}
+                onChange={(e) =>
+                  setFormData({ ...formData, technology: e.target.value })
+                }
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--lightGray)] text-[var(--black)]" />
             </div>
 
 
