@@ -41,7 +41,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             <div className="Side Flex-column">
                 <div className="Dark-light mt-4 w-ful cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
-                        <p><FaSun className="inline m-2" /> Light Mode</p>
+                        <p className="flex"><FaSun className="inline m-2" /> Light Mode</p>
                     ) : (
                         <p><FaMoon className="inline m-2" /> Dark Mode</p>
                     )}

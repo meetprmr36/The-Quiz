@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import QuestionTable from "./QuestionTable";
-import AddQuestion from "./AddQuestion";
+// import AddQuestion from "./AddQuestion";
+import ModalMessage from "./ModalMessage"
 import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
@@ -37,6 +38,7 @@ const ManageQuestion = () => {
   };
 
   const [formData, setFormData] = useState(initialForm);
+
   const [modalMessage, setModalMessage] = useState("");
 
   const handleOptionChange = (updatedOption) => {
@@ -83,12 +85,14 @@ const ManageQuestion = () => {
       return;
     }
 
+    const { question, technology = "General", options, status } = formData;
+
     const newQuestion = {
       id: questions.length + 1,
-      question: formData.question,
-      technology: formData.technology || "General",
-      options: formData.options.map((o) => o.text),
-      status: formData.status,
+      question,
+      technology,
+      options: options.map(({ text }) => text),
+      status,
     };
 
     setQuestions([...questions, newQuestion]);
@@ -131,23 +135,23 @@ const ManageQuestion = () => {
 
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
-          <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
+          <div className="Technology-form max-w-xl bg-[var(--black)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
             <div className="mb-6 flex flex-col">
               <div className="flex flex-row text-left">
-                <button onClick={handleBack} className="px-3 cursor- text-[var(--white)] text-lg">
+                <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--white)] text-lg">
                   <FaArrowLeft />
                 </button>
                 <h1 className="text-2xl items-center flex font-semibold text-[var(--white)] py-3">
                   Add Question
                 </h1>
               </div>
-              <p className="text-[var(--lightGray)] text-left text-sm">
+              <p className="text-[var(--gray)] text-left text-sm">
                 Create a new quiz question with options
               </p>
             </div>
 
             <div className="mb-4 text-left">
-              <label className="block text-[var(--lightGray)] font-medium mb-1">
+              <label className="block text-[var(--gray)] font-medium mb-1">
                 Question Text <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -156,8 +160,7 @@ const ManageQuestion = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, question: e.target.value })
                 }
-                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(black)]"
-              />
+                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--lightGray)] text-[var(--black)]" />
             </div>
 
 
@@ -181,7 +184,7 @@ const ManageQuestion = () => {
             </div>
 
             <div className="mb-6 mt-4">
-              <label className="block text-gray-700 dark:text-gray-300 text-left font-medium mb-2">
+              <label className="block text-[var(--gray)] text-left font-medium mb-2">
                 Status
               </label>
               <div className="flex items-center space-x-6">
@@ -233,7 +236,9 @@ const ManageQuestion = () => {
         </div>
       )}
 
-      {modalMessage && (
+      <ModalMessage message={modalMessage} onClose={() => setModalMessage("")} />
+
+      {/* {modalMessage && (
         <div className="fixed inset-0 bg-black bg-opacity-20 dark:bg-opacity-60 flex items-center justify-center z-999">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm">
             <h3 className="text-lg font-semibold mb-3">{modalMessage}</h3>
@@ -244,7 +249,7 @@ const ManageQuestion = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
 
   );

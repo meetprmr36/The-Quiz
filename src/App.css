@@ -4,7 +4,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 :root {
     --white: #ffffff;
     --black: #000000;
@@ -59,9 +58,6 @@ body {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-table {
-    overflow: visible;
-}
 
 .TooltipText {
     visibility: hidden;
@@ -73,7 +69,7 @@ table {
     padding: 5px 0;
     position: absolute;
     z-index: 50;
-    top: 110%;
+    bottom: 110%;
     left: 90%;
     margin-left: -60px;
 }
@@ -262,7 +258,6 @@ table {
 .Technology-form {
     padding: 30px 20px;
     border-radius: 12px;
-    background: rgba(0, 0, 0, 0.9);
     text-align: center;
     animation: popOut 0.35s cubic-bezier(.68, -0.55, .27, 1.55);
     transform-origin: center;
@@ -343,11 +338,6 @@ table {
     opacity: 0.8;
 }
 
-.dashboard {
-    width: 98%;
-    justify-content: center;
-    margin: auto;
-}
 
 .Dashboardcard {
     justify-content: space-around;
