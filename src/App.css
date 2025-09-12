@@ -13,6 +13,7 @@ body {
     --darkblue: rgb(39, 39, 68);
     --accent: #6366f1;
     --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    --Hovergray: #f7f7f7;
     --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
     --card-hover-shadow: 0 8px 32px rgba(39, 39, 68, 0.18);
 }
@@ -25,6 +26,7 @@ body {
     --darkblue: #0f172a;
     --accent: #818cf8;
     --sidebar-gradient: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    --Hovergray: #202020;
     --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
     --card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
@@ -59,9 +61,6 @@ body {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-table {
-    overflow: visible;
-}
 
 .TooltipText {
     visibility: hidden;
@@ -73,7 +72,7 @@ table {
     padding: 5px 0;
     position: absolute;
     z-index: 50;
-    top: 110%;
+    bottom: 110%;
     left: 90%;
     margin-left: -60px;
 }
@@ -176,7 +175,7 @@ table {
 }
 
 .toggles {
-    margin: 15px;
+    margin: 10px;
     align-items: start;
     cursor: default;
 }
@@ -195,6 +194,7 @@ table {
     display: flex;
     align-items: center;
     color: white;
+    padding: 8px 5px;
     text-decoration: none;
     width: 100%;
     font-size: 14px;
@@ -233,7 +233,7 @@ table {
 }
 
 
-.Technology-form-model{
+.Technology-form-model {
     position: absolute;
     display: flex;
     justify-self: center;
@@ -262,7 +262,6 @@ table {
 .Technology-form {
     padding: 30px 20px;
     border-radius: 12px;
-    background: rgba(0, 0, 0, 0.9);
     text-align: center;
     animation: popOut 0.35s cubic-bezier(.68, -0.55, .27, 1.55);
     transform-origin: center;
@@ -328,9 +327,10 @@ table {
     background-color: var(--gray);
 }
 
+/* 
 .welcome {
-    margin: 25px;
-}
+    margin-bottom: 10px;
+} */
 
 .welcome h1 {
     font-size: 32px;
@@ -343,11 +343,6 @@ table {
     opacity: 0.8;
 }
 
-.dashboard {
-    width: 98%;
-    justify-content: center;
-    margin: auto;
-}
 
 .Dashboardcard {
     justify-content: space-around;
@@ -356,14 +351,14 @@ table {
 
 .Firstline {
     flex-direction: row;
-    justify-content: space-around;
-    margin: 5px 0px;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .secondline {
     flex-direction: row;
-    justify-content: space-around;
-    margin: 5px 0px;
+    justify-content: space-between;
+    margin: 10px 0px;
 }
 
 .Card,
@@ -371,7 +366,7 @@ table {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -380,7 +375,7 @@ table {
 }
 
 .Card {
-    width: 29%;
+    width: 32%;
     min-height: 90px;
     margin: 10px 0;
 }
@@ -391,7 +386,7 @@ table {
 }
 
 .secondCard {
-    width: 45%;
+    width: 49%;
     min-height: 90px;
     margin: 10px 0;
 }
@@ -413,34 +408,39 @@ table {
 }
 
 .card-blue {
-    /* background-color: rgba(101, 101, 255, 0.15);
-    color: #6366f1; */
+    background-color: rgba(59, 130, 246, 0.15); 
+    color: #3b82f6;
     font-size: 20px;
     font-weight: 600;
 }
 
 .card-green {
-    background-color: rgba(18, 255, 18, 0.15);
+    background-color: rgba(34, 197, 94, 0.15);
     color: #22c55e;
     font-size: 20px;
     font-weight: 600;
 }
 
-.card-purple {
-    background-color: rgba(255, 66, 255, 0.15);
-    color: #a21caf;
+.card-pink {
+    background-color: rgba(236, 72, 153, 0.15);
+    color: #ec4899; 
     font-size: 20px;
     font-weight: 600;
 }
 
+
+
+
+
 .Inside-technology {
     display: flex;
     width: 95%;
+    max-height: 200px;
     flex-direction: column;
 }
 
 .Inside-technology p {
-    margin: 6px;
+    margin: 6px 0px;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -451,25 +451,26 @@ table {
 }
 
 .Inside-technology span {
-    height: 50%;
+    height: 60%;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     float: right;
     padding: 0px 10px;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .status-active {
-    background-color: rgba(0, 207, 0, 0.2);
-    color: #20af55;
-    font-weight: 400;
+    background: #dcfce7;
+    color: #166534;
+    font-weight: 300;
 }
 
 .status-inactive {
-    background-color: rgba(255, 0, 0, 0.2);
-    color: #d23a3a;
-    font-weight: 400;
+    background: #ffdada;
+    color: #901919;
+    font-weight: 300;
 }
 
 .recent-title {
@@ -495,6 +496,7 @@ table {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 8px;
+    word-wrap: break-word;
 }
 
 .tags {
@@ -506,17 +508,24 @@ table {
     font-size: 14px;
     padding: 4px 12px;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .tag.blue {
     background: #dbeafe;
     color: #1e40af;
+    font-weight: 300;
 }
 
 .tag.green {
     background: #dcfce7;
     color: #166534;
+    font-weight: 300;
+}
+
+.tag.red {
+    background: #ffdada;
+    color: #901919;
 }
 
 .whole-table {
@@ -538,12 +547,12 @@ table {
     background-color: var(--white);
 }
 
-.Option-Bar{
+.Option-Bar {
     max-height: 200px;
     overflow-y: scroll;
 }
 
-.Question-table{
+.Question-table {
     max-height: 80vh;
     overflow-y: scroll;
 }
