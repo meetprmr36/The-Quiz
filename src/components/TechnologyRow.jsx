@@ -13,17 +13,17 @@ const TechnologyRow = ({ tech, onDelete, onEdit }) => {
         <StatusBadge status={tech.status} />
       </td>
       <td className="p-3">{tech.date}</td>
-      <td className="p-3 space-x-3">
+      <td className="p-3">
         <button
           onClick={() => onEdit?.(tech)}
-          className="Button-style text-blue-600 hover:underline dark:text-blue-400"
+          className="Button-style text-[var(--bitlightblue)] hover:underline"
         >
           <FaEdit />
           <span className="TooltipText">Edit</span>
         </button>
         <button
           onClick={() => onDelete?.(tech.id)}
-          className="Button-style Red-border text-red-600 hover:underline dark:text-red-400"
+          className="Button-style text-[var(--red)] hover:underline"
         >
           <FaTrash />
           <span className="TooltipText">Delete</span>

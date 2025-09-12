@@ -30,7 +30,7 @@ const OptionBar = ({ option, onChange }) => {
                 value={text}
                 onChange={handleTextChange}
                 placeholder="Enter Option"
-                className="flex-1 border-1 border-gray-50 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-[var(--white)]"
+                className="flex-1 border-1 border-gray-50 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-[var(--black)]"
             />
         </div>
     );

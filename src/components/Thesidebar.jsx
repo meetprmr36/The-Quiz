@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaEarthAmericas, FaQuestion, FaUser, FaMoon, FaSun } from "react-icons/fa6";
+import { FaEarthAmericas, FaQuestion, FaRegUser, FaMoon, FaSun } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { IoMdSpeedometer } from "react-icons/io";
 
@@ -34,6 +34,11 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         <span><FaQuestion /></span>Manage Question
                     </NavLink>
                 </div>
+                <div className="toggles Flex-column">
+                    <NavLink to="/User" className={({ isActive }) => isActive ? "active-link" : undefined}>
+                        <span><FaRegUser /></span>User
+                    </NavLink>
+                </div>
             </nav>
 
 
@@ -41,12 +46,13 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             <div className="Side Flex-column">
                 <div className="Dark-light mt-4 w-ful cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
-                        <p className="flex"><FaSun className="inline m-2" /> Light Mode</p>
+                        <p className="flex">
+                            <FaSun className="inline m-2" /> Light Mode</p>
                     ) : (
                         <p><FaMoon className="inline m-2" /> Dark Mode</p>
                     )}
                 </div>
-                <p><span><FaUser /></span>Admin User</p>
+                <p><span><FaRegUser /></span>Admin User</p>
                 <p style={{ cursor: "pointer" }} onClick={() => setShowLogout(true)}>
                     <span><IoIosLogOut /></span>Logout
                 </p>
