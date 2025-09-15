@@ -4,7 +4,12 @@ import AddButton from "./AddButton";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoIosSave } from "react-icons/io";
 
-const ManageTechnology = ({ technologies, setTechnologies }) => {
+const ManageTechnology = () => {
+  const [technologies, setTechnologies] = useState([
+    { id: 1, name: "React.js", status: "Active", date: "2024-01-15" },
+    { id: 2, name: "Node.js", status: "Active", date: "2024-01-16" },
+    { id: 3, name: "Python", status: "InActive", date: "2024-01-17" },
+  ]);
 
   const [showForm, setShowForm] = useState(false);
   const [techName, setTechName] = useState("");
@@ -55,13 +60,13 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
         <p className="text-lg text-[var(--lightGray)] mb-4">
           Create and manage technology categories for your quizzes
         </p>
-         <TechnologyTable data={technologies} onDelete={handleDelete} />
+        <TechnologyTable data={technologies} onDelete={handleDelete} />
       </div>
 
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex items-center justify-center bg-black/50 z-50 animate-fadeIn">
 
-          <div className="Technology-form max-w-xl my-5 bg-[var(--black)] text-[var(--white)] p-6 rounded-lg shadow">
+          <div className="Technology-form max-w-xl my-5 bg-[var(--white)] text-[var(--black)] p-6 rounded-lg shadow">
 
             <div className="mb-3 flex items-center">
               <button onClick={handleBack} className="px-3 text-[var(--white)] cursor-pointer text-lg">
@@ -82,12 +87,12 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
                 value={techName}
                 onChange={(e) => setTechName(e.target.value)}
                 placeholder="e.g., React.js, Node.js, Python"
-                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--lightGray)] text-[var(--black)]"
+                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--white)] text-[var(--black)]"
               />
             </div>
 
             <div className="mb-8">
-              <label className="block text-[var(--gray)] font-medium mb-2 text-left">Status</label>
+              <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2 text-left">Status</label>
               <div className="flex items-center space-x-6">
                 <label className="flex items-center space-x-2">
                   <input
@@ -98,7 +103,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
                     onChange={() => setStatus("Active")}
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-[var(--gray)]">Active</span>
+                  <span className="text-gray-800 dark:text-gray-200">Active</span>
                 </label>
                 <label className="flex items-center space-x-2">
                   <input
@@ -109,7 +114,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
                     onChange={() => setStatus("InActive")}
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-[var(--gray)]">Inactive</span>
+                  <span className="text-gray-800 dark:text-gray-200">Inactive</span>
                 </label>
               </div>
             </div>
