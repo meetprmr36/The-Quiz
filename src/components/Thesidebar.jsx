@@ -41,7 +41,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             <div className="Side Flex-column">
                 <div className="Dark-light mt-4 w-ful cursor-pointer" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
-                        <p><FaSun className="inline m-2" /> Light Mode</p>
+                        <p className="flex"><FaSun className="inline m-2" /> Light Mode</p>
                     ) : (
                         <p><FaMoon className="inline m-2" /> Dark Mode</p>
                     )}
@@ -53,7 +53,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             </div>
             {showLogout && (
                 <div className="logout-modal">
-                    <div className="logout-modal-content bg-[var(--gray)]">
+                    <div className="logout-modal-content bg-[var(--white)]">
                         <h3 className="text-[var(--black)]">Are you sure you want to logout?</h3>
                         <button onClick={handleLogout} className="logout-btn">Logout</button>
                         <button onClick={() => setShowLogout(false)} className="cancel-btn">Cancel</button>
