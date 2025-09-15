@@ -28,7 +28,7 @@ const Themaincomponent = () => {
     { id: 17, name: "Swift", status: "Active", date: "2024-02-01" },
     { id: 18, name: "Flutter", status: "Active", date: "2024-02-02" },
     { id: 19, name: "Ruby on Rails", status: "InActive", date: "2024-02-03" },
-    { id: 20, name: "TypeScript", status: "Active", date: "2024-02-04" },
+    { id: 20, name: "TypeScript", status: "Active", date: "2024-02-04" }
   ]);
 
   const [questions, setQuestions] = useState([
@@ -61,19 +61,19 @@ const Themaincomponent = () => {
 
 
   const [users, setUsers] = useState([
-  { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16" },
-  { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17" },
-  { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18" },
-  { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19" },
-  { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20" },
-  { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21" },
-  { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22" },
-  { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23" },
-  { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24" },
-]);
+    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16" },
+    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17" },
+    { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18" },
+    { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19" },
+    { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20" },
+    { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21" },
+    { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22" },
+    { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23" },
+    { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24" },
+  ]);
 
-return (
+  return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route
@@ -87,6 +87,8 @@ return (
               <Dashboard
                 techCount={technologies}
                 questionCount={questions}
+                tech={technologies}
+                ques={questions}
                 userCount={users}
               />
             </motion.div>
@@ -133,9 +135,9 @@ return (
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
             >
-              <ManageUser 
-              Users={users}
-              setUsers={setUsers}
+              <ManageUser
+                Users={users}
+                setUsers={setUsers}
               />
             </motion.div>
           }

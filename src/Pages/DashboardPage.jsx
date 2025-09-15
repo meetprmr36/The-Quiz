@@ -1,7 +1,7 @@
 import React from "react";
 import Contentpart from "../components/DasboardCompo";
 
-const Dashboard = ({ techCount,questionCount, userCount }) => {
+const Dashboard = ({ techCount,questionCount, userCount, tech }) => {
   return (
     <div className="min-h-screen p-6">
       <div className="welcome mt-5">
@@ -11,6 +11,7 @@ const Dashboard = ({ techCount,questionCount, userCount }) => {
       <div className="dashboard Flex-column">
        <Contentpart 
        technologies={techCount} 
+       technologie={tech} 
        question={questionCount} 
        users={userCount}
        />

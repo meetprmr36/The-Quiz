@@ -4,9 +4,9 @@ import QuestionTable from "./QuestionTable";
 import ModalMessage from "./ModalMessage"
 import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
-import { FaArrowLeft } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 
-const ManageQuestion = ({questions,setQuestions}) => {
+const ManageQuestion = ({ questions, setQuestions }) => {
 
   const [showForm, setShowForm] = useState(false);
 
@@ -120,13 +120,14 @@ const ManageQuestion = ({questions,setQuestions}) => {
         <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
           <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
             <div className="mb-6 flex flex-col">
-              <div className="flex flex-row text-left">
-                <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--black)] text-lg">
-                  <FaArrowLeft />
-                </button>
+
+              <div className="flex flex-row justify-between text-left">
                 <h1 className="text-2xl items-center flex font-semibold text-[var(--black)] py-3">
                   Add Question
                 </h1>
+                <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--black)] text-2xl">
+                  <IoMdClose />
+                </button>
               </div>
               <p className="text-[var(--lightGray)] text-left text-sm">
                 Create a new quiz question with options

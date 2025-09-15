@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TechnologyTable from "./TechnologyTable";
 import AddButton from "./AddButton";
-import { FaArrowLeft } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 import { IoIosSave } from "react-icons/io";
 
 const ManageTechnology = ({ technologies, setTechnologies }) => {
@@ -63,11 +63,11 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
 
           <div className="Technology-form max-w-xl my-5 bg-[var(--white)] text-[var(--black)] p-6 rounded-lg shadow">
 
-            <div className="mb-3 flex items-center">
-              <button onClick={handleBack} className="px-3 text-[var(--lightGray)] cursor-pointer text-lg">
-                <FaArrowLeft />
-              </button>
+            <div className="mb-3 flex justify-between items-center">
               <h1 className="text-2xl font- text-[var(--black)]">Add Technology</h1>
+              <button onClick={handleBack} className="px-3 text-[var(--black)] cursor-pointer text-2xl">
+                <IoMdClose />
+              </button>
             </div>
             <p className="text-[var(--lightGray)] text-left text-sm mb-6">
               Create a new technology category for quiz questions

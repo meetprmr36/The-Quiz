@@ -412,7 +412,7 @@ body {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 25px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -421,14 +421,16 @@ body {
 }
 
 .Card {
-    width: 32%;
-    min-height: 90px;
+    width: 23%;
+    min-height: 120px;
     margin: 10px 0;
 }
 
 .Three-cards {
     width: 100%;
-    gap: 5%;
+    height: 100%;
+    align-items: center;
+    /* gap: 5%; */
 }
 
 .secondCard {

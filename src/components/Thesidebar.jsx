@@ -16,7 +16,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
         <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)]">
             <nav>
                 <div className="Logo-Name Flex-column">
-                    <img src="http://mindinventory.com/images/logo/logo.svg" />
+                    {/* <img src="http://mindinventory.com/images/logo/logo.svg" /> */}
                 </div>
                 <h1>Quiz Admin</h1>
                 <div className="toggles Flex-column">
