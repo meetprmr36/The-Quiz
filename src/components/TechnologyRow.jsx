@@ -16,14 +16,14 @@ const TechnologyRow = ({ tech, onDelete, onEdit }) => {
       <td className="p-3">
         <button
           onClick={() => onEdit?.(tech)}
-          className="Button-style text-[var(--bitlightblue)] hover:underline"
+          className="Button-style text-blue-600 hover:underline"
         >
           <FaEdit />
           <span className="TooltipText">Edit</span>
         </button>
         <button
           onClick={() => onDelete?.(tech.id)}
-          className="Button-style text-[var(--red)] hover:underline"
+          className="Button-style text-red-600 hover:underline"
         >
           <FaTrash />
           <span className="TooltipText">Delete</span>

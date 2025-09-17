@@ -104,7 +104,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
           <h2 className="text-4xl font-semibold">Manage Questions</h2>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="Button-Technology bg-[var(--bitlightblue)] text-[var(--black)] px-4 py-2 rounded">
+            className="Button-Technology bg-[var(--bitlightblue)] text-white px-4 py-2 rounded">
             + Add Question
           </button>
         </div>

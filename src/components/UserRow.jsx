@@ -9,7 +9,7 @@ const UserRow = ({ user, onDelete }) => {
             <td className="p-3 px-5 break-words">{user.name}</td>
             <td className="p-3">{user.email}</td>
             <td className="p-3">
-                {user.date}
+                {`${user.score}/15`}
             </td>
             <td className="p-3">
                 <button

@@ -61,17 +61,18 @@ const Themaincomponent = () => {
 
 
   const [users, setUsers] = useState([
-    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15" },
-    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16" },
-    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17" },
-    { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18" },
-    { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19" },
-    { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20" },
-    { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21" },
-    { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22" },
-    { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23" },
-    { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24" },
+    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15", examStatus: "Pass", score: 10 },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16", examStatus: "Fail", score: 8 },
+    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17", examStatus: "Not Attempted", score: null },
+    { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18", examStatus: "Pass", score: 13 },
+    { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19", examStatus: "Pass", score: 9 },
+    { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20", examStatus: "Fail", score: 13 },
+    { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21", examStatus: "Pass", score: 15 },
+    { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22", examStatus: "Pass", score: 10 },
+    { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23", examStatus: "Not Attempted", score: null },
+    { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24", examStatus: "Fail", score: 2 },
   ]);
+
 
   return (
     <AnimatePresence mode="wait">
@@ -89,7 +90,7 @@ const Themaincomponent = () => {
                 questionCount={questions}
                 tech={technologies}
                 ques={questions}
-                userCount={users}
+                users={users}
               />
             </motion.div>
           }

@@ -1,9 +1,9 @@
 import React from "react";
 
-function SecondSetCards({ techList, questions }) {
+function SecondSetCards({ techList, questions, User }) {
     return (
         <div className="secondline Flex-column">
-            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+            {/* <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
                 <h2 className="recent-title font-semibold text-[var(--black)]">Recent Technology</h2>
                 <div className="Inside-technology">
                     {techList.slice(-3).map((tech, idx) => (
@@ -12,6 +12,17 @@ function SecondSetCards({ techList, questions }) {
                             <span className={tech.status === "Active" ? "status-active" : "status-inactive"}>
                                 {tech.status}
                             </span>
+                        </p>
+                    ))}
+                </div>
+            </div> */}
+            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+                <h2 className="recent-title font-semibold text-[var(--black)]">Recent Technology</h2>
+                <div className="Inside-technology">
+                    {User.slice(-3).map((tech, idx) => (
+                        <p key={idx} className="text-[var(--black)]">
+                            {tech.name}{" "}
+                            <span className="tag blue">{`${tech.score}/15`}</span>
                         </p>
                     ))}
                 </div>

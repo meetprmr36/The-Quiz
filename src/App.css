@@ -27,8 +27,8 @@ body {
     --activeText: #166534;
     --inactiveBG: #ffdada;
     --inactiveText: #901919;
-    --bluetagbg: #ebf4ff;
-    --bluetagtext: #1e40af;
+    --bluetagbg: #daeafd;
+    --bluetagtext: #1c3999;
 }
 
 .dark {
@@ -44,7 +44,6 @@ body {
     --card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     --darkblue: #1e293b;
     --bitlightblue: #003187;
-    /* --bitlightblue: #3b82f6; */
     --indigo: #6366f1;
     --red: #f87171;
     --activeBG: #064e11;
@@ -77,10 +76,8 @@ body {
 }
 
 .Button-Technology:hover {
-    background-color: var(--bitlightblue);
-    color: var(--white);
-    /* color: var(--bluetagtext);
-    background: var(--bluetagbg); */
+    background-color: var(--bluetagtext);
+    /* color: var(--white); */
 }
 
 .Button-style {
@@ -354,7 +351,12 @@ body {
     border-radius: 8px;
     margin: 8px;
     cursor: pointer;
+    transition: all 0.2s, color 0.2s;
     font-weight: 600;
+}
+
+.logout-btn:hover{
+    background-color: var(--bluetagtext);
 }
 
 .cancel-btn {
@@ -421,7 +423,7 @@ body {
 }
 
 .Card {
-    width: 23%;
+    width: 100%;
     min-height: 120px;
     margin: 10px 0;
 }
@@ -430,7 +432,6 @@ body {
     width: 100%;
     height: 100%;
     align-items: center;
-    /* gap: 5%; */
 }
 
 .secondCard {
@@ -585,7 +586,6 @@ body {
 
 .Table-head th {
     font-weight: 300;
-    /* color: rgb(131, 131, 131); */
     color: var(--lightGray);
 }
 
