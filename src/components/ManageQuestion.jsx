@@ -4,9 +4,9 @@ import QuestionTable from "./QuestionTable";
 import ModalMessage from "./ModalMessage"
 import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
-import { FaArrowLeft } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 
-const ManageQuestion = ({questions,setQuestions}) => {
+const ManageQuestion = ({ questions, setQuestions }) => {
 
   const [showForm, setShowForm] = useState(false);
 
@@ -104,8 +104,7 @@ const ManageQuestion = ({questions,setQuestions}) => {
           <h2 className="text-4xl font-semibold">Manage Questions</h2>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-[var(--accent)] text-[var(--white)] px-4 py-2 rounded hover:opacity-90"
-          >
+            className="Button-Technology bg-[var(--bitlightblue)] text-white px-4 py-2 rounded">
             + Add Question
           </button>
         </div>
@@ -119,23 +118,24 @@ const ManageQuestion = ({questions,setQuestions}) => {
 
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
-          <div className="Technology-form max-w-xl bg-[var(--black)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
+          <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
             <div className="mb-6 flex flex-col">
-              <div className="flex flex-row text-left">
-                <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--white)] text-lg">
-                  <FaArrowLeft />
-                </button>
-                <h1 className="text-2xl items-center flex font-semibold text-[var(--white)] py-3">
+
+              <div className="flex flex-row justify-between text-left">
+                <h1 className="text-2xl items-center flex font-semibold text-[var(--black)] py-3">
                   Add Question
                 </h1>
+                <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--black)] text-2xl">
+                  <IoMdClose />
+                </button>
               </div>
-              <p className="text-[var(--gray)] text-left text-sm">
+              <p className="text-[var(--lightGray)] text-left text-sm">
                 Create a new quiz question with options
               </p>
             </div>
 
             <div className="mb-4 text-left">
-              <label className="block text-[var(--gray)] font-medium mb-1">
+              <label className="block text-[var(--black)] font-medium mb-1">
                 Question Text <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -144,11 +144,11 @@ const ManageQuestion = ({questions,setQuestions}) => {
                 onChange={(e) =>
                   setFormData({ ...formData, question: e.target.value })
                 }
-                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--lightGray)] text-[var(--black)]" />
+                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
             </div>
 
             <div className="mb-4 text-left">
-              <label className="block text-[var(--gray)] font-medium mb-1">
+              <label className="block text-[var(--black)] font-medium mb-1">
                 Technology <span className="text-red-500">*</span>
               </label>
               <input
@@ -157,15 +157,15 @@ const ManageQuestion = ({questions,setQuestions}) => {
                 onChange={(e) =>
                   setFormData({ ...formData, technology: e.target.value })
                 }
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--lightGray)] text-[var(--black)]" />
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
             </div>
 
 
-            <h2 className="text-2xl font-semibold mb-4 flex justify-between text-[var(--white)] items-center">
+            <h2 className="text-lg font-semibold mb-4 flex justify-between text-[var(--black)] items-center">
               Options
               <button
                 onClick={handleAddOption}
-                className="bg-indigo-600 text-white px-2 py-1 rounded hover:bg-indigo-800 text-sm dark:bg-indigo-500 dark:hover:bg-indigo-700"
+                className="bg-[var(--bitlightblue)] text-[var(--white)] px-2 py-1 rounded text-sm"
               >
                 + Add Option
               </button>
@@ -181,7 +181,7 @@ const ManageQuestion = ({questions,setQuestions}) => {
             </div>
 
             <div className="mb-6 mt-4">
-              <label className="block text-[var(--gray)] text-left font-medium mb-2">
+              <label className="block text-[var(--black)] text-left font-medium mb-2">
                 Status
               </label>
               <div className="flex items-center space-x-6">
@@ -195,7 +195,7 @@ const ManageQuestion = ({questions,setQuestions}) => {
                       setFormData({ ...formData, status: e.target.value })}
                     className="text-blue-600 rounded-full focus:ring-blue-500" />
 
-                  <span className="text-[var(--white)]">Active</span>
+                  <span className="text-[var(--lightGray)]">Active</span>
                 </label>
                 <label className="flex items-center space-x-2">
                   <input
@@ -208,7 +208,7 @@ const ManageQuestion = ({questions,setQuestions}) => {
                     }
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-[var(--white)]">Inactive</span>
+                  <span className="text-[var(--lightGray)]">Inactive</span>
                 </label>
               </div>
             </div>
