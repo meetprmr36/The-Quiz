@@ -355,7 +355,7 @@ body {
     font-weight: 600;
 }
 
-.logout-btn:hover{
+.logout-btn:hover {
     background-color: var(--bluetagtext);
 }
 
@@ -409,15 +409,16 @@ body {
     margin: 10px 0px;
 }
 
-.Card,
+/* .Card,
 .secondCard {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
     padding: 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: center;
+    flex-direction: row;
     align-items: start;
     transition: box-shadow 0.2s, transform 0.2s;
 }
@@ -427,12 +428,38 @@ body {
     min-height: 120px;
     margin: 10px 0;
 }
+*/
 
 .Three-cards {
     width: 100%;
     height: 100%;
     align-items: center;
+} 
+
+.Card {
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
+
+.secondCard {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 15px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    /* flex-direction: row; */
+    align-items: start;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
 
 .secondCard {
     width: 49%;
@@ -481,11 +508,11 @@ body {
 .Inside-technology {
     display: flex;
     width: 100%;
-    max-height: 200px;
+    /* max-height: 200px; */
     flex-direction: column;
 }
 
-.Inside-technology p {
+.User-inside {
     margin: 10px 0px;
     height: 50px;
     display: flex;
@@ -497,15 +524,53 @@ body {
 }
 
 .Inside-technology span {
-    height: 60%;
-    font-size: 14px;
+    height: 33%;
+    font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     float: right;
     padding: 0px 10px;
-    border-radius: 8px;
+    /* margin: 0px 10px; */
+    border-radius: 10px;
+    width: 20%;
 }
+
+.UserName {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 40%;
+}
+
+.UserName span {
+    background-color: var(--blue);
+    color: white;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.ProgressBar {
+    width: 40%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+
+.ProgressFill {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 8px;
+    transition: all 1s ease;
+}
+
+/* .ProgressBar:hover {
+    scale: 1.085 ;
+} */
+
 
 .status-active {
     background: var(--activeBG);
@@ -602,6 +667,7 @@ body {
     max-height: 80vh;
     overflow-y: scroll;
 }
+
 
 @media (max-width: 900px) {
     .maincomponent {
