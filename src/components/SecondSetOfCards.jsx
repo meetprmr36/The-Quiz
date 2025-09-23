@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
 function SecondSetCards({ techList, questions, User }) {
     return (
@@ -8,6 +9,14 @@ function SecondSetCards({ techList, questions, User }) {
                 <div className="Inside-technology">
                     {User.slice(-3).map((tech, idx) => {
                         const percentage = ((tech.score / 15) * 100).toFixed(0);
+                        const [progress, setProgress] = useState(0);
+
+                        useEffect(() => {
+                            const timeout = setTimeout(() => {
+                                setProgress(percentage);
+                            }, 50);
+                            return () => clearTimeout(timeout);
+                        }, [percentage]);
 
                         return (
                             <div key={idx} className="User-inside text-[var(--black)]">
@@ -18,7 +27,10 @@ function SecondSetCards({ techList, questions, User }) {
                                 <div className="ProgressBar">
                                     <div
                                         className="ProgressFill"
-                                        style={{ width: `${percentage}%`}}
+                                        style={{
+                                            width: `${progress}%`,
+                                            transition: "width 1s ease-in-out"
+                                        }}
                                     ></div>
                                 </div>
                             </div>

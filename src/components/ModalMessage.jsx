@@ -7,8 +7,7 @@ const ModalMessage = ({ message, onClose }) => {
         <h3 className="text-lg font-semibold mb-3">{message}</h3>
         <button
           onClick={onClose}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-700"
-        >
+          className="text-white px-4 py-2 rounded-md bg-[var(--bitlightblue)]" >
           Okay
         </button>
       </div>

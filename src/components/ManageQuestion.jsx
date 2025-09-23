@@ -4,6 +4,7 @@ import QuestionTable from "./QuestionTable";
 import ModalMessage from "./ModalMessage"
 import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
+import AddButton from "./AddButton";
 import { IoMdClose } from "react-icons/io";
 
 const ManageQuestion = ({ questions, setQuestions }) => {
@@ -102,17 +103,19 @@ const ManageQuestion = ({ questions, setQuestions }) => {
       <div className="my-5 mx-0">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-4xl font-semibold">Manage Questions</h2>
-          <button
+          {/* <button
             onClick={() => setShowForm(!showForm)}
             className="Button-Technology bg-[var(--bitlightblue)] text-white px-4 py-2 rounded">
             + Add Question
-          </button>
+          </button> */}
         </div>
-        <p className="text-lg text-[var(--lightGray)] mb-4">
-          Create and manage questions for your quizzes
-        </p>
+        <div className="flex justify-between mb-4 items-baseline">
+          <p className="text-lg text-[var(--lightGray)] items-center">
+            Create and manage questions for your quizzes
+          </p>
+          <AddButton onAdd={() => setShowForm(true)} Name="Add Question" />
+        </div>
       </div>
-
 
       <QuestionTable data={questions} onDelete={handleDelete} onEdit={handleEdit} />
 
@@ -136,7 +139,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
 
             <div className="mb-4 text-left">
               <label className="block text-[var(--black)] font-medium mb-1">
-                Question Text <span className="text-red-500">*</span>
+                Question Text <span className="text-red-500 text-2xl">*</span>
               </label>
               <textarea
                 placeholder="Enter Your Question Here"
@@ -144,10 +147,10 @@ const ManageQuestion = ({ questions, setQuestions }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, question: e.target.value })
                 }
-                className="w-full max-h-32 min-h-20 border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
+                className="w-full max-h-32 min-h-20 border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)]" />
             </div>
 
-            <div className="mb-4 text-left">
+            {/* <div className="mb-4 text-left">
               <label className="block text-[var(--black)] font-medium mb-1">
                 Technology <span className="text-red-500">*</span>
               </label>
@@ -158,14 +161,14 @@ const ManageQuestion = ({ questions, setQuestions }) => {
                   setFormData({ ...formData, technology: e.target.value })
                 }
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
-            </div>
+            </div> */}
 
 
             <h2 className="text-lg font-semibold mb-4 flex justify-between text-[var(--black)] items-center">
               Options
               <button
                 onClick={handleAddOption}
-                className="bg-[var(--bitlightblue)] text-[var(--white)] px-2 py-1 rounded text-sm"
+                className="bg-[var(--bitlightblue)] text-white px-2 py-1 rounded text-sm"
               >
                 + Add Option
               </button>
@@ -217,7 +220,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center dark:bg-blue-500 dark:hover:bg-blue-700">
+                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md hover:opacity-90 flex items-center cursor-pointer">
                 <span className="px-2">
                   <IoIosSave />
                 </span>
@@ -225,7 +228,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
               </button>
               <button
                 onClick={handleReset}
-                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500">
+                className="text-[var(--black)] px-4 py-2 bg-[var(--gray)] rounded-md hover:opacity-90 cursor-pointer">
                 Reset
               </button>
             </div>

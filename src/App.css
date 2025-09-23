@@ -1,21 +1,32 @@
 @import "tailwindcss";
 
 
+.varela-regular {
+  font-family: "Varela", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 body {
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     font-family: "Varela", sans-serif;
-    /* font-family: "Ubuntu", sans-serif; */
+}
+
+.Logo{
+   font-family: "Titan One", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 :root {
     --white: #FEFCFB;
     --black: #000000;
-    --ligtestGray: #f2f2f2;
-    --gray: #f4f4f4;
+    --ligtestGray: #f3f3f3;
+    --gray: #ececec;
     --lightGray: #959595;
     --accent: #6366f1;
     --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-    --Hovergray: #f7f7f7;
+    --Hovergray: #f1f1f1;
     --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
     --card-hover-shadow: 0 8px 32px rgba(39, 39, 68, 0.18);
     --darkblue: #121f47;
@@ -66,19 +77,18 @@ body {
 .Button-Technology {
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
+    padding: 10px 20px;
     font-size: 1em;
     font-weight: 500;
-    font-family: inherit;
     cursor: pointer;
-    transition: all .5s;
-    position: relative;
+    /* transition: all .5s; */
+    /* position: relative; */
 }
 
-.Button-Technology:hover {
+/* .Button-Technology:hover {
     background-color: var(--bluetagtext);
-    /* color: var(--white); */
-}
+    color: var(--white);
+} */
 
 .Button-style {
     border-radius: 8px;
@@ -86,7 +96,6 @@ body {
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
-    font-family: inherit;
     cursor: pointer;
     transition: all .5s;
     position: relative;
@@ -150,20 +159,13 @@ body {
     font-size: 27px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin: 20px 0px;
     text-align: center;
 }
 
 .Logo-Name {
-    background-color: var(--white);
     width: 100%;
     justify-content: start;
     align-items: center;
-}
-
-.Logo-Name img {
-    margin: 20px 0px;
-    width: 80%;
 }
 
 .color-bg {
@@ -184,8 +186,12 @@ body {
     align-items: center;
 }
 
-.Dark-light {
+.Side h1 {
+    padding: 8px;
     width: 100%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 .Side p:hover {
@@ -244,10 +250,8 @@ body {
 }
 
 .toggles a:hover {
-    /* background: var(--bitlightblue); */
     color: var(--bluetagtext);
     background: var(--bluetagbg);
-    /* color: var(--bluetagtext);  */
 }
 
 .logout-modal {
@@ -360,7 +364,7 @@ body {
 }
 
 .cancel-btn {
-    background: var(--lightGray);
+    background: var(--gray);
     color: var(--black);
     border: none;
     padding: 8px 24px;
@@ -374,11 +378,6 @@ body {
     width: 100%;
     background-color: var(--gray);
 }
-
-/* 
-.welcome {
-    margin-bottom: 10px;
-} */
 
 .welcome h1 {
     font-size: 32px;
@@ -455,7 +454,6 @@ body {
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    /* flex-direction: row; */
     align-items: start;
     transition: box-shadow 0.2s, transform 0.2s;
 }
@@ -508,7 +506,6 @@ body {
 .Inside-technology {
     display: flex;
     width: 100%;
-    /* max-height: 200px; */
     flex-direction: column;
 }
 
@@ -531,7 +528,6 @@ body {
     align-items: center;
     float: right;
     padding: 0px 10px;
-    /* margin: 0px 10px; */
     border-radius: 10px;
     width: 20%;
 }
@@ -567,21 +563,19 @@ body {
     transition: all 1s ease;
 }
 
-/* .ProgressBar:hover {
-    scale: 1.085 ;
-} */
-
 
 .status-active {
     background: var(--activeBG);
     color: var(--activeText);
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
 .status-inactive {
     background: var(--inactiveBG);
     color: var(--inactiveText);
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
 
 .recent-title {
@@ -626,18 +620,8 @@ body {
     background: var(--bluetagbg);
     color: var(--bluetagtext);
     font-weight: 300;
+    letter-spacing: 0.3px;
 }
-
-/* .tag.green {
-    background: #dcfce7;
-    color: #166534;
-    font-weight: 300;
-}
-
-.tag.red {
-    background: #ffdada;
-    color: #901919;
-} */
 
 .whole-table {
     box-shadow: var(--card-shadow);

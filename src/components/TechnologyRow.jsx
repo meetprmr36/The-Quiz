@@ -7,13 +7,37 @@ import { FaEdit } from "react-icons/fa";
 
 const TechnologyRow = ({ tech, onDelete, onEdit }) => {
   return (
-    <tr className="Border-bottom hover:bg-[var(--gray)]">
-      <td className="p-3 px-5">{tech.name}</td>
-      <td className="p-3">
+    // <tr className="Border-bottom hover:bg-[var(--gray)]">
+    //   <td className="p-3 px-5">{tech.name}</td>
+    //   <td className="p-3">
+    //     <StatusBadge status={tech.status} />
+    //   </td>
+    //   <td className="p-3">{tech.date}</td>
+    //   <td className="p-3">
+    //     <button
+    //       onClick={() => onEdit?.(tech)}
+    //       className="Button-style text-blue-600 hover:underline"
+    //     >
+    //       <FaEdit />
+    //       <span className="TooltipText">Edit</span>
+    //     </button>
+    //     <button
+    //       onClick={() => onDelete?.(tech.id)}
+    //       className="Button-style text-red-600 hover:underline"
+    //     >
+    //       <FaTrash />
+    //       <span className="TooltipText">Delete</span>
+    //     </button>
+    //   </td>
+    // </tr>
+    
+    <tr className="Border-bottom hover:bg-[var(--Hovergray)]">
+      <td className="p-3 px-5 w-45 max-w-50 break-words">{tech.name}</td>
+      <td className="p-3 w-20 max-w-24 break-words">
         <StatusBadge status={tech.status} />
       </td>
-      <td className="p-3">{tech.date}</td>
-      <td className="p-3">
+      <td className="p-3 w-30 max-w-30 break-words">{tech.date}</td>
+      <td className="p-3 w-38 max-w-38 break-words">
         <button
           onClick={() => onEdit?.(tech)}
           className="Button-style text-blue-600 hover:underline"

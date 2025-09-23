@@ -48,14 +48,16 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
   return (
     <div className="p-6 bg-[var(--white)] text-[var(--black)] min-h-screen">
       <div className="my-5">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between mb-4">
           <h2 className="text-4xl font-semibold">Manage Technology</h2>
-          <AddButton onAdd={() => setShowForm(true)} />
         </div>
-        <p className="text-lg text-[var(--lightGray)] mb-4">
-          Create and manage technology categories for your quizzes
-        </p>
-         <TechnologyTable data={technologies} onDelete={handleDelete} />
+        <div className="flex justify-between items-baseline mb-4">
+          <p className="text-lg items-center text-[var(--lightGray)]">
+            Create and manage technology categories for your quizzes
+          </p>
+          <AddButton onAdd={() => setShowForm(true)} Name="Add Technology" />
+        </div>
+        <TechnologyTable data={technologies} onDelete={handleDelete} />
       </div>
 
       {showForm && (
@@ -75,7 +77,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
 
             <div className="mb-8">
               <label className="block text-[var(--black)] mb-3 text-left font-medium mb-1">
-                Technology Name <span className="text-red-500">*</span>
+                Technology Name <span className="text-red-500 text-2xl">*</span>
               </label>
               <input
                 type="text"
@@ -117,7 +119,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-[var(--bitlightblue)] text-[var(--white)] px-4 py-2 rounded-md hover:bg-[var(--darkblue)] flex flex-row items-center"
+                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer"
               >
                 <span className="px-2">
                   <IoIosSave />
@@ -126,8 +128,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
               </button>
               <button
                 onClick={handleReset}
-                className="bg-[var(--lightGray)] text-[var(--black)] px-4 py-2 rounded-md hover:opacity-80"
-              >
+                className="bg-[var(--gray)] text-[var(--black)] px-4 py-2 rounded-md cursor-pointer">
                 Reset
               </button>
             </div>

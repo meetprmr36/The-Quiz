@@ -2,12 +2,12 @@ import '../App.css';
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 
-const AddButton =({ onAdd })=> {
+const AddButton =({ onAdd ,Name})=> {
   return (
     <button
       onClick={onAdd}
       className="Button-Technology bg-[var(--bitlightblue)] text-white px-2 py-2 rounded-md flex items-center">
-      <span className='px-1'><FaPlus /></span> Add Technology
+      <span className='px-1'><FaPlus /></span> {Name}
     </button>
   );
 };
