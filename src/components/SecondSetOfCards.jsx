@@ -1,19 +1,29 @@
 import React from "react";
 
-function SecondSetCards({ techList, questions }) {
+function SecondSetCards({ techList, questions, User }) {
     return (
         <div className="secondline Flex-column">
             <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
-                <h2 className="font-semibold text-[var(--black)] mb-2">Recent Technology</h2>
+                <h2 className="recent-title font-semibold text-[var(--black)]">Recent Users</h2>
                 <div className="Inside-technology">
-                    {techList.slice(-3).map((tech, idx) => (
-                        <p key={idx} className="text-[var(--black)]">
-                            {tech.name}{" "}
-                            <span className={tech.status === "Active" ? "status-active" : "status-inactive"}>
-                                {tech.status}
-                            </span>
-                        </p>
-                    ))}
+                    {User.slice(-3).map((tech, idx) => {
+                        const percentage = ((tech.score / 15) * 100).toFixed(0);
+
+                        return (
+                            <div key={idx} className="User-inside text-[var(--black)]">
+                                <div className="UserName">
+                                    {tech.name}
+                                    <span className="tag blue">{`${percentage}%`}</span>
+                                </div>
+                                <div className="ProgressBar">
+                                    <div
+                                        className="ProgressFill"
+                                        style={{ width: `${percentage}%`}}
+                                    ></div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -25,7 +35,7 @@ function SecondSetCards({ techList, questions }) {
                             <p className="question-title text-[var(--black)]">{q.question}</p>
                             <div className="tags">
                                 <span className="tag blue">{q.technology}</span>
-                                <span className={`tag ${q.status === "Active" ? "green" : "red"}`}>
+                                <span className={`tag ${q.status === "Active" ? "status-active" : "status-inactive"}`}>
                                     {q.status}
                                 </span>
                             </div>
