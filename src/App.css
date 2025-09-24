@@ -2,18 +2,19 @@
 
 
 .varela-regular {
-  font-family: "Varela", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Varela", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
 body {
-    font-family: "Varela", sans-serif;
+    /* font-family: "Varela", sans-serif; */
+      font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,"Helvetica Neue", Arial, sans-serif;
 }
 
-.Logo{
-   font-family: "Titan One", sans-serif;
+.Logo {
+    font-family: "Titan One", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -220,21 +221,7 @@ body {
     margin: 10px;
     align-items: start;
     cursor: default;
-}
-
-.toggles span {
-    margin: 10px;
-    font-size: 15px;
-}
-
-.active-link {
-    /* background: var(--bluetagbg);
-    color: var(--bluetagtext) !important; */
-    background: var(--bitlightblue);
-    color: #1282A2;
-    /* background: var(--bitlightblue); */
-    /* color: #FEFCFB !important; */
-    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .toggles a {
@@ -247,6 +234,7 @@ body {
     font-size: 14px;
     border-radius: 8px;
     transition: all 0.2s, color 0.2s;
+    letter-spacing: 0.4px;
 }
 
 .toggles a:hover {
@@ -254,13 +242,29 @@ body {
     background: var(--bluetagbg);
 }
 
+.toggles span {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.active-link {
+    /* background: var(--bluetagbg);
+    color: var(--bluetagtext) !important; */
+    background: var(--bitlightblue);
+    color: #1282A2;
+    font-weight: 600;
+    /* background: var(--bitlightblue); */
+    /* color: #FEFCFB !important; */
+}
+
+
 .logout-modal {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -275,7 +279,7 @@ body {
     }
 
     to {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -405,45 +409,26 @@ body {
 .secondline {
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 0px;
 }
 
-/* .Card,
-.secondCard {
+.Card {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 15px;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    flex-direction: row;
-    align-items: start;
-    transition: box-shadow 0.2s, transform 0.2s;
-}
-
-.Card {
-    width: 100%;
-    min-height: 120px;
-    margin: 10px 0;
-}
-*/
-
-.Three-cards {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-} 
-
-.Card {
-    background-color: var(--white);
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    padding: 20px;
+    padding: 15px ;
+    height: 150px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: all 0.3s ease;
+}
+
+.Card-Names {
+    padding-left: 5px;
+    padding-top: 5px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
 }
 
 .secondCard {
@@ -452,17 +437,12 @@ body {
     box-shadow: var(--card-shadow);
     padding: 15px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: start;
     transition: box-shadow 0.2s, transform 0.2s;
-}
-
-
-.secondCard {
     width: 49%;
     min-height: 90px;
-    margin: 10px 0;
 }
 
 .Icon {
@@ -511,7 +491,7 @@ body {
 
 .User-inside {
     margin: 10px 0px;
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -537,6 +517,7 @@ body {
     align-items: center;
     gap: 8px;
     width: 40%;
+    font-size: 14px;
 }
 
 .UserName span {
@@ -544,14 +525,14 @@ body {
     color: white;
     border-radius: 6px;
     padding: 2px 6px;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .ProgressBar {
     width: 40%;
-    height: 12px;
+    height: 8px;
     background: #e5e7eb;
-    border-radius: 6px;
+    border-radius: 4px;
     overflow: hidden;
     transition: all .5s ease;
 }
@@ -569,6 +550,8 @@ body {
     color: var(--activeText);
     font-weight: 300;
     letter-spacing: 0.3px;
+    align-items: center;
+    margin-top: auto;
 }
 
 .status-inactive {
@@ -576,6 +559,8 @@ body {
     color: var(--inactiveText);
     font-weight: 300;
     letter-spacing: 0.3px;
+    align-items: center;
+    margin-top: auto;
 }
 
 .recent-title {
@@ -594,14 +579,14 @@ body {
 .question-card {
     background-color: var(--gray);
     border-radius: 12px;
-    padding: 16px;
+    padding: 11px;
 }
 
 .question-title {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
     margin-bottom: 8px;
     word-wrap: break-word;
+    font-size: 14px;
 }
 
 .tags {
@@ -610,7 +595,7 @@ body {
 }
 
 .tag {
-    font-size: 14px;
+    font-size: 12px;
     padding: 4px 12px;
     border-radius: 8px;
     font-weight: 400;

@@ -150,7 +150,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
                 className="w-full max-h-32 min-h-20 border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)]" />
             </div>
 
-            {/* <div className="mb-4 text-left">
+            <div className="mb-4 text-left">
               <label className="block text-[var(--black)] font-medium mb-1">
                 Technology <span className="text-red-500">*</span>
               </label>
@@ -161,7 +161,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
                   setFormData({ ...formData, technology: e.target.value })
                 }
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
-            </div> */}
+            </div>
 
 
             <h2 className="text-lg font-semibold mb-4 flex justify-between text-[var(--black)] items-center">

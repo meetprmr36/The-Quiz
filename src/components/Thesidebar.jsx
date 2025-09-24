@@ -15,20 +15,6 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
     return (
         <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)]">
             <nav>
-                {/* <div className="Logo-Name flex items-center gap-2 p-4">
-                    <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold text-3xl rounded-full w-12 h-12 flex items-center justify-center shadow-md">
-                        M
-                    </div>
-                    <div>
-                        <h1 className="text-xl m-px font-extrabold text-[var(--white)]">Mind</h1>
-                        <p className="text-sm font-medium text-[var(--white)]">Inventory</p>
-                    </div>
-                </div> */}
-
-                {/* <div className="Logo-Name text-center p-4">
-                    <h1 className="text-4xl font-extrabold text-[var(--black)] leading-tight">Mind</h1>
-                    <p className="text-xl font-medium text-gray-500 tracking-widest">Inventory</p>
-                </div> */}
 
                 <div className="Logo-Name text-center p-4">
                     <h1 className="text-2xl font-bold tracking-[0.3em] uppercase text-white">
@@ -36,7 +22,6 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     </h1>
                 </div>
 
-                {/* <h1>Quiz Admin</h1> */}
                 <div className="toggles Flex-column">
                     <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
                         <span><IoMdSpeedometer /></span>Dashboard
@@ -73,7 +58,8 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         </h1>
                     )}
                 </div>
-                
+            </div>
+            <div className="Side Flex-column">
                 <p><span><FaRegUser /></span>Admin User</p>
                 <p style={{ cursor: "pointer" }} onClick={() => setShowLogout(true)}>
                     <span><IoIosLogOut /></span>Logout
