@@ -4,7 +4,7 @@ import AddButton from "./AddButton";
 import { IoMdClose } from "react-icons/io";
 import { IoIosSave } from "react-icons/io";
 
-const ManageTechnology = ({ technologies, setTechnologies }) => {
+const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
 
   const [showForm, setShowForm] = useState(false);
   const [techName, setTechName] = useState("");
@@ -46,7 +46,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
   };
 
   return (
-    <div className="p-6 bg-[var(--white)] text-[var(--black)] min-h-screen">
+    <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen">
       <div className="my-5">
         <div className="flex justify-between mb-4">
           <h2 className="text-4xl font-semibold">Manage Technology</h2>
@@ -57,7 +57,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
           </p>
           <AddButton onAdd={() => setShowForm(true)} Name="Add Technology" />
         </div>
-        <TechnologyTable data={technologies} onDelete={handleDelete} />
+        <TechnologyTable data={technologies} quest={questions} onDelete={handleDelete} />
       </div>
 
       {showForm && (

@@ -7,10 +7,10 @@ const UserTable = ({ data,onDelete }) => {
             <table className="w-full border-collapse table-fixed">
                 <thead className="Table-head sticky top-0 z-20">
                     <tr className="text-left">
-                        <th className="p-3 px-5 w-[20%]">Users</th>
-                        <th className="p-3 w-[20%]">email</th>
+                        <th className="p-3 px-5 w-[40%]">Users</th>
+                        <th className="p-3 w-[25%]">email</th>
                         <th className="p-3 w-[20%]">Status</th>
-                        <th className="p-3 px-10 w-[25%]">Actions</th>
+                        <th className="p-3 px-10 w-[20%]">Actions</th>
                     </tr>
                 </thead>
                 <tbody className="Table-body overflow-auto">
@@ -19,7 +19,6 @@ const UserTable = ({ data,onDelete }) => {
                             key={Users.id}
                             user={Users}
                             onDelete={onDelete}
-                            // onEdit={onEdit}
                         />
                     ))}
                 </tbody>

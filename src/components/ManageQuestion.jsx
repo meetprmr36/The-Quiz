@@ -99,7 +99,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
   };
 
   return (
-    <div className="Manage-Question p-6 bg-[var(--white)] text-[var(--black)] min-h-screen">
+    <div className="Manage-Question px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen">
       <div className="my-5 mx-0">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-4xl font-semibold">Manage Questions</h2>
@@ -160,7 +160,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, technology: e.target.value })
                 }
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--lightGray)]" />
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--black)]" />
             </div>
 
 
@@ -237,19 +237,6 @@ const ManageQuestion = ({ questions, setQuestions }) => {
       )}
 
       <ModalMessage message={modalMessage} onClose={() => setModalMessage("")} />
-
-      {/* {modalMessage && (
-        <div className="fixed inset-0 bg-black bg-opacity-20 dark:bg-opacity-60 flex items-center justify-center z-999">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm">
-            <h3 className="text-lg font-semibold mb-3">{modalMessage}</h3>
-            <button
-              onClick={() => setModalMessage("")}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-700">
-              Okay
-            </button>
-          </div>
-        </div>
-      )} */}
     </div>
 
   );

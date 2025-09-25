@@ -389,7 +389,7 @@ body {
 }
 
 .welcome p {
-    margin: 10px 0;
+    margin: 5px 0;
     font-size: 18px;
     opacity: 0.8;
 }
@@ -424,8 +424,7 @@ body {
 }
 
 .Card-Names {
-    padding-left: 5px;
-    padding-top: 5px;
+    padding:5px 0px 0px 5px;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */

@@ -10,12 +10,6 @@ const ManageUser = ({ Users, setUsers }) => {
             <div className="my-5 mx-0">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-4xl font-semibold">Manage User</h2>
-                    {/* <button
-                        onClick={() => setShowForm(!showForm)}
-                        className="bg-[var(--accent)] text-[var(--white)] px-4 py-2 rounded hover:opacity-90"
-                    >
-                        + Add Question
-                    </button> */}
                 </div>
                 <p className="text-lg text-[var(--lightGray)] mb-4">
                     Create and manage questions for your quizzes
@@ -25,7 +19,6 @@ const ManageUser = ({ Users, setUsers }) => {
             <UserTable
                 data={Users}
             onDelete={handleDelete}
-            // onEdit={handleEdit}
             />
         </div>
     )

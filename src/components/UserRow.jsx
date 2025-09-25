@@ -13,7 +13,6 @@ const UserRow = ({ user, onDelete }) => {
             </td>
             <td className="p-3">
                 <button
-                    // onClick={() => onEdit?.(user)}
                     className="Button-style text-blue-600 hover:underline"
                 >
                     <FaEdit />
