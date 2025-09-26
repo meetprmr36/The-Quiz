@@ -233,54 +233,12 @@ function SecondSetCards({ techList, questions, User }) {
     }
 
     return (
-        <div className="secondline Flex-column my-3">
-            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
-                <h2 className="recent-title font-semibold text-[var(--black)]">
-                    Recent Users
-                </h2>
-                <div className="Inside-technology">
-                    {User.slice(-6).map((u, idx) => (
-                        <ProgressUser
-                            key={idx}
-                            name={u.name}
-                            score={u.score}
-                            delay={idx * 50}
-                        />
-                    ))}
-                </div>
-            </div>
-
-            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
-                <h2 className="recent-title text-[var(--black)]">Recent Questions</h2>
-                <div className="recent-list">
-                    {questions.slice(-4).map((q) => (
-                        <div key={q.id} className="question-card text-[var(--black)]">
-                            <p className="question-title text-[var(--black)]">
-                                {q.question}
-                            </p>
-                            <div className="tags">
-                                <span className="tag blue">{q.technology}</span>
-                                <span
-                                    className={`tag ${q.status === "Active"
-                                            ? "status-active"
-                                            : "status-inactive"
-                                        }`}
-                                >
-                                    {q.status}
-                                </span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-
-        // <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full my-3">
-        //     <div className="Card bg-[var(--white)] text-[var(--black)] rounded-2xl shadow-md p-5 flex flex-col">
-        //         <h2 className="text-lg font-semibold text-[var(--black)] mb-4">
+        // <div className="secondline Flex-column my-3">
+        //     <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+        //         <h2 className="recent-title font-semibold text-[var(--black)]">
         //             Recent Users
         //         </h2>
-        //         <div className="flex-1 flex flex-col gap-4">
+        //         <div className="Inside-technology">
         //             {User.slice(-6).map((u, idx) => (
         //                 <ProgressUser
         //                     key={idx}
@@ -292,23 +250,20 @@ function SecondSetCards({ techList, questions, User }) {
         //         </div>
         //     </div>
 
-        //     <div className="Card bg-[var(--white)] text-[var(--black)] rounded-2xl shadow-md p-5 flex flex-col">
-        //         <h2 className="text-lg font-semibold text-[var(--black)] mb-4">
-        //             Recent Questions
-        //         </h2>
-        //         <div className="flex-1 flex flex-col gap-4">
+        //     <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+        //         <h2 className="recent-title text-[var(--black)]">Recent Questions</h2>
+        //         <div className="recent-list">
         //             {questions.slice(-4).map((q) => (
-        //                 <div
-        //                     key={q.id}
-        //                     className="p-4 rounded-xl bg-gray-50 border border-gray-200 shadow-sm"
-        //                 >
-        //                     <p className="font-medium text-[var(--black)] mb-2">
+        //                 <div key={q.id} className="question-card text-[var(--black)]">
+        //                     <p className="question-title text-[var(--black)]">
         //                         {q.question}
         //                     </p>
-        //                     <div className="flex gap-2 flex-wrap">
+        //                     <div className="tags">
         //                         <span className="tag blue">{q.technology}</span>
         //                         <span
-        //                             className={`tag ${q.status === "Active" ? "status-active" : "status-inactive"
+        //                             className={`tag ${q.status === "Active"
+        //                                     ? "status-active"
+        //                                     : "status-inactive"
         //                                 }`}
         //                         >
         //                             {q.status}
@@ -318,8 +273,54 @@ function SecondSetCards({ techList, questions, User }) {
         //             ))}
         //         </div>
         //     </div>
-
         // </div>
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full my-3">
+            <div className="bg-[var(--white)] text-[var(--black)] rounded-xl shadow-md p-5 flex flex-col">
+                <h2 className="text-lg font-semibold text-[var(--black)] mb-4">
+                    Recent Users
+                </h2>
+                <div className="flex-1 flex flex-col gap-4">
+                    {User.slice(-6).map((u, idx) => (
+                        <ProgressUser
+                            key={idx}
+                            name={u.name}
+                            score={u.score}
+                            delay={idx * 50}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className="bg-[var(--white)] text-[var(--black)] rounded-xl shadow-md p-5 flex flex-col">
+                <h2 className="text-lg font-semibold text-[var(--black)] mb-4">
+                    Recent Questions
+                </h2>
+                <div className="flex flex-col gap-4">
+                    {questions.slice(-4).map((q) => (
+                        <div
+                            key={q.id}
+                            className="p-2 rounded-xl bg-[var(--gray)] shadow-sm"
+                        >
+                            <p className="font-medium text-[var(--black)] mb-2">
+                                {q.question}
+                            </p>
+                            <div className="flex gap-2 flex-wrap">
+                                <span className="tag blue">{q.technology}</span>
+                                <span
+                                    className={`tag ${q.status === "Active" ? "status-active" : "status-inactive"
+                                        }`}
+                                >
+                                    {q.status}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </div>
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import TechnologyRow from "./TechnologyRow";
 
-const TechnologyTable = ({ data, onDelete,quest}) => {
+const TechnologyTable = ({ data, onDelete, quest, onEdit }) => {
   return (
     <div className="max-h-[calc(100vh-190px)] mb-5 overflow-y-auto shadow-md rounded-lg">
       <table className="whole-table w-full border-collapse bg-[var(--white)]">
@@ -16,7 +16,7 @@ const TechnologyTable = ({ data, onDelete,quest}) => {
         </thead>
         <tbody className="Table-body">
           {data?.map((tech) => (
-            <TechnologyRow key={tech.id} tech={tech} onDelete={onDelete} questions={quest} />
+            <TechnologyRow key={tech.id} tech={tech} onDelete={onDelete} questions={quest} onEdit={onEdit} />
           ))}
         </tbody>
       </table>
@@ -26,6 +26,49 @@ const TechnologyTable = ({ data, onDelete,quest}) => {
 };
 
 export default TechnologyTable;
+
+// import React from "react";
+// import TechnologyRow from "./TechnologyRow";
+
+// const TechnologyTable = ({ data, onDelete, quest }) => {
+//   return (
+//     <div
+//       className="
+//         max-h-[calc(100vh-190px)]
+//         mb-5
+//         overflow-y-auto
+//         shadow-md
+//         rounded-lg
+//         custom-scrollbar
+//       "
+//     >
+//       <table className="whole-table w-full border-collapse bg-[var(--white)]">
+//         <thead className="Table-head sticky top-0 z-20">
+//           <tr className="text-left">
+//             <th className="p-3 w-[35%] px-5 bg-[var(--Gray)]">Technology</th>
+//             <th className="p-3 w-[15%] bg-[var(--Gray)]">Created Date</th>
+//             <th className="p-3 w-[15%] bg-[var(--Gray)]">Status</th>
+//             <th className="p-3 w-[10%] bg-[var(--Gray)]">Questions</th>
+//             <th className="p-3 w-[15%] px-10 bg-[var(--Gray)]">Actions</th>
+//           </tr>
+//         </thead>
+//         <tbody className="Table-body">
+//           {data?.map((tech) => (
+//             <TechnologyRow
+//               key={tech.id}
+//               tech={tech}
+//               onDelete={onDelete}
+//               questions={quest}
+//             />
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default TechnologyTable;
+
 
 
 // import React, { useState, useEffect } from "react";

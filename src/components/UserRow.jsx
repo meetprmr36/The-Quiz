@@ -12,15 +12,15 @@ const UserRow = ({ user, onDelete }) => {
                 {`${user.score}/15`}
             </td>
             <td className="p-3">
-                <button
+                {/* <button
                     className="Button-style text-blue-600 hover:underline"
                 >
                     <FaEdit />
                     <span className="TooltipText">Edit</span>
-                </button>
+                </button> */}
                 <button
                     onClick={() => onDelete?.(user.id)}
-                    className="Button-style Red-border text-red-600 hover:underline"
+                    className="Button-style px-3 Red-border text-red-600 hover:underline"
                 >
                     <FaTrash />
                     <span className="TooltipText">Delete</span>

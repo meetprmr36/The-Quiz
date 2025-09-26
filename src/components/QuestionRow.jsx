@@ -8,7 +8,7 @@ import { FaEdit } from "react-icons/fa";
 const QuestionRow = ({ tech, onDelete, onEdit }) => {
   return (
     <tr className="Border-bottom hover:bg-[var(--Hovergray)]">
-      <td className="p-3 px-5 max-w-40 break-words">{tech.question}</td>
+      <td className="p-3 px-5 max-w-40 break-words">{tech.question}<span className="tag blue m-2">{tech.technology}</span></td>
       <td className="p-3 max-w-28 break-words">
         <StatusBadge status={tech.status} />
       </td>

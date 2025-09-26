@@ -14,10 +14,10 @@ const QuestionTable = ({ data, onDelete, onEdit }) => {
           </tr>
         </thead>
         <tbody className="Table-body overflow-auto">
-          {data.map((tech) => (
+          {data.map((data) => (
             <QuestionRow
-              key={tech.id}
-              tech={tech}
+              key={data.id}
+              tech={data}
               onDelete={onDelete}
               onEdit={onEdit}
             />

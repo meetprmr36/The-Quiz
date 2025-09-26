@@ -120,6 +120,7 @@ const Themaincomponent = () => {
               transition={{ duration: 0.3 }}
             >
               <ManageQuestion
+                technologies={technologies}
                 questions={questions}
                 setQuestions={setQuestions}
               />

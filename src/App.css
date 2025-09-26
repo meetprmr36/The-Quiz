@@ -10,7 +10,7 @@
 
 body {
     /* font-family: "Varela", sans-serif; */
-      font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,"Helvetica Neue", Arial, sans-serif;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .Logo {
@@ -24,8 +24,8 @@ body {
     --black: #000000;
     --ligtestGray: #f3f3f3;
     --gray: #ececec;
+    --bitDarkGray: #d5d5d5;
     --lightGray: #959595;
-    --accent: #6366f1;
     --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
     --Hovergray: #f1f1f1;
     --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
@@ -48,6 +48,7 @@ body {
     --black: #f9fafb;
     --gray: #27272a;
     --ligtestGray: #1f2937;
+    --bitDarkGray: #505050;
     --lightGray: #a1a1aa;
     --accent: #60a5fa;
     --sidebar-gradient: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
@@ -67,6 +68,24 @@ body {
     --red: #ff0000;
 }
 
+::-webkit-scrollbar {
+  width: 2px;
+  height: calc(100% - 300px);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bitDarkGray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lightGray);
+
+}
+
 
 .maincomponent {
     margin-left: 15%;
@@ -82,14 +101,7 @@ body {
     font-size: 1em;
     font-weight: 500;
     cursor: pointer;
-    /* transition: all .5s; */
-    /* position: relative; */
 }
-
-/* .Button-Technology:hover {
-    background-color: var(--bluetagtext);
-    color: var(--white);
-} */
 
 .Button-style {
     border-radius: 8px;
@@ -101,16 +113,6 @@ body {
     transition: all .5s;
     position: relative;
 }
-
-/* .Button-style:hover {
-    border-color: var(--bitlightblue);
-    /* color: var(--white);
-} */
-
-/* .Button-style:focus,
-.Button-style:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-} */
 
 
 .TooltipText {
@@ -180,7 +182,13 @@ body {
 
 .Side p {
     padding: 15px 0px;
-    padding-left: 15px;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+.Side button {
+    padding: 15px 0px;
     width: 100%;
     font-size: 15px;
     display: flex;
@@ -196,15 +204,9 @@ body {
 }
 
 .Side p:hover {
-    /* background: var(--bitlightblue);
-    color: var(--bluetagtext); */
     background: var(--bluetagbg);
     color: var(--bluetagtext);
     cursor: default;
-}
-
-.Side span {
-    margin: 10px;
 }
 
 .Flex-column {
@@ -248,13 +250,9 @@ body {
 }
 
 .active-link {
-    /* background: var(--bluetagbg);
-    color: var(--bluetagtext) !important; */
     background: var(--bitlightblue);
     color: #1282A2;
     font-weight: 600;
-    /* background: var(--bitlightblue); */
-    /* color: #FEFCFB !important; */
 }
 
 
@@ -415,7 +413,7 @@ body {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: var(--card-shadow);
-    padding: 15px ;
+    padding: 17px;
     height: 150px;
     display: flex;
     flex-direction: row;
@@ -424,7 +422,7 @@ body {
 }
 
 .Card-Names {
-    padding:5px 0px 0px 5px;
+    padding: 5px 0px 0px 5px;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
@@ -489,8 +487,8 @@ body {
 }
 
 .User-inside {
-    margin: 10px 0px;
-    height: 40px;
+    /* margin: 10px 0px; */
+    height: 45px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -595,7 +593,7 @@ body {
 
 .tag {
     font-size: 12px;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 8px;
     font-weight: 400;
 }
