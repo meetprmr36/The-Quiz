@@ -23,14 +23,14 @@ const OptionBar = ({ option, onChange }) => {
                 type="checkbox"
                 checked={isCorrect}
                 onChange={handleCheckboxChange}
-                className="w-5 h-5 accent-indigo-500 cursor-pointer"
+                className="w-5 h-5 accent-indigo-500 cursor-pointer max-lg:w-4 max-lg:h-4"
             />
             <input
                 type="text"
                 value={text}
                 onChange={handleTextChange}
                 placeholder="Enter Option"
-                className="flex-1 border-1 border-gray-50 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-[var(--black)]"
+                className="flex-1 border-1 border-gray-50 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 text-[var(--black)] max-lg:text-sm"
             />
         </div>
     );

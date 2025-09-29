@@ -4,7 +4,7 @@ import { FaEarthAmericas, FaQuestion } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import { } from "react-icons/fa";
 import { IoIosLogOut, IoMdMoon, IoMdSpeedometer } from "react-icons/io";
-import { FaBrain, FaRegUser } from "react-icons/fa";
+import { FaBrain, FaRegUser,FaUserFriends } from "react-icons/fa";
 
 
 const Thesidebar = ({ darkMode, setDarkMode }) => {
@@ -16,7 +16,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
     };
 
     return (
-        <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)]">
+        <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)] transition-all duration-500">
             <nav>
                 <div className="Logo-Name text-center p-4 mb-2">
                     <div className="flex flex-col items-center justify-center">
@@ -28,7 +28,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                             </div>
                         </div>
 
-                        <div className="text-center">
+                        <div className="text-center max-lg:hidden">
                             <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight">
                                 MIND
                             </h1>
@@ -40,32 +40,36 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     </div>
                 </div>
 
-                <div className="px-2">
+                <div className="px-2 max-xl:px-1">
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><IoMdSpeedometer /></span>Dashboard
+                            <span><IoMdSpeedometer /></span>
+                            <span className="hidden md:inline">Dashboard</span>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/technology" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaEarthAmericas /></span>Manage Technology
+                            <span><FaEarthAmericas /></span>
+                            <span className="hidden md:inline">Manage Technology</span>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/question" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaQuestion /></span>Manage Question
+                            <span><FaQuestion /></span>
+                            <span className="hidden md:inline">Manage Question</span>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/User" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaRegUser /></span>User
+                            <span><FaUserFriends /></span>
+                            <span className="hidden md:inline">User</span>
                         </NavLink>
                     </div>
                 </div>
             </nav>
 
             <div className="Side Flex-column">
-                <div className="fixed top-4 right-4 z-50 cursor-pointer transition-all duration-200 hover:scale-105" onClick={() => setDarkMode(!darkMode)}>
+                <div className="fixed top-4 right-4 z-50 cursor-pointer transition-all duration-200 hover:scale-105 max-lg:top-2" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
                         <div className="flex items-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl shadow-lg hover:shadow-xl">
                             <IoSunnyOutline className="m-3 text-black text-xl" />
@@ -78,18 +82,18 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                 </div>
             </div>
 
-            <div className="Side Flex-column mt-auto border-t border-gray-200 pt-4">
-                <div className="px-4 flex w-[75%] py-2">
-                    <p className="text-sm w-full justify-start space-x-2 px-3 py-2 rounded-lg"><span className="my-2 mx-3"><FaRegUser /></span>Admin User</p>
+            <div className="Side mt-auto border-t border-gray-200 pt-4">
+                <div className="px-4 flex w-[75%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
+                    <p className="text-sm w-full justify-start px-3 py-2 rounded-lg max-lg:justify-center max-md:py-0"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
                 </div>
 
-                <div className="px-4 flex w-[75%] py-2">
+                <div className="px-4 flex w-[75%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
                     <button
                         onClick={() => setShowLogout(true)}
-                        className="w-full flex justify-start items-center space-x-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
+                        className="w-full flex justify-start items-center space-x-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 max-lg:justify-center"
                     >
                         <IoIosLogOut className="text-lg my-2 mx-3" />
-                        <span>Logout</span>
+                        <span className="max-lg:hidden">Logout</span>
                     </button>
                 </div>
             </div>

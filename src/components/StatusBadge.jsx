@@ -8,7 +8,7 @@ const StatusBadge = ({ status }) => {
 
   return (
     <span
-      className={`px-2 py-1 text-sm font-medium rounded ${color}`}
+      className={`px-2 py-1 text-sm font-medium max-lg:text-[12px] rounded ${color}`}
     >
       {status}
     </span>

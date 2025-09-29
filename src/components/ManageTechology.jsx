@@ -282,13 +282,13 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
   };
 
   return (
-    <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)]">
+    <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)] max-lg:px-4 max-lg:py-2 min-h-screen">
       <div className="my-5">
-        <div className="flex justify-between mb-4">
-          <h2 className="text-4xl font-semibold">Manage Technology</h2>
+        <div className="flex justify-between mb-4 max-lg:mb-0">
+          <h2 className="text-4xl font-semibold max-lg:text-2xl">Manage Technology</h2>
         </div>
         <div className="flex justify-between items-baseline mb-4">
-          <p className="text-lg items-center text-[var(--lightGray)]">
+          <p className="text-lg items-center text-[var(--lightGray)] max-lg:text-sm">
             Create and manage technology categories for your quizzes
           </p>
           <AddButton onAdd={() => setShowForm(true)} Name="Add Technology" />
@@ -299,34 +299,34 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex items-center justify-center z-50 animate-fadeIn">
 
-          <div className="Technology-form max-w-xl my-5 bg-[var(--white)] text-[var(--black)] p-6 rounded-lg shadow">
+          <div className="Technology-form max-w-xl my-5 bg-[var(--white)] text-[var(--black)] p-6 rounded-lg shadow max-lg:p-4">
 
-            <div className="mb-3 flex justify-between items-center">
-              <h1 className="text-2xl font- text-[var(--black)]">
+            <div className="mb-3 flex justify-between items-center max-lg:mb-2">
+              <h1 className="text-2xl font- text-[var(--black)] max-lg:text-xl">
                 {editingId ? "Edit Technology" : "Add Technology"}
               </h1>
               <button onClick={handleBack} className="px-3 text-[var(--black)] cursor-pointer text-2xl">
                 <IoMdClose />
               </button>
             </div>
-            <p className="text-[var(--lightGray)] text-left text-sm mb-6">
+            <p className="text-[var(--lightGray)] text-left text-sm mb-6 max-lg:mb-4 max-lg:text-xs">
               {editingId ? "Update the technology category" : "Create a new technology category for quiz questions"}
             </p>
 
-            <div className="mb-8">
-              <label className="block text-[var(--black)] mb-3 text-left font-medium mb-1">
-                Technology Name <span className="text-red-500 text-2xl">*</span>
+            <div className="mb-8 max-lg:mb-5">
+              <label className="block text-[var(--black)] mb-3 text-left font-medium mb-1 max-lg:mb-2 max-lg:text-sm">
+                Technology Name <span className="text-red-500 text-2xl max-lg:text-xl">*</span>
               </label>
               <input
                 type="text"
                 value={techName}
                 onChange={(e) => setTechName(e.target.value)}
                 placeholder="e.g., React.js, Node.js, Python"
-                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)]"
+                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:px-2 max-lg:py-1 max-lg:text-sm"
               />
             </div>
 
-            <div className="mb-8">
+            <div className="mb-8 max-lg:mb-5">
               <label className="block text-[var(--black)] font-medium mb-2 text-left">Status</label>
               <div className="flex items-center space-x-6">
                 <label className="flex items-center space-x-2">
@@ -357,7 +357,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer"
+                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer  max-lg:text-sm max-lg:px-3 max-lg:py-1"
               >
                 <span className="px-2">
                   <IoIosSave />
@@ -366,7 +366,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
               </button>
               <button
                 onClick={handleReset}
-                className="bg-[var(--gray)] text-[var(--black)] px-4 py-2 rounded-md cursor-pointer">
+                className="bg-[var(--gray)] text-[var(--black)] px-4 py-2 rounded-md cursor-pointer  max-lg:text-sm">
                 Reset
               </button>
             </div>

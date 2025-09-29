@@ -22,7 +22,7 @@ body {
 :root {
     --white: #FEFCFB;
     --black: #000000;
-    --ligtestGray: #f3f3f3;
+    --ligtestGray: #f5f5f5;
     --gray: #ececec;
     --bitDarkGray: #d5d5d5;
     --lightGray: #959595;
@@ -69,20 +69,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
-  height: calc(100% - 300px);
+    width: 2px;
+    height: calc(100% - 300px);
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--white); 
+    background: var(--white);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--bitDarkGray);
+    background: var(--bitDarkGray);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--lightGray);
+    background: var(--lightGray);
 
 }
 
@@ -106,7 +106,7 @@ body {
 .Button-style {
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
+    padding: 10px 20px;
     font-size: 1em;
     font-weight: 500;
     cursor: pointer;
@@ -187,6 +187,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 .Side button {
     padding: 15px 0px;
     width: 100%;
@@ -209,18 +210,13 @@ body {
     cursor: default;
 }
 
-.Flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
 .Flex-Row {
     display: flex;
     flex-direction: row;
 }
 
 .toggles {
-    margin: 10px;
+    /* margin: 10px; */
     align-items: start;
     cursor: default;
     letter-spacing: 0.5px;
@@ -393,11 +389,6 @@ body {
 }
 
 
-.Dashboardcard {
-    justify-content: space-around;
-}
-
-
 .Firstline {
     flex-direction: row;
     justify-content: space-between;
@@ -423,9 +414,9 @@ body {
 
 .Card-Names {
     padding: 5px 0px 0px 5px;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
+    justify-content: space-between;
 }
 
 .secondCard {
@@ -438,7 +429,7 @@ body {
     justify-content: center;
     align-items: start;
     transition: box-shadow 0.2s, transform 0.2s;
-    width: 49%;
+    /* width: 49%; */
     min-height: 90px;
 }
 
@@ -513,7 +504,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 40%;
+    width: 60%;
     font-size: 14px;
 }
 
@@ -526,7 +517,7 @@ body {
 }
 
 .ProgressBar {
-    width: 40%;
+    width: 45%;
     height: 8px;
     background: #e5e7eb;
     border-radius: 4px;
@@ -593,7 +584,7 @@ body {
 
 .tag {
     font-size: 12px;
-    padding: 4px 10px;
+    padding: 5px 10px;
     border-radius: 8px;
     font-weight: 400;
 }
@@ -635,28 +626,194 @@ body {
 }
 
 
-@media (max-width: 900px) {
-    .maincomponent {
-        flex-direction: column;
+/* 1400px and below */
+@media (max-width: 1400px) {
+    .First-chart {
+        width: 140px;
+        height: 90px;
     }
+}
 
+/* 1300px and below */
+@media (max-width: 1300px) {
+    .First-chart {
+        width: 120px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .First-chart {
+        width: 100px;
+        height: 60px;
+    }
+}
+
+/* 1100px and below */
+@media (max-width: 1100px) {
+    .First-chart {
+        width: 90px;
+        height: 55px;
+    }
+}
+
+/* 1024px and below (tablet cutoff) */
+@media (max-width: 1024px) {
+    .First-chart {
+        width: 170px;
+        height: 110px;
+    }
+}
+
+
+@media (max-width: 1280px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        border-radius: 0 0 24px 24px;
-        flex-direction: row;
-        align-items: center;
-        padding: 16px 0;
+        width: 14%
     }
 
-    .dashboard,
-    .Three-cards {
-        flex-direction: column;
-        gap: 16px;
+    .maincomponent {
+        margin-left: 14%;
+        width: calc(100% - 14%);
     }
 
-    .Card,
-    .secondCard {
-        width: 100%;
+    .sidebar nav a span:last-child {
+        font-size: 14px;
+    }
+
+    .toggles {
+        margin: 10px 5px 10px 5px;
+    }
+
+    .toggles span {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 8%
+    }
+
+    .sidebar nav a span:last-child {
+        display: none;
+    }
+
+    .maincomponent {
+        margin-left: 8%;
+        width: calc(100% - 8%);
+    }
+
+    .toggles {
+        margin: 10px auto 10px auto;
+        width: 80%;
+    }
+
+    .toggles a {
+        font-size: 10px;
+        justify-content: center;
+        padding: 15px 0px;
+    }
+
+    .toggles span {
+        margin: 3px;
+        font-size: 16px;
+    }
+
+    .Button-style {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .Button-Technology {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .tag {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .Technology-form {
+        width: 50%;
+        padding: 25px 15px;
+    }
+
+    .Option-Bar {
+        max-height: 130px;
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 9%
+    }
+
+    .sidebar nav a span:last-child {
+        display: none;
+    }
+
+    .maincomponent {
+        margin-left: 9%;
+        width: calc(100% - 9%);
+    }
+
+    .Button-style {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 10%
+    }
+
+    .sidebar nav a span:last-child {
+        display: none;
+    }
+
+    .maincomponent {
+        margin-left: 10%;
+        width: calc(100% - 10%);
+    }
+
+    .Button-Technology {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .Side p {
+        padding:10px 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 11%
+    }
+
+    .sidebar nav a span:last-child {
+        display: none;
+    }
+
+    .maincomponent {
+        margin-left: 11%;
+        width: calc(100% - 11%);
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 12%
+    }
+
+    .sidebar nav a span:last-child {
+        display: none;
+    }
+
+    .maincomponent {
+        margin-left: 12%;
+        width: calc(100% - 12%);
     }
 }

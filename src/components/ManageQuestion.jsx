@@ -448,13 +448,13 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
   };
 
   return (
-    <div className="Manage-Question px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen">
+    <div className="Manage-Question px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen max-lg:px-4 max-lg:py-3">
       <div className="my-5 mx-0">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-4xl font-semibold">Manage Questions</h2>
+        <div className="flex justify-between items-center mb-4 max-lg:mb-0">
+          <h2 className="text-4xl font-semibold max-lg:text-2xl max-md:text-xl">Manage Questions</h2>
         </div>
-        <div className="flex justify-between mb-4 items-baseline">
-          <p className="text-lg text-[var(--lightGray)] items-center">
+        <div className="flex justify-between mb-4 items-baseline max-lg:mb-2">
+          <p className="text-lg text-[var(--lightGray)] items-center max-lg:text-sm ">
             Create and manage questions for your quizzes
           </p>
           <AddButton onAdd={() => setShowForm(true)} Name="Add Question" />
@@ -466,9 +466,9 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
           <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto">
-            <div className="mb-6 flex flex-col">
+            <div className="mb-6 flex flex-col max-lg:mb-4">
               <div className="flex flex-row justify-between text-left">
-                <h1 className="text-2xl items-center flex font-semibold text-[var(--black)] py-3">
+                <h1 className="text-2xl items-center flex font-semibold text-[var(--black)] py-3 max-lg:text-xl max-lg:py-2">
                   {editingId ? "Edit Question" : "Add Question"}
                 </h1>
                 <button onClick={handleBack} className="px-3 cursor-pointer text-[var(--black)] text-2xl">
@@ -480,9 +480,9 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
               </p>
             </div>
 
-            <div className="mb-4 text-left">
-              <label className="block text-[var(--black)] font-medium mb-1">
-                Question Text <span className="text-red-500 text-2xl">*</span>
+            <div className="mb-4 text-left max-lg:mb-3">
+              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm">
+                Question Text <span className="text-red-500 text-2xl max-lg:text-base">*</span>
               </label>
               <textarea
                 placeholder="Enter Your Question Here"
@@ -490,22 +490,22 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, question: e.target.value })
                 }
-                className="w-full max-h-32 min-h-20 border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)]" />
+                className="w-full max-h-32 min-h-20 border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:text-sm max-lg:px-2 max-lg:py-1" />
             </div>
 
             <div className="mb-4 text-left relative">
-              <label className="block text-[var(--black)] font-medium mb-1">
+              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm">
                 Technology <span className="text-red-500">*</span>
               </label>
               <input
                 placeholder="Enter Technology"
                 value={formData.technology}
                 onChange={handleChange}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--black)]"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:text-sm max-lg:px-2 max-lg:py-1"
               />
 
               {suggestions.length > 0 && (
-                <ul className="absolute z-10 w-full border border-gray-300 bg-white rounded-md mt-1 shadow-md">
+                <ul className="absolute z-10 w-full border border-gray-300 bg-white rounded-md mt-1 shadow-md max-lg:text-sm">
                   {suggestions.map((s, i) => (
                     <li
                       key={i}
@@ -519,11 +519,11 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
               )}
             </div>
 
-            <h2 className="text-lg font-semibold mb-4 flex justify-between text-[var(--black)] items-center">
+            <h2 className="text-lg mb-4 flex justify-between text-[var(--black)] items-center max-lg:text-base">
               Options
               <button
                 onClick={handleAddOption}
-                className="bg-[var(--bitlightblue)] text-white px-2 py-1 rounded text-sm"
+                className="bg-[var(--bitlightblue)] text-white px-2 py-1 rounded text-sm max-lg:text-xs"
               >
                 + Add Option
               </button>
@@ -552,7 +552,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
                     onChange={(e) =>
                       setFormData({ ...formData, status: e.target.value })}
                     className="text-blue-600 rounded-full focus:ring-blue-500" />
-                  <span className="text-[var(--lightGray)]">Active</span>
+                  <span className="text-[var(--lightGray)] max-lg:text-sm">Active</span>
                 </label>
                 <label className="flex items-center space-x-2">
                   <input
@@ -565,7 +565,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
                     }
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-[var(--lightGray)]">Inactive</span>
+                  <span className="text-[var(--lightGray)] max-lg:text-sm">Inactive</span>
                 </label>
               </div>
             </div>
@@ -573,7 +573,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md hover:opacity-90 flex items-center cursor-pointer">
+                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md hover:opacity-90 flex items-center cursor-pointer max-lg:px-2 max-lg:text-sm">
                 <span className="px-2">
                   <IoIosSave />
                 </span>
@@ -581,7 +581,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
               </button>
               <button
                 onClick={handleReset}
-                className="text-[var(--black)] px-4 py-2 bg-[var(--gray)] rounded-md hover:opacity-90 cursor-pointer">
+                className="text-[var(--black)] px-4 py-2 bg-[var(--gray)] rounded-md hover:opacity-90 cursor-pointer max-lg:px-2 max-lg:text-sm">
                 Reset
               </button>
             </div>
