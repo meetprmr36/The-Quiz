@@ -3,7 +3,7 @@ import UserRow from './UserRow';
 
 const UserTable = ({ data,onDelete }) => {
     return (
-        <div className="max-h-[70vh] overflow-y-scroll mb-5 shadow-md rounded-lg">
+        <div className="max-h-[calc(100vh-190px)] overflow-y-scroll mb-5 shadow-md rounded-lg">
             <table className="w-full border-collapse table-fixed">
                 <thead className="Table-head sticky top-0 z-20">
                     <tr className="text-left">

@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <div className={darkMode ? "dark" : ""}>
-        <div className="maincomponent flex">
+        <div className="maincomponent transition-all duration-400 ease-in-out flex">
           <Thesidebar darkMode={darkMode} setDarkMode={setDarkMode} />
           <div className="Thecontent flex-1">
             <Themaincomponent />

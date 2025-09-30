@@ -1,35 +1,73 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Dashboard from "../Pages/DashboardPage";
 import ManageTechnology from "./ManageTechology";
 import ManageQuestion from "./ManageQuestion";
 import ManageUser from "./ManageUser";
+import axios from "axios";
 
 const Themaincomponent = () => {
   const location = useLocation();
-  const [technologies, setTechnologies] = useState([
-    { id: 1, name: "React", status: "Active", date: "2024-01-15" },
-    { id: 2, name: "Node", status: "Active", date: "2024-01-16" },
-    { id: 3, name: "Python", status: "InActive", date: "2024-01-17" },
-    { id: 4, name: "MongoDB", status: "Active", date: "2024-01-18" },
-    { id: 5, name: "Express", status: "Active", date: "2024-01-19" },
-    { id: 6, name: "Django", status: "InActive", date: "2024-01-20" },
-    { id: 7, name: "Angular", status: "Active", date: "2024-01-21" },
-    { id: 8, name: "Vue", status: "Active", date: "2024-01-22" },
-    { id: 9, name: "Java", status: "InActive", date: "2024-01-23" },
-    { id: 10, name: "C#", status: "Active", date: "2024-01-24" },
-    { id: 11, name: "Go", status: "Active", date: "2024-01-25" },
-    { id: 12, name: "Rust", status: "InActive", date: "2024-01-26" },
-    { id: 13, name: "PHP", status: "Active", date: "2024-01-27" },
-    { id: 14, name: "Laravel", status: "Active", date: "2024-01-28" },
-    { id: 15, name: "Spring Boot", status: "InActive", date: "2024-01-29" },
-    { id: 16, name: "Kotlin", status: "Active", date: "2024-01-30" },
-    { id: 17, name: "Swift", status: "Active", date: "2024-02-01" },
-    { id: 18, name: "Flutter", status: "Active", date: "2024-02-02" },
-    { id: 19, name: "Ruby on Rails", status: "InActive", date: "2024-02-03" },
-    { id: 20, name: "TypeScript", status: "Active", date: "2024-02-04" }
-  ]);
+  // const [technologies, setTechnologies] = useState([
+  //   { id: 1, name: "React", status: "Active", date: "2024-01-15" },
+  //   { id: 2, name: "Node", status: "Active", date: "2024-01-16" },
+  //   { id: 3, name: "Python", status: "InActive", date: "2024-01-17" },
+  //   { id: 4, name: "MongoDB", status: "Active", date: "2024-01-18" },
+  //   { id: 5, name: "Express", status: "Active", date: "2024-01-19" },
+  //   { id: 6, name: "Django", status: "InActive", date: "2024-01-20" },
+  //   { id: 7, name: "Angular", status: "Active", date: "2024-01-21" },
+  //   { id: 8, name: "Vue", status: "Active", date: "2024-01-22" },
+  //   { id: 9, name: "Java", status: "InActive", date: "2024-01-23" },
+  //   { id: 10, name: "C#", status: "Active", date: "2024-01-24" },
+  //   { id: 11, name: "Go", status: "Active", date: "2024-01-25" },
+  //   { id: 12, name: "Rust", status: "InActive", date: "2024-01-26" },
+  //   { id: 13, name: "PHP", status: "Active", date: "2024-01-27" },
+  //   { id: 14, name: "Laravel", status: "Active", date: "2024-01-28" },
+  //   { id: 15, name: "Spring Boot", status: "InActive", date: "2024-01-29" },
+  //   { id: 16, name: "Kotlin", status: "Active", date: "2024-01-30" },
+  //   { id: 17, name: "Swift", status: "Active", date: "2024-02-01" },
+  //   { id: 18, name: "Flutter", status: "Active", date: "2024-02-02" },
+  //   { id: 19, name: "Ruby on Rails", status: "InActive", date: "2024-02-03" },
+  //   { id: 20, name: "TypeScript", status: "Active", date: "2024-02-04" }
+  // ]);
+
+  const [technologies, setTechnologies] = useState([]);
+  useEffect(() => {
+    const fetchTechnologies = async () => {
+      const API_URL = 'https://91aaee176916.ngrok-free.app/v1/technologies'
+      try {
+        const { data } = await axios.get(
+          API_URL,
+          {
+            headers: {
+              Accept: 'application/json',
+              'ngrok-skip-browser-warning': 'true',
+            },
+          }
+        )
+
+        if (
+          data &&
+          typeof data === 'object'
+        ) {
+
+          setTechnologies(data.data)
+        } else {
+          console.error(
+            'API response data is not in the expected format:',
+            data
+          )
+          setTechnologies([])
+        }
+      } catch (error) {
+        console.error('Error fetching technologies:', error)
+      }
+    }
+
+    fetchTechnologies()
+  }, [])
+
 
   const [questions, setQuestions] = useState([
     { id: 1, question: "What is React?", technology: "React", options: ["A JS library", "A framework", "A DB"], status: "Active" },
@@ -72,6 +110,40 @@ const Themaincomponent = () => {
     { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23", examStatus: "Not Attempted", score: 6 },
     { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24", examStatus: "Fail", score: 12 },
   ]);
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     const API_URL = '/api/v1/users'
+  //     try {
+  //       const { data } = await axios.get(
+  //         API_URL,
+  //         {
+  //           headers: {
+  //             Accept: 'application/json',
+  //             'ngrok-skip-browser-warning': 'true',
+  //           },
+  //         }
+  //       )
+  //       if (
+  //         data &&
+  //         typeof data === 'object'
+  //       ) {
+
+  //         setUsers(data.data)
+  //       } else {
+  //         console.error(
+  //           'API response data is not in the expected format:',
+  //           data
+  //         )
+  //         setUsers([])
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching users:', error)
+  //     }
+  //   }
+
+  //   fetchUsers()
+  // }, [])
 
 
   return (

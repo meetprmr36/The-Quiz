@@ -4,7 +4,7 @@ import { FaEarthAmericas, FaQuestion } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import { } from "react-icons/fa";
 import { IoIosLogOut, IoMdMoon, IoMdSpeedometer } from "react-icons/io";
-import { FaBrain, FaRegUser,FaUserFriends } from "react-icons/fa";
+import { FaBrain, FaRegUser, FaUserFriends } from "react-icons/fa";
 
 
 const Thesidebar = ({ darkMode, setDarkMode }) => {
@@ -16,7 +16,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
     };
 
     return (
-        <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)] transition-all duration-500">
+        <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)]  transition-all duration-400">
             <nav>
                 <div className="Logo-Name text-center p-4 mb-2">
                     <div className="flex flex-col items-center justify-center">
@@ -40,7 +40,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     </div>
                 </div>
 
-                <div className="px-2 max-xl:px-1">
+                <div className="px-2 max-xl:px-1 transition-all duration-400">
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><IoMdSpeedometer /></span>
@@ -68,21 +68,21 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                 </div>
             </nav>
 
-            <div className="Side Flex-column">
+            <div className="Side Flex-column transition-all duration-400">
                 <div className="fixed top-4 right-4 z-50 cursor-pointer transition-all duration-200 hover:scale-105 max-lg:top-2" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
                         <div className="flex items-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl shadow-lg hover:shadow-xl">
-                            <IoSunnyOutline className="m-3 text-black text-xl" />
+                            <IoSunnyOutline className="m-3 text-black text-xl max-sm:m-2 max-sm:text-base" />
                         </div>
                     ) : (
                         <div className="flex items-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-xl">
-                            <IoMdMoon className="m-3 text-white text-xl" />
+                            <IoMdMoon className="m-3 text-white text-xl max-sm:m-2 max-sm:text-base" />
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="Side mt-auto border-t border-gray-200 pt-4">
+            <div className="Side mt-auto border-t border-gray-200 pt-4 transition-all duration-400">
                 <div className="px-4 flex w-[75%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
                     <p className="text-sm w-full justify-start px-3 py-2 rounded-lg max-lg:justify-center max-md:py-0"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
                 </div>
@@ -100,23 +100,23 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
 
             {showLogout && (
                 <div className="logout-modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="logout-modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4">
+                    <div className="logout-modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 max-lg:p-5 max-lg:mx-3">
                         <div className="text-center">
-                            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 max-lg:w-12 max-lg:h-12">
                                 <IoIosLogOut className="text-red-600 text-2xl" />
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2">Confirm Logout</h3>
-                            <p className="text-gray-600 mb-6">Are you sure you want to logout from your admin session?</p>
+                            <h3 className="text-xl font-semibold text-gray-900 mb-2 max-lg:text-base">Confirm Logout</h3>
+                            <p className="text-gray-600 mb-6 max-lg:text-sm max-sm:text-xs max-md:mb-3">Are you sure you want to logout from your admin session?</p>
                             <div className="flex space-x-3">
                                 <button
                                     onClick={handleLogout}
-                                    className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+                                    className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 max-lg:py-2 max-lg:px-2"
                                 >
                                     Logout
                                 </button>
                                 <button
                                     onClick={() => setShowLogout(false)}
-                                    className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors duration-200"
+                                    className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors duration-200 max-lg:py-2 max-lg:px-2"
                                 >
                                     Cancel
                                 </button>

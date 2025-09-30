@@ -6,6 +6,15 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     react(),
-     tailwindcss(),
+    tailwindcss(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://91aaee176916.ngrok-free.app/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })

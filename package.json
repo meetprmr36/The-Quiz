@@ -13,6 +13,7 @@
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/vite": "^4.1.13",
     "apexcharts": "^5.3.5",
+    "axios": "^1.12.2",
     "core-js": "^3.45.1",
     "dayjs": "^1.11.18",
     "framer-motion": "^12.23.12",

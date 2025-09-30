@@ -50,14 +50,14 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
   ).length;
 
   return (
-    <tr className="Border-bottom hover:bg-[var(--Hovergray)]">
-      <td className="p-3 px-5 max-w-50 break-words max-lg:text-sm max-sm:text-xs">{tech.name}</td>
-      <td className="p-3 max-w-30 break-words max-lg:text-sm max-sm:text-xs">{tech.date}</td>
-      <td className="p-3 max-w-24 break-words">
+    <tr className="Border-bottom hover:bg-[var(--Hovergray)] transition-all duration-400">
+      <td className="p-3 px-5 break-words max-lg:text-sm max-sm:text-xs">{tech.name}</td>
+      <td className="p-3 max-w-30 break-words max-lg:text-sm max-sm:text-xs max-sm:max-w-[280px]">{tech.date}</td>
+      <td className="p-3 break-words max-sm:max-w-[220px]">
         <StatusBadge status={tech.status} />
       </td>
-      <td className="p-3 max-w-30 break-words max-lg:text-sm max-sm:text-xs">{questionCount}</td>
-      <td className="p-3 max-w-38 break-words flex justify-center">
+      <td className="p-3 break-words max-lg:text-sm max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
+      <td className="p-3 break-words flex max-sm:max-w-[200px]">
         <button
           onClick={() => onEdit?.(tech.id)}
           className="Button-style text-blue-600 hover:underline"
