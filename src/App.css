@@ -382,6 +382,7 @@ body {
 .Thecontent {
     width: 100%;
     background-color: var(--gray);
+    transition: all 0.5s;
 }
 
 .welcome h1 {

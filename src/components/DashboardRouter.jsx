@@ -35,7 +35,7 @@ const Themaincomponent = () => {
   const [technologies, setTechnologies] = useState([]);
   useEffect(() => {
     const fetchTechnologies = async () => {
-      const API_URL = 'https://91aaee176916.ngrok-free.app/v1/technologies'
+      const API_URL = 'https://56c1c9965cbd.ngrok-free.app/v1/technologies'
       try {
         const { data } = await axios.get(
           API_URL,
@@ -52,7 +52,7 @@ const Themaincomponent = () => {
           typeof data === 'object'
         ) {
 
-          setTechnologies(data.data)
+          setTechnologies(data?.data)
         } else {
           console.error(
             'API response data is not in the expected format:',
@@ -97,6 +97,44 @@ const Themaincomponent = () => {
     { id: 25, question: "What is GraphQL?", technology: "Node", options: ["API query language", "Frontend lib"], status: "InActive" },
   ]);
 
+  // const [questions, setQuestions] = useState([])
+  // useEffect(() => {
+  //   const fetchquestions = async () => {
+  //     const API_URL = 'https://56c1c9965cbd.ngrok-free.app/v1/questions/list'
+  //     const token = import.meta.env.VITE_API_TOKEN;
+  //     try {
+  //       const { data } = await axios.get(
+  //         API_URL,
+  //         {
+  //           headers: {
+  //             Accept: 'application/json',
+  //             'ngrok-skip-browser-warning': 'true',
+  //             "Authorization": `Bearer ${token}`
+  //           },
+  //         }
+  //       )
+  //       console.log(data)
+  //       if (
+  //         data &&
+  //         typeof data === 'object'
+  //       ) {
+
+  //         setQuestions(data?.data)
+  //       } else {
+  //         console.error(
+  //           'API response data is not in the expected format:',
+  //           data
+  //         )
+  //         setQuestions([])
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching technologies:', error)
+  //     }
+  //   }
+
+  //   fetchquestions()
+  // }, [])
+
 
   const [users, setUsers] = useState([
     { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15", examStatus: "Pass", score: 10 },
@@ -113,14 +151,15 @@ const Themaincomponent = () => {
   // const [users, setUsers] = useState([]);
   // useEffect(() => {
   //   const fetchUsers = async () => {
-  //     const API_URL = '/api/v1/users'
+  //     const API_URL = 'https://56c1c9965cbd.ngrok-free.app/v1/users'
+  //     const token = import.meta.env.VITE_API_TOKEN;
   //     try {
   //       const { data } = await axios.get(
   //         API_URL,
   //         {
   //           headers: {
-  //             Accept: 'application/json',
-  //             'ngrok-skip-browser-warning': 'true',
+  //             "ngrok-skip-browser-warning": "true",
+  //             "Authorization": `Bearer ${token}`
   //           },
   //         }
   //       )
@@ -129,7 +168,7 @@ const Themaincomponent = () => {
   //         typeof data === 'object'
   //       ) {
 
-  //         setUsers(data.data)
+  //         setUsers(data.data )
   //       } else {
   //         console.error(
   //           'API response data is not in the expected format:',

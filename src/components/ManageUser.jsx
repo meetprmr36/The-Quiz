@@ -12,11 +12,6 @@ const ManageUser = ({ Users, setUsers }) => {
         }, 300);
     };
 
-    const handleDelete = (id) => {
-        setUsers(Users.filter((user) => user.id !== id));
-        showMessage("User deleted successfully!", "success");
-    };
-
     return (
         <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)] max-lg:px-4 max-lg:py-2 min-h-screen relative">
             {message && (
@@ -43,7 +38,6 @@ const ManageUser = ({ Users, setUsers }) => {
 
             <UserTable
                 data={Users}
-                onDelete={handleDelete}
             />
         </div>
     );

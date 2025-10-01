@@ -1,7 +1,7 @@
 import React from 'react';
 import UserRow from './UserRow';
 
-const UserTable = ({ data,onDelete }) => {
+const UserTable = ({ data}) => {
     return (
         <div className="max-h-[calc(100vh-190px)] overflow-y-scroll mb-5 shadow-md rounded-lg">
             <table className="w-full border-collapse table-fixed">
@@ -10,7 +10,6 @@ const UserTable = ({ data,onDelete }) => {
                         <th className="p-3 px-5 w-[40%] max-lg:w-[30%] max-md:w-[40%] max-sm:w-45 max-sm:text-xs">Users</th>
                         <th className="p-3 w-[25%] max-lg:w-[30%] max-md:w-[50%] max-sm:w-60 max-sm:text-xs">email</th>
                         <th className="p-3 w-[20%] max-lg:w-[15%] max-md:w-[15%] max-sm:w-30 max-sm:text-xs">Status</th>
-                        <th className="p-3 px-10 w-[20%] max-lg:w-[15%] max-md:w-[40%] max-lg:text-center max-lg:px-5 max-sm:w-30 max-sm:text-xs">Actions</th>
                     </tr>
                 </thead>
                 <tbody className="Table-body overflow-auto">
@@ -18,7 +17,6 @@ const UserTable = ({ data,onDelete }) => {
                         <UserRow
                             key={Users.id}
                             user={Users}
-                            onDelete={onDelete}
                         />
                     ))}
                 </tbody>

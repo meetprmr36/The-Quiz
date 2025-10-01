@@ -10,7 +10,15 @@ import { FaBrain, FaRegUser, FaUserFriends } from "react-icons/fa";
 const Thesidebar = ({ darkMode, setDarkMode }) => {
     const [showLogout, setShowLogout] = useState(false);
 
-    const handleLogout = () => {
+    // const handleLogout = () => {
+    //     setShowLogout(false);
+    //     window.location.href = "/";
+    // };
+
+        const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        localStorage.clear();
         setShowLogout(false);
         window.location.href = "/";
     };

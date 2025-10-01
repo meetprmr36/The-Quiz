@@ -16,6 +16,8 @@ const FirstCards = ({ technologie, questions, User }) => {
     const calculations = useMemo(() => {
         if (!technologie || !questions || !User) return null;
 
+        // optimize it.
+
         const activeCount = technologie.filter(t => t.status === "Active").length;
         const activeQCount = questions.filter(q => q.status === "Active").length;
         const inactiveQCount = questions.filter(q => q.status === "InActive").length;

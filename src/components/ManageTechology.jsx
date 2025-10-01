@@ -4,14 +4,18 @@ import AddButton from "./AddButton";
 import { IoMdClose, IoIosSave } from "react-icons/io";
 import axios from "axios";
 
-const ManageTechnology = ({technologies,setTechnologies, questions }) => {
-  const [showForm, setShowForm] = useState(false);
+const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
   const [editingId, setEditingId] = useState(null);
-  const [techName, setTechName] = useState("");
-  const [status, setStatus] = useState("Active");
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    id: null,
+    name: "",
+    active: 1,
+  });
   const [message, setMessage] = useState(null);
 
-  const API_BASE = 'https://91aaee176916.ngrok-free.app/v1/technologies';
+  const API_BASE = `${import.meta.env.VITE_API_URL}v1/technologies`;
+  const token = import.meta.env.VITE_API_TOKEN;
 
   const showMessage = (text, type = "info") => {
     setMessage({ text, type });
@@ -19,9 +23,7 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
   };
 
   const handleReset = () => {
-    setTechName("");
-    setStatus("Active");
-    setEditingId(null);
+    setFormData({ id: null, name: "", active: 1 });
   };
 
   const handleBack = () => {
@@ -32,15 +34,18 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
   const handleEdit = async (id) => {
     try {
       const { data } = await axios.get(`${API_BASE}/${id}`, {
-        headers: { "ngrok-skip-browser-warning": "true" }
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          "Authorization": `Bearer ${token}`
+        },
       });
 
-      console.log({data})
       if (data && data.data) {
-        const techToEdit = technologies.find((tech) => tech.id === id);
-        setTechName(techToEdit.name);
-        setStatus(techToEdit.status === "Active" ? "Active" : "InActive");
-        setEditingId(techToEdit.id);
+        setFormData({
+          id: data.data.id,
+          name: data.data.name || "",
+          active: data.data.active ?? 1,
+        });
         setShowForm(true);
       } else {
         showMessage("Technology not found!", "error");
@@ -51,52 +56,42 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
     }
   };
 
-
-
   const handleSave = async () => {
-    if (!techName.trim()) {
+    if (!formData.name.trim()) {
       showMessage("Technology name is required!", "error");
       return;
     }
 
-    if (
-      technologies.some(
-        (tech) =>
-          tech.name.toLowerCase() === techName.toLowerCase() &&
-          tech.id !== editingId
-      )
-    ) {
-      showMessage("Technology already exists!", "error");
-      return;
-    }
-
     try {
-      if (editingId) {
-        const { data } = await axios.patch(`${API_BASE}/${editingId}`, {
-          name: techName,
-          status,
-        });
+      if (formData.id) {
+        const { data } = await axios.patch(
+          `${API_BASE}/${formData.id}`,
+          { name: formData.name, active: formData.active },
+          { headers: { "ngrok-skip-browser-warning": "true", "Authorization": `Bearer ${token}` } }
+        );
+
         setTechnologies(prev =>
-          prev.map(tech =>
-            tech.id === editingId ? { ...tech, name: techName, status } : tech
-          )
+          prev.map(tech => tech.id === formData.id ? data.data : tech)
         );
         showMessage("Technology updated successfully", "success");
       } else {
         const { data } = await axios.post(
           API_BASE,
-          { name: techName, status },
-          { headers: { "ngrok-skip-browser-warning": "true" } }
+          { name: formData.name },
+          { headers: { "ngrok-skip-browser-warning": "true", "Authorization": `Bearer ${token}` } }
         );
-        setTechnologies((prev) => [...prev, data.data]);
+
+        setTechnologies(prev => [...prev, data.data]);
         showMessage("Technology added successfully", "success");
       }
 
-      setShowForm(false);
       handleReset();
+      setShowForm(false);
     } catch (err) {
       console.error(err);
-      if (err.response?.status === 404) {
+      if (err.response?.status === 409) {
+        showMessage("Technology already exists!", "error");
+      } else if (err.response?.status === 404) {
         showMessage("API endpoint not found. Check backend.", "error");
       } else {
         showMessage(err.response?.data?.message || "Something went wrong!", "error");
@@ -109,119 +104,13 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
       await axios.delete(`${API_BASE}/${id}`, {
         headers: { "ngrok-skip-browser-warning": "true" },
       });
-      setTechnologies((prev) => prev.filter((tech) => tech.id !== id));
+      setTechnologies(prev => prev.filter(tech => tech.id !== id));
       showMessage("Technology deleted successfully", "success");
     } catch (err) {
       console.error(err);
-      showMessage("Failed to delete technology", "error");
+      showMessage(err.response?.data?.message || "Failed to delete technology", "error");
     }
   };
-
-  // const [techName, setTechName] = useState("");
-  // const [status, setStatus] = useState("Active");
-  // const [editingId, setEditingId] = useState(null);
-  // const [showForm, setShowForm] = useState(false);
-  // const [message, setMessage] = useState(null);
-  // const [technologies, setTechnologies] = useState([]);
-
-  // const showMessage = (text, type = "info") => {
-  //   setMessage({ text, type });
-  //   setTimeout(() => setMessage(null), 3000);
-  // };
-
-  // const fetchTechnologies = async () => {
-  //   try {
-  //     const { data } = await axios.get(API_BASE, {
-  //       headers: { "ngrok-skip-browser-warning": "true" }
-  //     });
-  //     if (data && data.data) setTechnologies(data.data);
-  //   } catch (err) {
-  //     console.error(err);
-  //     showMessage("Failed to fetch technologies", "error");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchTechnologies();
-  // }, []);
-
-  // const handleEdit = async (id) => {
-  //   try {
-  //     const { data } = await axios.get(`${API_BASE}/${id}`, {
-  //       headers: { "ngrok-skip-browser-warning": "true" }
-  //     });
-  //     if (data && data.data) {
-  //       const tech = data.data;
-  //       setTechName(tech.name);
-  //       setStatus(tech.status === "Active" ? "Active" : "InActive");
-  //       setEditingId(tech.id);
-  //       setShowForm(true);
-  //     } else {
-  //       showMessage("Technology not found!", "error");
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     showMessage(err.response?.data?.message || "Failed to fetch technology!", "error");
-  //   }
-  // };
-
-  // const handleSave = async () => {
-  //   if (!techName.trim()) {
-  //     showMessage("Technology name is required!", "error");
-  //     return;
-  //   }
-
-  //   try {
-  //     if (editingId) {
-  //       // PATCH update
-  //       await axios.patch(`${API_BASE}/${editingId}`, {
-  //         name: techName,
-  //         status,
-  //       }, {
-  //         headers: { "ngrok-skip-browser-warning": "true" }
-  //       });
-  //       showMessage("Technology updated successfully", "success");
-  //     } else {
-  //       // POST add
-  //       await axios.post(API_BASE, {
-  //         name: techName,
-  //         status,
-  //       }, {
-  //         headers: { "ngrok-skip-browser-warning": "true" }
-  //       });
-  //       showMessage("Technology added successfully", "success");
-  //     }
-
-  //     setShowForm(false);
-  //     setTechName("");
-  //     setStatus("Active");
-  //     setEditingId(null);
-  //     fetchTechnologies(); // refresh list from server
-  //   } catch (err) {
-  //     console.error(err);
-  //     showMessage(err.response?.data?.message || "Something went wrong!", "error");
-  //   }
-  // };
-
-  // const handleDelete = async (id) => {
-  //   try {
-  //     await axios.delete(`${API_BASE}/${id}`, {
-  //       headers: { "ngrok-skip-browser-warning": "true" }
-  //     });
-  //     showMessage("Technology deleted successfully", "success");
-  //     fetchTechnologies(); // refresh list from server
-  //   } catch (err) {
-  //     console.error(err);
-  //     showMessage("Failed to delete technology", "error");
-  //   }
-  // };
-
-  // const handleReset = () => {
-  //   setTechName("");
-  //   setStatus("Active");
-  //   setEditingId(null);
-  //   setShowForm(false);
-  // };
 
   return (
     <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)] max-lg:px-4 max-lg:py-2 min-h-screen">
@@ -230,8 +119,8 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
           className={`fixed top-5 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow-md text-white z-[9999] ${message.type === "success"
             ? "bg-green-500"
             : message.type === "error"
-              ? "bg-red-500"
-              : "bg-blue-500"
+              ? "bg-red-400"
+              : "bg-blue-400"
             }`}
         >
           {message.text}
@@ -287,8 +176,8 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
               </label>
               <input
                 type="text"
-                value={techName}
-                onChange={(e) => setTechName(e.target.value)}
+                value={formData.name}
+                onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
                 placeholder="e.g., React.js, Node.js, Python"
                 className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:px-2 max-lg:py-1 max-lg:text-sm"
               />
@@ -304,8 +193,8 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
                     type="radio"
                     name="status"
                     value="Active"
-                    checked={status === "Active"}
-                    onChange={() => setStatus("Active")}
+                    checked={formData.active === 1}
+                    onChange={() => setFormData(prev => ({ ...prev, active: 1 }))}
                     className="text-blue-600 focus:ring-blue-500"
                   />
                   <span className="text-[var(--lightGray)]">Active</span>
@@ -315,8 +204,8 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
                     type="radio"
                     name="status"
                     value="InActive"
-                    checked={status === "InActive"}
-                    onChange={() => setStatus("InActive")}
+                    checked={formData.active === 0}
+                    onChange={() => setFormData(prev => ({ ...prev, active: 0 }))}
                     className="text-blue-600 focus:ring-blue-500"
                   />
                   <span className="text-[var(--lightGray)]">Inactive</span>
@@ -326,7 +215,7 @@ const ManageTechnology = ({technologies,setTechnologies, questions }) => {
 
             <div className="flex space-x-3">
               <button
-                onClick={handleSave}
+                onClick={() => handleSave()}
                 className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer max-lg:text-sm max-lg:px-3 max-lg:py-1"
               >
                 <span className="px-2">
