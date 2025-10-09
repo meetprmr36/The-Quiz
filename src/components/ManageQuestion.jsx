@@ -225,7 +225,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
   return (
     <div className="Manage-Question px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen max-lg:px-4 max-lg:py-3">
       <div className="my-5 mx-0">
-        <div className="flex justify-between items-center mb-4 max-lg:mb-0 transition-all duration-400">
+        <div className="flex justify-between items-center mb-5 max-lg:mb-0 transition-all duration-400">
           <h2 className="text-4xl font-semibold max-lg:text-2xl max-md:text-xl">
             Manage Questions
           </h2>
@@ -247,7 +247,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
 
       {showForm && (
         <div className="Technology-form-model fixed inset-0 flex w-full items-center justify-center bg-black/50 animate-fadeIn">
-          <div className="Technology-form max-w-xl bg-[var(--white)] p-6 rounded-lg shadow dark:shadow-lg my-auto w-full mx-4">
+          <div className="Technology-form max-w-xl bg-[var(--white)] rounded-lg shadow dark:shadow-lg my-auto w-full mx-4">
             <div className="mb-6 flex flex-col max-lg:mb-4">
               <div className="flex flex-row justify-between text-left">
                 <h1 className="text-2xl items-center flex font-semibold text-[var(--black)] py-3 max-lg:text-xl max-lg:py-2">
@@ -266,7 +266,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             </div>
 
             <div className="mb-4 text-left max-lg:mb-3">
-              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm">
+              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm max-lg:font-light">
                 Question Text <span className="text-red-500 text-2xl max-lg:text-base">*</span>
               </label>
               <textarea
@@ -280,14 +280,14 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             </div>
 
             <div className="mb-4 text-left relative">
-              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm">
+              <label className="block text-[var(--black)] font-medium mb-1 max-lg:text-sm max-lg:font-light">
                 Technology <span className="text-red-500">*</span>
               </label>
               <input
                 placeholder="Enter Technology"
                 value={formData.technology}
                 onChange={handleChange}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:text-sm max-lg:px-2 max-lg:py-1"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:text-sm max-lg:px-2"
               />
 
               {suggestions.length > 0 && (
@@ -309,7 +309,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
               Options
               <button
                 onClick={handleAddOption}
-                className="bg-[var(--bitlightblue)] text-white px-2 py-1 rounded text-sm max-lg:text-xs"
+                className="add-button text-white px-2 py-1 rounded text-sm max-lg:text-xs"
               >
                 + Add Option
               </button>
@@ -321,7 +321,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             </div>
 
             <div className="mb-6 mt-4">
-              <label className="block text-[var(--black)] text-left font-medium mb-2">
+              <label className="block text-[var(--black)] text-left font-medium mb-2 max-lg:font-light">
                 Status
               </label>
               <div className="flex items-center space-x-6">
@@ -358,7 +358,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
               <button
                 type="submit"
                 onClick={handleSave}
-                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md hover:opacity-90 flex items-center cursor-pointer max-lg:px-2 max-lg:text-sm"
+                className=" add-button text-white px-4 py-2 rounded-md hover:opacity-90 flex items-center cursor-pointer max-lg:px-2 max-lg:text-sm"
               >
                 <span className="px-2">
                   <IoIosSave />

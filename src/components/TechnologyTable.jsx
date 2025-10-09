@@ -9,14 +9,14 @@ const TechnologyTable = ({ data, onDelete, quest, onEdit }) => {
           <tr className="text-left">
             <th
             className="p-3 w-[35%] px-5 bg-[var(--Gray)] max-lg:w-[30%] max-sm:text-xs max-sm:w-[40%]">Technology</th>
+            {/* <th
+            className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[20%] max-sm:text-xs max-sm:w-[35%]">Created Date</th> */}
             <th
-            className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[20%] max-sm:text-xs max-sm:w-[35%]">Created Date</th>
+            className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[30%]">Status</th>
             <th
-            className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[20%] max-sm:text-xs max-sm:w-[30%]">Status</th>
+            className="p-3 w-[10%] bg-[var(--Gray)] max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[15%]">Questions</th>
             <th
-            className="p-3 w-[10%] bg-[var(--Gray)] max-lg:w-[15%] max-sm:text-xs max-sm:w-[15%]">Questions</th>
-            <th
-            className="p-3 w-[15%] px-10 bg-[var(--Gray)] max-lg:w-[15%] max-lg:px-5 max-sm:text-xs max-sm:w-[20%]">Actions</th>
+            className="p-3 w-[15%] px-10 bg-[var(--Gray)] max-lg:w-[10%] max-lg:px-5 max-sm:text-xs max-sm:w-[15%]">Actions</th>
           </tr>
         </thead>
         <tbody className="Table-body overflow-auto">

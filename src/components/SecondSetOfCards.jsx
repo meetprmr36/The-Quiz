@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import StatusBadge from "./StatusBadge"
 
 function ProgressUser({ name, score, delay }) {
     const percentage = ((score / 15) * 100).toFixed(0);
@@ -94,12 +95,7 @@ function SecondSetCards({ techList, questions, User }) {
                                 <span className="tag blue">
                                     {q.technology}
                                 </span>
-                                <span
-                                    className={`tag ${q.status === "Active" ? "status-active" : "status-inactive"
-                                        }`}
-                                >
-                                    {q.status}
-                                </span>
+                                <StatusBadge active={q.status} />
                             </div>
                         </div>
                     ))}
@@ -120,12 +116,7 @@ function SecondSetCards({ techList, questions, User }) {
                                 {t.name}
                             </p>
                             <div className="flex gap-2 flex-wrap mx-4">
-                                <span
-                                    className={`tag ${t.status === "Active" ? "status-active" : "status-inactive"
-                                        }`}
-                                >
-                                    {t.status}
-                                </span>
+                                <StatusBadge active={t.status} />
                             </div>
                         </div>
                     ))}

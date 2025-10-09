@@ -102,7 +102,10 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API_BASE}/${id}`, {
-        headers: { "ngrok-skip-browser-warning": "true" },
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          "Authorization": `Bearer ${token}`
+        },
       });
       setTechnologies(prev => prev.filter(tech => tech.id !== id));
       showMessage("Technology deleted successfully", "success");
@@ -128,7 +131,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
       )}
 
       <div className="my-5">
-        <div className="flex justify-between mb-4 max-lg:mb-0 max-sm:mb-2">
+        <div className="flex justify-between mb-5 max-lg:mb-0 max-sm:mb-2">
           <h2 className="text-4xl font-semibold max-lg:text-2xl max-sm:text-xl">
             Manage Technology
           </h2>
@@ -170,7 +173,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
             </p>
 
             <div className="mb-8 max-lg:mb-5">
-              <label className="block text-[var(--black)] mb-3 text-left font-medium max-lg:mb-2 max-lg:text-sm">
+              <label className="block text-[var(--black)] mb-3 text-left font-medium max-lg:mb-2 max-lg:font-light max-lg:text-sm">
                 Technology Name{" "}
                 <span className="text-red-500 text-2xl max-lg:text-xl">*</span>
               </label>
@@ -184,7 +187,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
             </div>
 
             <div className="mb-8 max-lg:mb-5">
-              <label className="block text-[var(--black)] font-medium mb-2 text-left">
+              <label className="block text-[var(--black)] font-medium mb-2 text-left max-lg:font-light">
                 Status
               </label>
               <div className="flex items-center space-x-6">
@@ -216,7 +219,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
             <div className="flex space-x-3">
               <button
                 onClick={() => handleSave()}
-                className="bg-[var(--bitlightblue)] text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer max-lg:text-sm max-lg:px-3 max-lg:py-1"
+                className="add-button text-white px-4 py-2 rounded-md flex flex-row items-center cursor-pointer max-lg:text-sm max-lg:px-3 max-lg:py-1"
               >
                 <span className="px-2">
                   <IoIosSave />

@@ -49,22 +49,21 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
     q => q.technology?.toLowerCase() === tech.name?.toLowerCase()
   ).length;
 
-const techNames = questions?.map(q => q.technology);
-console.log(techNames);
+  const techNames = questions?.map(q => q.technology);
 
 
   return (
-    <tr className="Border-bottom hover:bg-[var(--Hovergray)] transition-all duration-400">
+    <tr className="Border-bottom hover:bg-[var(--accenthover)] transition-all duration-400">
       <td className="p-3 px-5 break-words max-lg:text-sm max-sm:text-xs">{tech?.name}</td>
-      <td className="p-3 max-w-30 break-words max-lg:text-sm max-sm:text-xs max-sm:max-w-[280px]">{tech?.date}</td>
-      <td className="p-3 break-words max-sm:max-w-[220px]">
+      {/* <td className="p-3 max-w-30 break-words max-lg:text-sm max-sm:text-xs max-sm:max-w-[280px]">{tech?.date}</td> */}
+      <td className="p-3 break-words max-lg:text-center max-sm:max-w-[220px]">
         <StatusBadge active={tech?.active} />
       </td>
-      <td className="p-3 break-words max-lg:text-sm max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
+      <td className="p-3 break-words max-lg:text-sm max-lg:text-center max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
       <td className="p-3 break-words flex max-sm:max-w-[200px]">
         <button
           onClick={() => onEdit?.(tech?.id)}
-          className="Button-style text-blue-600 hover:underline"
+          className="Button-style text-[#8b5cf6] hover:underline"
         >
           <FaEdit />
           <span className="TooltipText">Edit</span>

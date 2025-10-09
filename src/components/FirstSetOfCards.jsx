@@ -16,11 +16,9 @@ const FirstCards = ({ technologie, questions, User }) => {
     const calculations = useMemo(() => {
         if (!technologie || !questions || !User) return null;
 
-        // optimize it.
-
-        const activeCount = technologie.filter(t => t.status === "Active").length;
-        const activeQCount = questions.filter(q => q.status === "Active").length;
-        const inactiveQCount = questions.filter(q => q.status === "InActive").length;
+        const activeCount = technologie.filter(t => t.status === 1).length;
+        const activeQCount = questions.filter(q => q.status === 1).length;
+        const inactiveQCount = questions.filter(q => q.status === 0).length;
 
         const passCount = User.filter(u => u.examStatus === "Pass").length;
         const failCount = User.filter(u => u.examStatus === "Fail").length;
@@ -47,6 +45,7 @@ const FirstCards = ({ technologie, questions, User }) => {
         };
     }, [technologie, questions, User]);
 
+
     const staticOptions = useMemo(() => ({
         tech: {
             chart: {
@@ -66,13 +65,13 @@ const FirstCards = ({ technologie, questions, User }) => {
                 gradient: {
                     shadeIntensity: 0.8,
                     opacityFrom: 0.7,
-                    opacityTo: 0.7,
+                    opacityTo: 0.6,
                     stops: [0, 80]
                 },
             },
             markers: { size: 0 },
             tooltip: { enabled: true, x: { show: false } },
-            colors: ["#3B82F6"],
+            colors: ["#6163f1"],
         },
 
         questions: {
@@ -88,7 +87,7 @@ const FirstCards = ({ technologie, questions, User }) => {
                 }
             },
             labels: ["Active", "Inactive"],
-            colors: ["#3B82F6", "#F87171"],
+            colors: ["#6163f1", "#F87171"],
             legend: { show: false },
             dataLabels: { enabled: false },
             tooltip: { enabled: true },
@@ -145,7 +144,7 @@ const FirstCards = ({ technologie, questions, User }) => {
             grid: { show: false },
             legend: { show: false },
             tooltip: { enabled: true },
-            colors: ["#3b82f6"]
+            colors: ["#6163f1"]
         },
 
         performance: {
@@ -168,7 +167,7 @@ const FirstCards = ({ technologie, questions, User }) => {
             grid: { show: false },
             legend: { show: false },
             tooltip: { enabled: true },
-            colors: ["#3b82f6"]
+            colors: ["#6163f1"]
         }
     }), []);
 
@@ -194,13 +193,13 @@ const FirstCards = ({ technologie, questions, User }) => {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-900">
-            <div className="bg-[var(--white)] rounded-xl shadow-sm p-5 flex flex-row max-xl:p-4 max-lg:p-3">
+            <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
                 <div className="flex-1">
                     <h2 className="text-sm text-[var(--black)] font-medium mb-1 max-xl:text-xs max-lg:text-sm">Technologies</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
                         {technologie?.length || 0}
                     </p>
-                    <p className="text-xs text-gray-400">Coverage</p>
+                    <p className="text-xs my-2 text-gray-400">Coverage</p>
                 </div>
                 <div className="flex justify-end items-end w-full mt-2">
                     <div className="w-[170px] h-[90px] max-2xl:w-[150px] max-2xl:h-[80px] max-xl:w-[100px] max-xl:h-[80px] max-lg:w-[280px] max-lg:h-[100px] First-chart">
@@ -214,18 +213,18 @@ const FirstCards = ({ technologie, questions, User }) => {
                             type="area"
                             width="100%"
                             height="100%"
-                            />
+                        />
                     </div>
                 </div>
             </div>
 
-            <div className="bg-[var(--white)] rounded-xl shadow-sm p-5 flex flex-row max-xl:p-4 max-lg:p-3">
+            <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
                 <div className="flex-1">
                     <h2 className="text-sm font-medium text-[var(--black)] mb-1 max-xl:text-xs max-lg:text-sm">Questions</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
                         {questions?.length || 0}
                     </p>
-                    <p className="text-xs text-gray-400">Quality</p>
+                    <p className="text-xs my-2 text-gray-400">Quality</p>
                 </div>
                 <div className="flex-1 flex justify-end w-full items-end mt-2">
                     <div className="relative w-[110px] h-[100px]">
@@ -241,13 +240,13 @@ const FirstCards = ({ technologie, questions, User }) => {
                 </div>
             </div>
 
-            <div className="bg-[var(--white)] rounded-xl shadow-sm p-5 flex flex-row max-xl:p-4 max-lg:p-3">
+            <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
                 <div className="flex-1">
                     <h2 className="text-sm font-medium text-[var(--black)] mb-1 max-xl:text-xs max-lg:text-sm">Users</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
                         {User?.length || 0}
                     </p>
-                    <p className="text-xs text-gray-400">Growth</p>
+                    <p className="text-xs my-2 text-gray-400">Growth</p>
                 </div>
                 <div className="flex-1 flex justify-end items-end w-full mt-2">
                     <div className="w-[160px] h-[100px] max-2xl:w-[120px] max-2xl:h-[80px]">
@@ -272,13 +271,13 @@ const FirstCards = ({ technologie, questions, User }) => {
                 </div>
             </div>
 
-            <div className="bg-[var(--white)] rounded-xl shadow-sm p-5 flex flex-row max-xl:p-4 max-lg:p-3">
+            <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
                 <div className="flex-1">
                     <h2 className="text-sm font-medium text-[var(--black)] mb-1 max-xl:text-xs max-lg:text-sm">Performance</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
                         {calculations.avgScore}%
                     </p>
-                    <p className="text-xs text-gray-400">Trending</p>
+                    <p className="text-xs my-2 text-gray-400">Trending</p>
                 </div>
                 <div className="flex-1 flex justify-end items-end w-full mt-2">
                     <div className="w-[110px] h-[100px] max-2xl:w-[90px] max-2xl:h-[80px]">

@@ -5,6 +5,7 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { } from "react-icons/fa";
 import { IoIosLogOut, IoMdMoon, IoMdSpeedometer } from "react-icons/io";
 import { FaBrain, FaRegUser, FaUserFriends } from "react-icons/fa";
+import { LuLayoutDashboard } from "react-icons/lu";
 
 
 const Thesidebar = ({ darkMode, setDarkMode }) => {
@@ -15,7 +16,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
     //     window.location.href = "/";
     // };
 
-        const handleLogout = () => {
+    const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
         localStorage.clear();
@@ -30,7 +31,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     <div className="flex flex-col items-center justify-center">
                         <div className="logo-container mb-3">
                             <div className="relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-xl shadow-lg">
-                                <FaBrain className="text-white text-2xl" />
+                                <FaBrain className="text-white text-3xl" />
                                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
                                 <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-green-400 rounded-full"></div>
                             </div>
@@ -47,30 +48,29 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         </div>
                     </div>
                 </div>
-
-                <div className="px-2 max-xl:px-1 transition-all duration-400">
+                <div className="px-3 max-xl:px-0 transition-all duration-400">
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><IoMdSpeedometer /></span>
-                            <span className="hidden md:inline">Dashboard</span>
+                            <span className="text-lg"><LuLayoutDashboard /></span>
+                            <p className="hidden md:inline">Dashboard</p>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/technology" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><FaEarthAmericas /></span>
-                            <span className="hidden md:inline">Manage Technology</span>
+                            <p className="hidden md:inline">Manage Technology</p>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/question" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><FaQuestion /></span>
-                            <span className="hidden md:inline">Manage Question</span>
+                            <p className="hidden md:inline">Manage Question</p>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/User" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><FaUserFriends /></span>
-                            <span className="hidden md:inline">User</span>
+                            <p className="hidden md:inline">User</p>
                         </NavLink>
                     </div>
                 </div>
@@ -91,14 +91,14 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             </div>
 
             <div className="Side mt-auto border-t border-gray-200 pt-4 transition-all duration-400">
-                <div className="px-4 flex w-[75%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
-                    <p className="text-sm w-full justify-start px-3 py-2 rounded-lg max-lg:justify-center max-md:py-0"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
+                <div className="px-4 flex w-[100%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
+                    <p className="text-sm w-full justify-start space-x-2 rounded-lg max-lg:justify-center"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
                 </div>
 
-                <div className="px-4 flex w-[75%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
+                <div className="px-4 flex w-[100%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
                     <button
                         onClick={() => setShowLogout(true)}
-                        className="w-full flex justify-start items-center space-x-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 max-lg:justify-center"
+                        className="w-full flex justify-start items-center space-x-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 max-lg:justify-center"
                     >
                         <IoIosLogOut className="text-lg my-2 mx-3" />
                         <span className="max-lg:hidden">Logout</span>
@@ -114,7 +114,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                                 <IoIosLogOut className="text-red-600 text-2xl" />
                             </div>
                             <h3 className="text-xl font-semibold text-gray-900 mb-2 max-lg:text-base">Confirm Logout</h3>
-                            <p className="text-gray-600 mb-6 max-lg:text-sm max-sm:text-xs max-md:mb-3">Are you sure you want to logout from your admin session?</p>
+                            <p className="text-gray-600 mb-6 max-lg:text-sm max-sm:text-xs max-md:mb-3">Are you sure you want to logout from your admin session ?</p>
                             <div className="flex space-x-3">
                                 <button
                                     onClick={handleLogout}
