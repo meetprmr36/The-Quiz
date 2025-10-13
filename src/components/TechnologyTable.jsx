@@ -12,11 +12,11 @@ const TechnologyTable = ({ data, onDelete, quest, onEdit }) => {
             {/* <th
             className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[20%] max-sm:text-xs max-sm:w-[35%]">Created Date</th> */}
             <th
-            className="p-3 w-[15%] bg-[var(--Gray)] max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[30%]">Status</th>
+            className="p-3 w-[15%] bg-[var(--Gray)] text-center max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[30%]">Status</th>
             <th
-            className="p-3 w-[10%] bg-[var(--Gray)] max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[15%]">Questions</th>
+            className="p-3 w-[10%] bg-[var(--Gray)] text-center max-lg:w-[15%] max-lg:text-center max-sm:text-xs max-sm:w-[15%]">Questions</th>
             <th
-            className="p-3 w-[15%] px-10 bg-[var(--Gray)] max-lg:w-[10%] max-lg:px-5 max-sm:text-xs max-sm:w-[15%]">Actions</th>
+            className="p-3 w-[15%] px-10 bg-[var(--Gray)] text-center max-lg:w-[10%] max-lg:px-5 max-sm:text-xs max-sm:w-[15%]">Actions</th>
           </tr>
         </thead>
         <tbody className="Table-body overflow-auto">

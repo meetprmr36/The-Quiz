@@ -17,8 +17,9 @@ const FirstCards = ({ technologie, questions, User }) => {
         if (!technologie || !questions || !User) return null;
 
         const activeCount = technologie.filter(t => t.status === 1).length;
-        const activeQCount = questions.filter(q => q.status === 1).length;
-        const inactiveQCount = questions.filter(q => q.status === 0).length;
+        const activeQCount = questions.filter(q => q.active === 1).length;
+        const inactiveQCount = questions.filter(q => q.active === 0).length;
+
 
         const passCount = User.filter(u => u.examStatus === "Pass").length;
         const failCount = User.filter(u => u.examStatus === "Fail").length;
@@ -249,7 +250,7 @@ const FirstCards = ({ technologie, questions, User }) => {
                     <p className="text-xs my-2 text-gray-400">Growth</p>
                 </div>
                 <div className="flex-1 flex justify-end items-end w-full mt-2">
-                    <div className="w-[160px] h-[100px] max-2xl:w-[120px] max-2xl:h-[80px]">
+                    <div className="w-[160px] h-[100px] max-2xl:w-[170px] max-2xl:h-[80px]">
                         <Chart
                             key="users-chart"
                             options={staticOptions.users}
@@ -280,7 +281,7 @@ const FirstCards = ({ technologie, questions, User }) => {
                     <p className="text-xs my-2 text-gray-400">Trending</p>
                 </div>
                 <div className="flex-1 flex justify-end items-end w-full mt-2">
-                    <div className="w-[110px] h-[100px] max-2xl:w-[90px] max-2xl:h-[80px]">
+                    <div className="w-[110px] h-[100px] max-2xl:w-[110px] max-2xl:h-[80px]">
                         <Chart
                             key="performance-chart"
                             options={staticOptions.performance}

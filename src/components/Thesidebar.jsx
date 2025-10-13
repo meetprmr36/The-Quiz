@@ -58,13 +58,13 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/technology" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><FaEarthAmericas /></span>
-                            <p className="hidden md:inline">Manage Technology</p>
+                            <p className="hidden md:inline">Technology</p>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
                         <NavLink to="/question" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span><FaQuestion /></span>
-                            <p className="hidden md:inline">Manage Question</p>
+                            <p className="hidden md:inline">Questions</p>
                         </NavLink>
                     </div>
                     <div className="toggles Flex-column mb-1">
@@ -76,7 +76,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                 </div>
             </nav>
 
-            <div className="Side Flex-column transition-all duration-400">
+            {/* <div className="Side Flex-column transition-all duration-400">
                 <div className="fixed top-4 right-4 z-50 cursor-pointer transition-all duration-200 hover:scale-105 max-lg:top-2" onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? (
                         <div className="flex items-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl shadow-lg hover:shadow-xl">
@@ -88,21 +88,73 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         </div>
                     )}
                 </div>
+            </div> */}
+
+            {/* <div className="Side mt-auto border-t border-gray-200 pt-4 transition-all duration-400">
+                <div className="px-3 max-2xl:px-2">
+                    <div className="flex w-[100%] py-2 max-2xl:w-full max-md:py-0">
+                        <p className="text-sm w-full justify-start space-x-2 rounded-lg max-lg:justify-center"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
+                    </div>
+
+                    <div className="flex w-[100%] py-2 max-2xl:w-full max-md:py-0">
+                        <button
+                            onClick={() => setShowLogout(true)}
+                            className="w-full flex justify-start items-center space-x-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 max-lg:justify-center"
+                        >
+                            <IoIosLogOut className="text-lg my-2 mx-3" />
+                            <span className="max-lg:hidden">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="Side Flex-column transition-all duration-400">
+                <div
+                    onClick={() => setDarkMode(!darkMode)}
+                    className="fixed top-4 right-4 z-50 cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 max-lg:top-2 group"
+                >
+                    {darkMode ? (
+                        <div className="flex items-center bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                            <IoSunnyOutline className="m-3 text-black text-xl max-sm:m-2 max-sm:text-base relative z-10 transform group-hover:rotate-90 transition-transform duration-500" />
+                        </div>
+                    ) : (
+                        <div className="flex items-center bg-gradient-to-br from-indigo-500 via-purple-500 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+                            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                            <IoMdMoon className="m-3 text-white text-xl max-sm:m-2 max-sm:text-base relative z-10 transform group-hover:-rotate-12 transition-transform duration-500" />
+                        </div>
+                    )}
+                </div>
             </div>
 
-            <div className="Side mt-auto border-t border-gray-200 pt-4 transition-all duration-400">
-                <div className="px-4 flex w-[100%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
-                    <p className="text-sm w-full justify-start space-x-2 rounded-lg max-lg:justify-center"><span className="my-2 mx-3"><FaRegUser /></span><span className="max-lg:hidden">Admin User</span></p>
-                </div>
 
-                <div className="px-4 flex w-[100%] py-2 max-2xl:w-full max-2xl:px-2 max-md:py-0">
-                    <button
-                        onClick={() => setShowLogout(true)}
-                        className="w-full flex justify-start items-center space-x-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 max-lg:justify-center"
-                    >
-                        <IoIosLogOut className="text-lg my-2 mx-3" />
-                        <span className="max-lg:hidden">Logout</span>
-                    </button>
+            <div className="Side mt-auto border-t border-[rgba(255,255,255,0.1)] pt-2 transition-all duration-400">
+                <div className="px-3 max-2xl:px-2 space-y-2">
+                    <div className="admin-profile-card group">
+                        <div className="flex items-center space-x-3 w-full py-3 px-3 rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(97,99,241,0.1)] border border-transparent hover:border-[rgba(97,99,241,0.3)] max-lg:justify-center">
+                            <div className="admin-icon-wrapper">
+                                <FaRegUser className="text-base transition-all duration-300 group-hover:scale-110" />
+                            </div>
+                            <span className="max-lg:hidden text-sm font-medium text-[rgba(255,255,255,0.85)] group-hover:text-white transition-colors duration-300">
+                                Admin User
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Logout Button */}
+                    <div className="logout-card group">
+                        <button
+                            onClick={() => setShowLogout(true)}
+                            className="w-full flex items-center space-x-3 py-3 px-3 text-sm rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(248,113,113,0.15)] border border-transparent hover:border-[rgba(248,113,113,0.4)] text-[rgba(255,255,255,0.7)] hover:text-red-400 max-lg:justify-center active:scale-95"
+                        >
+                            <div className="logout-icon-wrapper">
+                                <IoIosLogOut className="text-xl transition-all duration-300 group-hover:scale-110 group-hover:translate-x-1" />
+                            </div>
+                            <span className="max-lg:hidden font-medium">
+                                Logout
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
 

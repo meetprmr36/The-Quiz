@@ -78,25 +78,73 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
     }));
   };
 
-  const handleReset = () => {
-    setFormData({
-      question: "",
-      technology: "",
-      status: "Active",
-      options: [
-        { id: 1, text: "", isCorrect: false },
-        { id: 2, text: "", isCorrect: false },
-      ],
-    });
-    setEditingId(null);
-    setSuggestions([]);
-  };
-
   const handleBack = () => {
     handleReset();
     setShowForm(false);
   };
 
+  const handleEdit = async (id) => {
+    // console.log("Editing ID:", id);
+    try {
+      const { data } = await axios.get(`${API_BASE}/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      // console.log("Fetched question data:", data);
+
+      if (data && data.data) {
+        const q = data.data;
+
+        const techId = q.techLevel?.[0]?.technology || q.technology?.id || q.technology;
+        const techName = technologies.find(t => t.id === techId || t._id === techId)?.name || "";
+
+        // console.log("Technology ID:", techId, "Name:", techName);
+
+        const formattedOptions = q.options?.map((opt, i) => {
+          if (typeof opt === "string") {
+            return {
+              id: i + 1,
+              text: opt,
+              isCorrect: false,
+            };
+          } else {
+            return {
+              id: i + 1,
+              text: opt.text || opt.option || "",
+              isCorrect: opt.isCorrect || opt.is_correct || false,
+            };
+          }
+        }) || [];
+
+        while (formattedOptions.length < 2) {
+          formattedOptions.push({
+            id: formattedOptions.length + 1,
+            text: "",
+            isCorrect: false,
+          });
+        }
+        setFormData({
+          question: q.question || "",
+          technology: techName,
+          status: q.status || "Active",
+          options: formattedOptions,
+        });
+
+        setEditingId(id);
+        setShowForm(true);
+      } else {
+        setModalMessage("Question not found!");
+      }
+    } catch (err) {
+      console.error("Error fetching question:", err);
+      console.error("Error response:", err.response?.data);
+      setModalMessage(err.response?.data?.meta?.message || err.response?.data?.message || "Failed to fetch question");
+    }
+  };
+  
   const handleSave = async () => {
     if (!formData.question.trim()) {
       setModalMessage("Question text cannot be empty");
@@ -115,20 +163,25 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
       return;
     }
 
+    const selectedTech = technologies.find(t => t.name === formData.technology);
+    const techId = selectedTech?.id || selectedTech?._id;
+
     const payload = {
       question: formData.question,
-      technology: formData.technology || "General",
-      options: formData.options
-        .filter(opt => opt.text.trim())
-        .map(({ text, isCorrect }) => ({
-          text,
-          isCorrect,
-        })),
-      status: formData.status,
+      // active: formData.status === "Active" ? 1 : 0,
+      techLevel: [{
+        technology: techId,
+        level: 1
+      }]
     };
+
+    console.log("Saving payload:", payload);
+    console.log("Editing ID:", editingId);
 
     try {
       if (editingId) {
+        console.log("Updating question at:", `${API_BASE}/${editingId}`);
+
         const { data } = await axios.patch(
           `${API_BASE}/${editingId}`,
           payload,
@@ -139,88 +192,109 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             },
           }
         );
-        setQuestions((prev) =>
-          prev.map((q) => (q.id === editingId ? data.data : q))
-        );
-        setModalMessage("Question updated successfully!");
+
+        console.log("Update response:", data);
+
+        if (data?.meta?.code === 1) {
+          setModalMessage("Question updated successfully!");
+          await fetchQuestions();
+          setShowForm(false);
+          handleReset();
+        } else {
+          setModalMessage(data?.meta?.message || "Update failed");
+        }
       } else {
+        console.log("Creating new question");
+
         const { data } = await axios.post(API_BASE, payload, {
           headers: {
             "ngrok-skip-browser-warning": "true",
             "Authorization": `Bearer ${token}`,
           },
         });
-        setQuestions((prev) => [...prev, data.data]);
-        setModalMessage("Question added successfully!");
-      }
 
-      setShowForm(false);
-      handleReset();
+        console.log("Create response:", data);
+
+        if (data?.meta?.code === 1) {
+          setModalMessage("Question added successfully!");
+          await fetchQuestions();
+          setShowForm(false);
+          handleReset();
+        } else {
+          setModalMessage(data?.meta?.message || "Create failed");
+        }
+      }
     } catch (err) {
-      console.error(err);
-      setModalMessage(err.response?.data?.message || "Failed to save question");
+      console.error("Save error:", err);
+      console.error("Error response:", err.response?.data);
+      setModalMessage(
+        err.response?.data?.meta?.message ||
+        err.response?.data?.message ||
+        "Failed to save question"
+      );
     }
   };
 
-  const handleEdit = async (id) => {
+  const fetchQuestions = async () => {
     try {
-      const { data } = await axios.get(`${API_BASE}/${id}`, {
+      const { data } = await axios.get(API_BASE, {
         headers: {
           "ngrok-skip-browser-warning": "true",
           "Authorization": `Bearer ${token}`,
         },
       });
 
-      if (data && data.data) {
-        const q = data.data;
-        const formattedOptions = q.options.map((opt, i) => ({
-          id: i + 1,
-          text: typeof opt === "string" ? opt : (opt.text || ""),
-          isCorrect: typeof opt === "object" ? (opt.isCorrect || false) : false,
-        }));
-
-        while (formattedOptions.length < 2) {
-          formattedOptions.push({
-            id: formattedOptions.length + 1,
-            text: "",
-            isCorrect: false,
-          });
-        }
-
-        setFormData({
-          question: q.question || "",
-          technology: q.technology || "",
-          status: q.status || "Active",
-          options: formattedOptions,
-        });
-
-        setEditingId(q.id);
-        setShowForm(true);
-      } else {
-        setModalMessage("Question not found!");
+      if (data?.data) {
+        setQuestions(data.data);
       }
     } catch (err) {
-      console.error(err);
-      setModalMessage(err.response?.data?.message || "Failed to fetch question");
+      console.error("Error fetching questions:", err);
     }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      question: "",
+      technology: "",
+      status: "Active",
+      options: [
+        { id: 1, text: "", isCorrect: false },
+        { id: 2, text: "", isCorrect: false },
+      ],
+    });
+    setEditingId(null);
   };
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE}/${id}`, {
+      const checkExists = await axios.get(`${API_BASE}/${id}`, {
         headers: {
           "ngrok-skip-browser-warning": "true",
           "Authorization": `Bearer ${token}`,
         },
       });
-      setQuestions((prev) => prev.filter((q) => q.id !== id));
-      setModalMessage("Question deleted successfully!");
+      console.log("Question exists?", checkExists.data);
+
+      const { data } = await axios.delete(`${API_BASE}/${id}`, {
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      console.log("Delete Response:", data);
+
+      if (data?.meta?.code === 1) {
+        setModalMessage("Question deleted successfully!");
+      } else {
+        setModalMessage(data?.meta?.message || "Failed to delete question");
+      }
     } catch (err) {
-      console.error(err);
-      setModalMessage(err.response?.data?.message || "Failed to delete question");
+      console.error("Full error:", err);
+      console.error("Error response:", err.response);
+      setModalMessage(err.response?.data?.meta?.message || "Failed to delete question");
     }
   };
-
 
   return (
     <div className="Manage-Question px-6 py-3 bg-[var(--white)] text-[var(--black)] min-h-screen max-lg:px-4 max-lg:py-3">

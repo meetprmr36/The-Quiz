@@ -9,29 +9,6 @@ import axios from "axios";
 
 const Themaincomponent = () => {
   const location = useLocation();
-  // const [technologies, setTechnologies] = useState([
-  //   { id: 1, name: "React", status: "Active", date: "2024-01-15" },
-  //   { id: 2, name: "Node", status: "Active", date: "2024-01-16" },
-  //   { id: 3, name: "Python", status: "InActive", date: "2024-01-17" },
-  //   { id: 4, name: "MongoDB", status: "Active", date: "2024-01-18" },
-  //   { id: 5, name: "Express", status: "Active", date: "2024-01-19" },
-  //   { id: 6, name: "Django", status: "InActive", date: "2024-01-20" },
-  //   { id: 7, name: "Angular", status: "Active", date: "2024-01-21" },
-  //   { id: 8, name: "Vue", status: "Active", date: "2024-01-22" },
-  //   { id: 9, name: "Java", status: "InActive", date: "2024-01-23" },
-  //   { id: 10, name: "C#", status: "Active", date: "2024-01-24" },
-  //   { id: 11, name: "Go", status: "Active", date: "2024-01-25" },
-  //   { id: 12, name: "Rust", status: "InActive", date: "2024-01-26" },
-  //   { id: 13, name: "PHP", status: "Active", date: "2024-01-27" },
-  //   { id: 14, name: "Laravel", status: "Active", date: "2024-01-28" },
-  //   { id: 15, name: "Spring Boot", status: "InActive", date: "2024-01-29" },
-  //   { id: 16, name: "Kotlin", status: "Active", date: "2024-01-30" },
-  //   { id: 17, name: "Swift", status: "Active", date: "2024-02-01" },
-  //   { id: 18, name: "Flutter", status: "Active", date: "2024-02-02" },
-  //   { id: 19, name: "Ruby on Rails", status: "InActive", date: "2024-02-03" },
-  //   { id: 20, name: "TypeScript", status: "Active", date: "2024-02-04" }
-  // ]);
-
   const [technologies, setTechnologies] = useState([]);
   useEffect(() => {
     const fetchTechnologies = async () => {
@@ -46,7 +23,7 @@ const Themaincomponent = () => {
             },
           }
         )
-
+        // console.log(data)
         if (
           data &&
           typeof data === 'object'
@@ -64,125 +41,94 @@ const Themaincomponent = () => {
         console.error('Error fetching technologies:', error)
       }
     }
-
     fetchTechnologies()
   }, [])
 
-
-  const [questions, setQuestions] = useState([
-    { id: 1, question: "What is React?", technology: "React", options: ["A JS library", "A framework", "A DB"], status: 1 },
-    { id: 2, question: "Explain Node.js event loop", technology: "Node", options: ["Async process", "Database engine"], status: 1 },
-    { id: 3, question: "What is Python used for?", technology: "Python", options: ["Web Dev", "AI/ML", "Both"], status: 0 },
-    { id: 4, question: "What is MongoDB?", technology: "Mongo DB", options: ["NoSQL DB", "Relational DB", "Graph DB"], status: 1 },
-    { id: 5, question: "What is Express.js?", technology: "Express", options: ["Frontend", "Backend framework"], status: 1 },
-    { id: 6, question: "What is Angular?", technology: "Angular", options: ["Frontend framework", "Database"], status: 1 },
-    { id: 7, question: "What is Vue.js?", technology: "Vue", options: ["Frontend library", "Frontend framework"], status: 1 },
-    { id: 8, question: "What is Java used for?", technology: "Java", options: ["Web apps", "Mobile apps", "Both"], status: 0 },
-    { id: 9, question: "What is C# commonly used for?", technology: "C#", options: ["Game Dev", "Web Apps", "Both"], status: 1 },
-    { id: 10, question: "What is Django?", technology: "Django", options: ["Frontend", "Backend framework"], status: 0 },
-    { id: 11, question: "What is Go used for?", technology: "Go", options: ["Concurrency", "Frontend", "Mobile"], status: 1 },
-    { id: 12, question: "What is Rust famous for?", technology: "Rust", options: ["Memory safety", "Game Dev"], status: 0 },
-    { id: 13, question: "What is PHP?", technology: "PHP", options: ["Backend scripting", "Frontend framework"], status: 1 },
-    { id: 14, question: "What is Laravel?", technology: "Laravel", options: ["PHP framework", "DB tool"], status: 1 },
-    { id: 15, question: "What is Spring Boot?", technology: "Spring Boot", options: ["Java framework", "Testing library"], status: 0 },
-    { id: 16, question: "What is Kotlin used for?", technology: "Kotlin", options: ["Android apps", "DB queries"], status: 1 },
-    { id: 17, question: "What is Swift?", technology: "Swift", options: ["iOS apps", "Web apps"], status: 1 },
-    { id: 18, question: "What is Flutter?", technology: "Flutter", options: ["Cross-platform apps", "DB framework"], status: 1 },
-    { id: 19, question: "What is Ruby on Rails?", technology: "Ruby on Rails", options: ["Ruby framework", "Frontend lib"], status: 0 },
-    { id: 20, question: "What is TypeScript?", technology: "TypeScript", options: ["Superset of JS", "Backend language"], status: 1 },
-    { id: 21, question: "How does Virtual DOM work?", technology: "React", options: ["Diffing algo", "Shadow DOM"], status: 1 },
-    { id: 22, question: "What is middleware in Express?", technology: "Express", options: ["Request handler", "Template engine"], status: 1 },
-    { id: 23, question: "What is async/await?", technology: "JavaScript", options: ["Promise syntax", "Database query"], status: 1 },
-    { id: 24, question: "What is REST API?", technology: "Node", options: ["Architectural style", "Database"], status: 1 },
-    { id: 25, question: "What is GraphQL?", technology: "Node", options: ["API query language", "Frontend lib"], status: 0 },
-  ]);
-
-
-  // const [questions, setQuestions] = useState([])
-  // useEffect(() => {
-  //   const fetchquestions = async () => {
-  //     const API_URL = `${import.meta.env.VITE_API_URL}v1/questions`
-  //     const token = import.meta.env.VITE_API_TOKEN;
-  //     try {
-  //       const { data } = await axios.get(
-  //         API_URL,
-  //         {
-  //           headers: {
-  //             Accept: 'application/json',
-  //             'ngrok-skip-browser-warning': 'true',
-  //             "Authorization": `Bearer ${token}`
-  //           },
-  //         }
-  //       )
-  //       console.log(data)
-  //       if (
-  //         data &&
-  //         typeof data === 'object'
-  //       ) {
-
-  //         setQuestions(data?.data)
-  //       } else {
-  //         console.error(
-  //           'API response data is not in the expected format:',
-  //           data
-  //         )
-  //         setQuestions([])
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching technologies:', error)
-  //     }
-  //   }
-
-  //   fetchquestions()
-  // }, [])
-
-
-  // const [users, setUsers] = useState([
-  //   { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15", examStatus: "Pass", score: 10 },
-  //   { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16", examStatus: "Fail", score: 8 },
-  //   { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17", examStatus: "Not Attempted", score: null },
-  //   { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18", examStatus: "Pass", score: 13 },
-  //   { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19", examStatus: "Pass", score: 9 },
-  //   { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20", examStatus: "Fail", score: 13 },
-  //   { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21", examStatus: "Pass", score: 15 },
-  //   { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22", examStatus: "Pass", score: 10 },
-  //   { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23", examStatus: "Not Attempted", score: 6 },
-  //   { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24", examStatus: "Fail", score: 12 },
-  // ]);
-  const [users, setUsers] = useState([]);
+  const [questions, setQuestions] = useState([])
   useEffect(() => {
-    const fetchUsers = async () => {
-      const API_URL = `${import.meta.env.VITE_API_URL}v1/users`
+    const fetchquestions = async () => {
+      const API_URL = `${import.meta.env.VITE_API_URL}v1/questions/list`
       const token = import.meta.env.VITE_API_TOKEN;
       try {
         const { data } = await axios.get(
           API_URL,
           {
             headers: {
-              "ngrok-skip-browser-warning": "true",
+              Accept: 'application/json',
+              'ngrok-skip-browser-warning': 'true',
               "Authorization": `Bearer ${token}`
             },
           }
         )
+        // console.log(data)
         if (
           data &&
           typeof data === 'object'
         ) {
-          setUsers(data.data)
+
+          setQuestions(data?.data)
         } else {
           console.error(
             'API response data is not in the expected format:',
             data
           )
-          setUsers([])
+          setQuestions([])
         }
       } catch (error) {
-        console.error('Error fetching users:', error)
+        console.error('Error fetching technologies:', error)
       }
     }
 
-    fetchUsers()
+    fetchquestions()
   }, [])
+
+
+  const [users, setUsers] = useState([
+    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", status: "Active", date: "2024-01-15", examStatus: "Pass", score: 10 },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16", examStatus: "Fail", score: 8 },
+    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "Moderator", status: "InActive", date: "2024-01-17", examStatus: "Not Attempted", score: null },
+    { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18", examStatus: "Pass", score: 13 },
+    { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19", examStatus: "Pass", score: 9 },
+    { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "Admin", status: "InActive", date: "2024-01-20", examStatus: "Fail", score: 13 },
+    { id: 7, name: "Daniel Martinez", email: "daniel@example.com", role: "User", status: "Active", date: "2024-01-21", examStatus: "Pass", score: 15 },
+    { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "Moderator", status: "Active", date: "2024-01-22", examStatus: "Pass", score: 10 },
+    { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23", examStatus: "Not Attempted", score: 6 },
+    { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24", examStatus: "Fail", score: 12 },
+  ]);
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     const API_URL = `${import.meta.env.VITE_API_URL}v1/users`
+  //     const token = import.meta.env.VITE_API_TOKEN;
+  //     try {
+  //       const { data } = await axios.get(
+  //         API_URL,
+  //         {
+  //           headers: {
+  //             "ngrok-skip-browser-warning": "true",
+  //             "Authorization": `Bearer ${token}`
+  //           },
+  //         }
+  //       )
+  //       if (
+  //         data &&
+  //         typeof data === 'object'
+  //       ) {
+  //         setUsers(data.data)
+  //       } else {
+  //         console.error(
+  //           'API response data is not in the expected format:',
+  //           data
+  //         )
+  //         setUsers([])
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching users:', error)
+  //     }
+  //   }
+
+  //   fetchUsers()
+  // }, [])
 
 
   return (
@@ -195,12 +141,11 @@ const Themaincomponent = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}>
+              transition={{ duration: 0.4 }}>
               <Dashboard
                 tech={technologies}
                 question={questions}
-                users={users}
-              />
+                users={users} />
             </motion.div>
           }
         />
@@ -211,7 +156,7 @@ const Themaincomponent = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4 }}
             >
               <ManageTechnology
                 technologies={technologies}
@@ -228,7 +173,7 @@ const Themaincomponent = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4 }}
             >
               <ManageQuestion
                 technologies={technologies}
