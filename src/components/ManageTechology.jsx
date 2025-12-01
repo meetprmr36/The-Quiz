@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TechnologyTable from "./TechnologyTable";
 import AddButton from "./AddButton";
-import { FaArrowLeft } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 import { IoIosSave } from "react-icons/io";
 
 const ManageTechnology = () => {
@@ -64,22 +64,22 @@ const ManageTechnology = () => {
       </div>
 
       {showForm && (
-        <div className="Technology-form-model fixed inset-0 flex items-center justify-center bg-black/50 z-50 animate-fadeIn">
+        <div className="Technology-form-model fixed inset-0 flex items-center justify-center z-50 animate-fadeIn">
 
           <div className="Technology-form max-w-xl my-5 bg-[var(--white)] text-[var(--black)] p-6 rounded-lg shadow">
 
-            <div className="mb-3 flex items-center">
-              <button onClick={handleBack} className="px-3 text-[var(--white)] cursor-pointer text-lg">
-                <FaArrowLeft />
+            <div className="mb-3 flex justify-between items-center">
+              <h1 className="text-2xl font- text-[var(--black)]">Add Technology</h1>
+              <button onClick={handleBack} className="px-3 text-[var(--black)] cursor-pointer text-2xl">
+                <IoMdClose />
               </button>
-              <h1 className="text-2xl font- text-[var(--white)]">Add Technology</h1>
             </div>
-            <p className="text-[var(--gray)] text-left text-sm mb-6">
+            <p className="text-[var(--lightGray)] text-left text-sm mb-6">
               Create a new technology category for quiz questions
             </p>
 
             <div className="mb-8">
-              <label className="block text-[var(--white)] mb-3 text-left font-medium mb-1">
+              <label className="block text-[var(--black)] mb-3 text-left font-medium mb-1">
                 Technology Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -87,12 +87,12 @@ const ManageTechnology = () => {
                 value={techName}
                 onChange={(e) => setTechName(e.target.value)}
                 placeholder="e.g., React.js, Node.js, Python"
-                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--white)] text-[var(--black)]"
+                className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)]"
               />
             </div>
 
             <div className="mb-8">
-              <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2 text-left">Status</label>
+              <label className="block text-[var(--black)] font-medium mb-2 text-left">Status</label>
               <div className="flex items-center space-x-6">
                 <label className="flex items-center space-x-2">
                   <input
@@ -103,7 +103,7 @@ const ManageTechnology = () => {
                     onChange={() => setStatus("Active")}
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-gray-800 dark:text-gray-200">Active</span>
+                  <span className="text-[var(--lightGray)]">Active</span>
                 </label>
                 <label className="flex items-center space-x-2">
                   <input
@@ -114,7 +114,7 @@ const ManageTechnology = () => {
                     onChange={() => setStatus("InActive")}
                     className="text-blue-600 focus:ring-blue-500"
                   />
-                  <span className="text-gray-800 dark:text-gray-200">Inactive</span>
+                  <span className="text-[var(--lightGray)]">Inactive</span>
                 </label>
               </div>
             </div>
@@ -122,7 +122,7 @@ const ManageTechnology = () => {
             <div className="flex space-x-3">
               <button
                 onClick={handleSave}
-                className="bg-[var(--accent)] text-[var(--white)] px-4 py-2 rounded-md hover:opacity-90 flex flex-row items-center"
+                className="bg-[var(--bitlightblue)] text-[var(--white)] px-4 py-2 rounded-md hover:bg-[var(--darkblue)] flex flex-row items-center"
               >
                 <span className="px-2">
                   <IoIosSave />

@@ -5,26 +5,11 @@ const techList = [
     { name: "Python", status: "Non Active" }
 ];
 
-const questions = [
-    {
-        id: 1,
-        title: "What is JSX in React?",
-        tag: "React.js",
-        status: "Active",
-    },
-    {
-        id: 2,
-        title: "Explain Node.js event loop",
-        tag: "Node.js",
-        status: "Active",
-    },
-];
-
-const SecondSetCards = () => {
+function SecondSetCards({ techList, questions, User }) {
     return (
-        <div className="secondline Flex-column gap-4">
-            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
-                <h2 className="font-semibold text-[var(--black)]  mb-2">Recent Technology</h2>
+        <div className="secondline Flex-column">
+            {/* <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+                <h2 className="recent-title font-semibold text-[var(--black)]">Recent Technology</h2>
                 <div className="Inside-technology">
                     {techList.map((tech, idx) => (
                         <p key={idx} 
@@ -33,6 +18,17 @@ const SecondSetCards = () => {
                             <span className={tech.status === "Active" ? "status-active" : "status-inactive"}>
                                 {tech.status}
                             </span>
+                        </p>
+                    ))}
+                </div>
+            </div> */}
+            <div className="secondCard Flex-column Card-shadow bg-[var(--white)] text-[var(--black)]">
+                <h2 className="recent-title font-semibold text-[var(--black)]">Recent Technology</h2>
+                <div className="Inside-technology">
+                    {User.slice(-3).map((tech, idx) => (
+                        <p key={idx} className="text-[var(--black)]">
+                            {tech.name}{" "}
+                            <span className="tag blue">{`${tech.score}/15`}</span>
                         </p>
                     ))}
                 </div>
@@ -45,8 +41,10 @@ const SecondSetCards = () => {
                         <div key={q.id} className="question-card text-[var(--black)]">
                             <p className="question-title text-[var(--black)]">{q.title}</p>
                             <div className="tags">
-                                <span className="tag blue">{q.tag}</span>
-                                <span className="tag green">{q.status}</span>
+                                <span className="tag blue">{q.technology}</span>
+                                <span className={`tag ${q.status === "Active" ? "status-active" : "status-inactive"}`}>
+                                    {q.status}
+                                </span>
                             </div>
                         </div>
                     ))}

@@ -3,9 +3,9 @@ import QuestionRow from "./QuestionRow";
 
 const QuestionTable = ({ data, onDelete, onEdit }) => {
   return (
-    <div className="max-h-[80vh] mb-5 overflow-auto shadow-md rounded-lg">
-      <table className="w-full border-collapse">
-        <thead className="Table-head">
+    <div className="max-h-[70vh] overflow-y-scroll mb-5 shadow-md rounded-lg">
+      <table className="w-full border-collapse table-fixed">
+        <thead className="Table-head sticky top-0 z-20">
           <tr className="text-left">
             <th className="p-3 px-5">Technologies</th>
             <th className="p-3">Status</th>

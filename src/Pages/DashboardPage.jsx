@@ -1,7 +1,7 @@
 import React from "react";
 import Contentpart from "../components/DasboardCompo";
 
-const Dashboard = () => {
+const Dashboard = ({ techCount, questionCount, users, tech }) => {
   return (
     <div className=" min-h-screen">
       <div className="welcome">
@@ -9,7 +9,12 @@ const Dashboard = () => {
         <p className="text-[var(--black)]">Welcome to quiz managment system</p>
       </div>
       <div className="dashboard Flex-column">
-        <Contentpart />
+        <Contentpart 
+          technologies={techCount}
+          technologie={tech}
+          question={questionCount}
+          users={users}
+        />
       </div>
     </div>
   );
