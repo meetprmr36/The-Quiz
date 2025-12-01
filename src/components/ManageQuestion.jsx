@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import QuestionTable from "./QuestionTable";
-// import AddQuestion from "./AddQuestion";
-import ModalMessage from "./ModalMessage"
+import AddQuestion from "./AddQuestion";
 import OptionBar from "./OptionBar";
 import { IoIosSave } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
@@ -22,7 +21,6 @@ const ManageQuestion = ({ questions, setQuestions }) => {
   };
 
   const [formData, setFormData] = useState(initialForm);
-
   const [modalMessage, setModalMessage] = useState("");
 
   const handleOptionChange = (updatedOption) => {
@@ -69,14 +67,12 @@ const ManageQuestion = ({ questions, setQuestions }) => {
       return;
     }
 
-    const { question, technology = "General", options, status } = formData;
-
     const newQuestion = {
       id: questions.length + 1,
-      question,
-      technology,
-      options: options.map(({ text }) => text),
-      status,
+      question: formData.question,
+      technology: formData.technology || "General",
+      options: formData.options.map((o) => o.text),
+      status: formData.status,
     };
 
     setQuestions([...questions, newQuestion]);
@@ -233,9 +229,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
         </div>
       )}
 
-      <ModalMessage message={modalMessage} onClose={() => setModalMessage("")} />
-
-      {/* {modalMessage && (
+      {modalMessage && (
         <div className="fixed inset-0 bg-black bg-opacity-20 dark:bg-opacity-60 flex items-center justify-center z-999">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm">
             <h3 className="text-lg font-semibold mb-3">{modalMessage}</h3>
@@ -246,7 +240,7 @@ const ManageQuestion = ({ questions, setQuestions }) => {
             </button>
           </div>
         </div>
-      )} */}
+      )}
     </div>
 
   );

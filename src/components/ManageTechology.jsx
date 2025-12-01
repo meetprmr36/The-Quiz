@@ -4,7 +4,12 @@ import AddButton from "./AddButton";
 import { IoMdClose } from "react-icons/io";
 import { IoIosSave } from "react-icons/io";
 
-const ManageTechnology = ({ technologies, setTechnologies }) => {
+const ManageTechnology = () => {
+  const [technologies, setTechnologies] = useState([
+    { id: 1, name: "React.js", status: "Active", date: "2024-01-15" },
+    { id: 2, name: "Node.js", status: "Active", date: "2024-01-16" },
+    { id: 3, name: "Python", status: "InActive", date: "2024-01-17" },
+  ]);
 
   const [showForm, setShowForm] = useState(false);
   const [techName, setTechName] = useState("");
@@ -55,7 +60,7 @@ const ManageTechnology = ({ technologies, setTechnologies }) => {
         <p className="text-lg text-[var(--lightGray)] mb-4">
           Create and manage technology categories for your quizzes
         </p>
-         <TechnologyTable data={technologies} onDelete={handleDelete} />
+        <TechnologyTable data={technologies} onDelete={handleDelete} />
       </div>
 
       {showForm && (

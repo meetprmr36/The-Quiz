@@ -24,4 +24,4 @@ const TechnologyTable = ({ data, onDelete, onEdit }) => {
   );
 };
 
-export default TechnologyTable;  
+export default TechnologyTable;

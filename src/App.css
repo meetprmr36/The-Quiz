@@ -15,7 +15,6 @@ body {
     --lightGray: #959595;
     --accent: #6366f1;
     --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
-    --Hovergray: #f7f7f7;
     --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
     --card-hover-shadow: 0 8px 32px rgba(39, 39, 68, 0.18);
     --darkblue: #121f47;
@@ -102,6 +101,9 @@ body {
     outline: 4px auto -webkit-focus-ring-color;
 } */
 
+table {
+    overflow: visible;
+}
 
 .TooltipText {
     visibility: hidden;
@@ -113,7 +115,7 @@ body {
     padding: 5px 0;
     position: absolute;
     z-index: 50;
-    bottom: 110%;
+    top: 110%;
     left: 90%;
     margin-left: -60px;
 }
@@ -211,7 +213,7 @@ body {
 }
 
 .toggles {
-    margin: 10px;
+    margin: 15px;
     align-items: start;
     cursor: default;
 }
@@ -235,7 +237,6 @@ body {
     display: flex;
     align-items: center;
     color: white;
-    padding: 8px 5px;
     text-decoration: none;
     width: 100%;
     font-size: 14px;
@@ -276,7 +277,7 @@ body {
 }
 
 
-.Technology-form-model {
+.Technology-form-model{
     position: absolute;
     display: flex;
     justify-self: center;
@@ -305,6 +306,7 @@ body {
 .Technology-form {
     padding: 30px 20px;
     border-radius: 12px;
+    background: rgba(0, 0, 0, 0.9);
     text-align: center;
     animation: popOut 0.35s cubic-bezier(.68, -0.55, .27, 1.55);
     transform-origin: center;
@@ -375,10 +377,9 @@ body {
     background-color: var(--gray);
 }
 
-/* 
 .welcome {
-    margin-bottom: 10px;
-} */
+    margin: 25px;
+}
 
 .welcome h1 {
     font-size: 32px;
@@ -391,6 +392,11 @@ body {
     opacity: 0.8;
 }
 
+.dashboard {
+    width: 98%;
+    justify-content: center;
+    margin: auto;
+}
 
 .Dashboardcard {
     justify-content: space-around;
@@ -399,14 +405,14 @@ body {
 
 .Firstline {
     flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    justify-content: space-around;
+    margin: 5px 0px;
 }
 
 .secondline {
     flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0px;
+    justify-content: space-around;
+    margin: 5px 0px;
 }
 
 .Card,
@@ -435,7 +441,7 @@ body {
 }
 
 .secondCard {
-    width: 49%;
+    width: 45%;
     min-height: 90px;
     margin: 10px 0;
 }
@@ -464,7 +470,7 @@ body {
 }
 
 .card-green {
-    background-color: rgba(34, 197, 94, 0.15);
+    background-color: rgba(18, 255, 18, 0.15);
     color: #22c55e;
     font-size: 20px;
     font-weight: 600;
@@ -497,14 +503,13 @@ body {
 }
 
 .Inside-technology span {
-    height: 60%;
-    font-size: 14px;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     float: right;
     padding: 0px 10px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .status-active {
@@ -542,7 +547,6 @@ body {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 8px;
-    word-wrap: break-word;
 }
 
 .tags {
@@ -554,7 +558,7 @@ body {
     font-size: 14px;
     padding: 4px 12px;
     border-radius: 8px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .tag.blue {
@@ -593,12 +597,12 @@ body {
     background-color: var(--white);
 }
 
-.Option-Bar {
+.Option-Bar{
     max-height: 200px;
     overflow-y: scroll;
 }
 
-.Question-table {
+.Question-table{
     max-height: 80vh;
     overflow-y: scroll;
 }

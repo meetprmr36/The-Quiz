@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useLocation, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Dashboard from "../Pages/DashboardPage";
 import ManageTechnology from "./ManageTechology";

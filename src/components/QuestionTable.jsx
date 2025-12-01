@@ -7,10 +7,10 @@ const QuestionTable = ({ data, onDelete, onEdit }) => {
       <table className="w-full border-collapse table-fixed">
         <thead className="Table-head sticky top-0 z-20">
           <tr className="text-left">
-            <th className="p-3 px-5 w-[50%]">Questions</th>
-            <th className="p-3 w-[12%]">Status</th>
-            <th className="p-3 w-[12%]">Options</th>
-            <th className="p-3 px-10 w-[25%]">Actions</th>
+            <th className="p-3 px-5">Technologies</th>
+            <th className="p-3">Status</th>
+            <th className="p-3">Options</th>
+            <th className="p-3 px-10">Actions</th>
           </tr>
         </thead>
         <tbody className="Table-body overflow-auto">
@@ -25,6 +25,7 @@ const QuestionTable = ({ data, onDelete, onEdit }) => {
         </tbody>
       </table>
     </div>
+
   );
 };
 
