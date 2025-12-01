@@ -34,46 +34,6 @@ function ProgressUser({ name, score, delay }) {
 
 function SecondSetCards({ techList, questions, User }) {
     const [loading, setLoading] = useState(true);
-    
-    // const calculateItemCounts = useMemo(() => {
-    //     // Base heights
-    //     const cardHeaderHeight = 60; // h2 + padding
-    //     const cardPadding = 40; // p-5 top and bottom
-    //     const gapBetweenItems = 16; // gap-4
-    
-    //     // Average heights for each item type
-    //     const userItemHeight = 50; // ProgressUser average height
-    //     const questionItemHeight = 80; // Question card with text + tags
-    //     const techItemHeight = 45; // Technology card height
-    
-    //     // Calculate how many items fit in similar heights
-    //     // Let's use Users (6 items) as baseline
-    //     const userCount = 6;
-    //     const totalUserHeight = cardHeaderHeight + cardPadding +
-    //         (userItemHeight * userCount) +
-    //         (gapBetweenItems * (userCount - 1));
-    
-    //     // Calculate how many questions fit in that height
-    //     const availableQuestionSpace = totalUserHeight - cardHeaderHeight - cardPadding;
-    //     const questionCount = Math.floor(
-    //         (availableQuestionSpace + gapBetweenItems) /
-    //         (questionItemHeight + gapBetweenItems)
-    //     );
-    
-    //     // Calculate how many technologies fit in that height
-    //     const availableTechSpace = totalUserHeight - cardHeaderHeight - cardPadding;
-    //     const techCount = Math.floor(
-    //         (availableTechSpace + gapBetweenItems) /
-    //         (techItemHeight + gapBetweenItems)
-    //     );
-    
-    //     return {
-    //         users: userCount,
-    //         questions: Math.max(questionCount, 3), // Minimum 3
-    //         technologies: Math.max(techCount, 5) // Minimum 5
-    //     };
-    // }, []);
-
     useEffect(() => {
         const timer = setTimeout(() => setLoading(false), 700);
         return () => clearTimeout(timer);
@@ -156,7 +116,7 @@ function SecondSetCards({ techList, questions, User }) {
                                 {t.name}
                             </p>
                             <div className="flex gap-2 flex-wrap mx-4">
-                                <StatusBadge active={t.status} />
+                                <StatusBadge active={t.active} />
                             </div>
                         </div>
                     ))}

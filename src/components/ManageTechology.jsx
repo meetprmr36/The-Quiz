@@ -19,7 +19,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
 
   const showMessage = (text, type = "info") => {
     setMessage({ text, type });
-    setTimeout(() => setMessage(null), 3000);
+    setTimeout(() => setMessage(null), 2000);
   };
 
   const handleReset = () => {
@@ -120,9 +120,9 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
       {message && (
         <div
           className={`fixed top-5 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow-md text-white z-[9999] ${message.type === "success"
-            ? "bg-green-500"
+            ? "bg-green-500/70"
             : message.type === "error"
-              ? "bg-red-400"
+              ? "bg-red-400/50"
               : "bg-blue-400"
             }`}
         >

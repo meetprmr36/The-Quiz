@@ -84,7 +84,6 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
   };
 
   const handleEdit = async (id) => {
-    // console.log("Editing ID:", id);
     try {
       const { data } = await axios.get(`${API_BASE}/${id}`, {
         headers: {
@@ -93,15 +92,11 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
         },
       });
 
-      // console.log("Fetched question data:", data);
-
       if (data && data.data) {
         const q = data.data;
 
         const techId = q.techLevel?.[0]?.technology || q.technology?.id || q.technology;
         const techName = technologies.find(t => t.id === techId || t._id === techId)?.name || "";
-
-        // console.log("Technology ID:", techId, "Name:", techName);
 
         const formattedOptions = q.options?.map((opt, i) => {
           if (typeof opt === "string") {
@@ -144,7 +139,6 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
       setModalMessage(err.response?.data?.meta?.message || err.response?.data?.message || "Failed to fetch question");
     }
   };
-  
   const handleSave = async () => {
     if (!formData.question.trim()) {
       setModalMessage("Question text cannot be empty");
@@ -174,13 +168,8 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
         level: 1
       }]
     };
-
-    console.log("Saving payload:", payload);
-    console.log("Editing ID:", editingId);
-
     try {
       if (editingId) {
-        console.log("Updating question at:", `${API_BASE}/${editingId}`);
 
         const { data } = await axios.patch(
           `${API_BASE}/${editingId}`,
@@ -193,8 +182,6 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
           }
         );
 
-        console.log("Update response:", data);
-
         if (data?.meta?.code === 1) {
           setModalMessage("Question updated successfully!");
           await fetchQuestions();
@@ -204,7 +191,6 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
           setModalMessage(data?.meta?.message || "Update failed");
         }
       } else {
-        console.log("Creating new question");
 
         const { data } = await axios.post(API_BASE, payload, {
           headers: {
@@ -212,8 +198,6 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
             "Authorization": `Bearer ${token}`,
           },
         });
-
-        console.log("Create response:", data);
 
         if (data?.meta?.code === 1) {
           setModalMessage("Question added successfully!");

@@ -23,12 +23,10 @@ const Themaincomponent = () => {
             },
           }
         )
-        // console.log(data)
         if (
           data &&
           typeof data === 'object'
         ) {
-
           setTechnologies(data?.data)
         } else {
           console.error(
@@ -60,7 +58,6 @@ const Themaincomponent = () => {
             },
           }
         )
-        // console.log(data)
         if (
           data &&
           typeof data === 'object'
