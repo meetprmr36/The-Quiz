@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
+import Chartcompo from "./Chartcompo.jsx";
 import Chart from "react-apexcharts";
 
 const FirstCards = ({ technologie, questions, User }) => {
@@ -125,51 +126,51 @@ const FirstCards = ({ technologie, questions, User }) => {
             }
         },
 
-        users: {
-            chart: {
-                type: "bar",
-                toolbar: { show: false },
-                sparkline: { enabled: true },
-                animations: {
-                    enabled: true,
-                    easing: "easeinout",
-                    speed: 800,
-                    animateGradually: { enabled: true, delay: 150 },
-                    dynamicAnimation: { enabled: true, speed: 350 }
-                }
-            },
-            plotOptions: { bar: { columnWidth: "35%", borderRadius: 3 } },
-            dataLabels: { enabled: false },
-            xaxis: { categories: ["Pass", "Fail", "Not Attempted", "Average Score", "Max Score", "Users"], labels: { show: false } },
-            yaxis: { show: false },
-            grid: { show: false },
-            legend: { show: false },
-            tooltip: { enabled: true },
-            colors: ["#6163f1"]
-        },
+        // users: {
+        //     chart: {
+        //         type: "bar",
+        //         toolbar: { show: false },
+        //         sparkline: { enabled: true },
+        //         animations: {
+        //             enabled: true,
+        //             easing: "easeinout",
+        //             speed: 800,
+        //             animateGradually: { enabled: true, delay: 150 },
+        //             dynamicAnimation: { enabled: true, speed: 350 }
+        //         }
+        //     },
+        //     plotOptions: { bar: { columnWidth: "35%", borderRadius: 3 } },
+        //     dataLabels: { enabled: false },
+        //     xaxis: { categories: ["Pass", "Fail", "Not Attempted", "Average Score", "Max Score", "Users"], labels: { show: false } },
+        //     yaxis: { show: false },
+        //     grid: { show: false },
+        //     legend: { show: false },
+        //     tooltip: { enabled: true },
+        //     colors: ["#6163f1"]
+        // },
 
-        performance: {
-            chart: {
-                type: "bar",
-                toolbar: { show: false },
-                sparkline: { enabled: true },
-                animations: {
-                    enabled: true,
-                    easing: "easeinout",
-                    speed: 800,
-                    animateGradually: { enabled: true, delay: 150 },
-                    dynamicAnimation: { enabled: true, speed: 350 }
-                }
-            },
-            plotOptions: { bar: { columnWidth: "35%", borderRadius: 3 } },
-            dataLabels: { enabled: false },
-            xaxis: { categories: ["Not Attempted", "Average Score", "Max Score", "Users"], labels: { show: false } },
-            yaxis: { show: false },
-            grid: { show: false },
-            legend: { show: false },
-            tooltip: { enabled: true },
-            colors: ["#6163f1"]
-        }
+        // performance: {
+        //     chart: {
+        //         type: "bar",
+        //         toolbar: { show: false },
+        //         sparkline: { enabled: true },
+        //         animations: {
+        //             enabled: true,
+        //             easing: "easeinout",
+        //             speed: 800,
+        //             animateGradually: { enabled: true, delay: 150 },
+        //             dynamicAnimation: { enabled: true, speed: 350 }
+        //         }
+        //     },
+        //     plotOptions: { bar: { columnWidth: "35%", borderRadius: 3 } },
+        //     dataLabels: { enabled: false },
+        //     xaxis: { categories: ["Not Attempted", "Average Score", "Max Score", "Users"], labels: { show: false } },
+        //     yaxis: { show: false },
+        //     grid: { show: false },
+        //     legend: { show: false },
+        //     tooltip: { enabled: true },
+        //     colors: ["#6163f1"]
+        // }
     }), []);
 
 
@@ -209,7 +210,7 @@ const FirstCards = ({ technologie, questions, User }) => {
                             options={staticOptions.tech}
                             series={[{
                                 name: "Technologies",
-                                data: [5, 8, 6, 10, 4, 7, calculations.activeCount],
+                                data: [5, 8, 6, 10, 4, 7],
                             }]}
                             type="area"
                             width="100%"
@@ -241,7 +242,7 @@ const FirstCards = ({ technologie, questions, User }) => {
                 </div>
             </div>
 
-            <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
+            {/* <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
                 <div className="flex-1">
                     <h2 className="text-sm font-medium text-[var(--black)] mb-1 max-xl:text-xs max-lg:text-sm">Users</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
@@ -299,7 +300,29 @@ const FirstCards = ({ technologie, questions, User }) => {
                         />
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Chartcompo
+                name="Users"
+                length={User?.length || 0}
+                ChartData={[
+                    calculations.passCount,
+                    calculations.failCount,
+                    calculations.notAttemptedCount,
+                    calculations.avgScore,
+                    calculations.maxScore,
+                    calculations.userRoleCount
+                ]}
+            />
+            <Chartcompo
+                name="Performance"
+                length={calculations.avgScore || 0}
+                ChartData={[
+                    calculations.notAttemptedCount,
+                    calculations.avgScore,
+                    calculations.maxScore,
+                    calculations.userRoleCount
+                ]}
+            />
         </div>
     );
 };

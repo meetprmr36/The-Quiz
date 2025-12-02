@@ -62,7 +62,7 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
       <td className="p-3 break-words max-lg:text-sm text-center max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
       <td className="p-3 break-words flex justify-center m-auto max-sm:max-w-[200px]">
         <button
-          onClick={() => onEdit?.(tech?.id)}
+          onClick={() => onEdit?.(tech)}
           className="Button-style text-[#8b5cf6] hover:underline"
         >
           <FaEdit />

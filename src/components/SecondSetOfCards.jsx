@@ -67,12 +67,12 @@ function SecondSetCards({ techList, questions, User }) {
                     Recent Users
                 </h2>
                 <div className="flex-1 flex flex-col gap-5">
-                    {User?.slice(-7).map((u, idx) => (
+                    {User?.slice(-6).map((u, idx) => (
                         <ProgressUser
                             key={idx}
                             name={u.name}
                             score={u.score}
-                            delay={idx * 50}
+                            delay={idx * 70}
                         />
                     ))}
                 </div>
@@ -107,7 +107,7 @@ function SecondSetCards({ techList, questions, User }) {
                     Recent Technologies
                 </h2>
                 <div className="flex flex-col gap-5">
-                    {techList?.slice(-7).map((t) => (
+                    {techList?.slice(-6).map((t) => (
                         <div
                             key={`${t.id}-copy`}
                             className="h-[45px] rounded-lg bg-[var(--gray)] flex justify-between items-center shadow-sm"

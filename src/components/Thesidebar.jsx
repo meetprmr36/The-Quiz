@@ -11,11 +11,6 @@ import { LuLayoutDashboard } from "react-icons/lu";
 const Thesidebar = ({ darkMode, setDarkMode }) => {
     const [showLogout, setShowLogout] = useState(false);
 
-    // const handleLogout = () => {
-    //     setShowLogout(false);
-    //     window.location.href = "/";
-    // };
-
     const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
@@ -98,7 +93,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
 
             <div className="Side mt-auto border-t border-[rgba(255,255,255,0.1)] pt-4 transition-all duration-400">
                 <div className="px-3 max-2xl:px-2 space-y-3">
-                    <div className="admin-profile-card group">
+                    <div className="admin-profile-card">
                         <div className="flex items-center space-x-3 w-full py-3 px-3 rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(97,99,241,0.1)] border border-transparent hover:border-[rgba(97,99,241,0.3)] max-lg:justify-center">
                             <div className="admin-icon-wrapper">
                                 <FaRegUser className="text-base transition-all duration-300 group-hover:scale-110" />
@@ -109,7 +104,7 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         </div>
                     </div>
 
-                    <div className="logout-card group">
+                    <div className="logout-card">
                         <button
                             onClick={() => setShowLogout(true)}
                             className="w-full flex items-center space-x-3 py-3 px-3 text-sm rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(248,113,113,0.15)] border border-transparent hover:border-[rgba(248,113,113,0.4)] text-[rgba(255,255,255,0.7)] hover:text-red-400 max-lg:justify-center active:scale-95"
