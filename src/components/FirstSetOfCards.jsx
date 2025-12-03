@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Chartcompo from "./Chartcompo.jsx";
+import CardName from "./Common/CardName.jsx";
 import Chart from "react-apexcharts";
 
 const FirstCards = ({ technologie, questions, User }) => {
@@ -20,7 +21,6 @@ const FirstCards = ({ technologie, questions, User }) => {
         const activeCount = technologie.filter(t => t.status === 1).length;
         const activeQCount = questions.filter(q => q.active === 1).length;
         const inactiveQCount = questions.filter(q => q.active === 0).length;
-
 
         const passCount = User.filter(u => u.examStatus === "Pass").length;
         const failCount = User.filter(u => u.examStatus === "Fail").length;
@@ -196,13 +196,18 @@ const FirstCards = ({ technologie, questions, User }) => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-900">
             <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
-                <div className="flex-1">
+                {/* <div className="flex-1">
                     <h2 className="text-sm text-[var(--black)] font-medium mb-1 max-xl:text-xs max-lg:text-sm">Technologies</h2>
                     <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
                         {technologie?.length || 0}
                     </p>
                     <p className="text-xs my-2 text-gray-400">Coverage</p>
-                </div>
+                </div> */}
+                <CardName
+                    name="Technologies"
+                    length={technologie?.length || 0}
+                    subtitle="Coverage"
+                />
                 <div className="flex justify-end items-end w-full mt-2">
                     <div className="w-[170px] h-[90px] max-2xl:w-[150px] max-2xl:h-[80px] max-xl:w-[100px] max-xl:h-[80px] max-lg:w-[280px] max-lg:h-[100px] First-chart">
                         <Chart
@@ -221,13 +226,11 @@ const FirstCards = ({ technologie, questions, User }) => {
             </div>
 
             <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
-                <div className="flex-1">
-                    <h2 className="text-sm font-medium text-[var(--black)] mb-1 max-xl:text-xs max-lg:text-sm">Questions</h2>
-                    <p className="text-4xl my-2 font-semibold text-[var(--black)] max-xl:text-2xl max-lg:text-2xl">
-                        {questions?.length || 0}
-                    </p>
-                    <p className="text-xs my-2 text-gray-400">Quality</p>
-                </div>
+                <CardName
+                    name="Questions"
+                    length={questions?.length || 0}
+                    subtitle="Quality"
+                />
                 <div className="flex-1 flex justify-end w-full items-end mt-2">
                     <div className="relative w-[110px] h-[100px]">
                         <Chart
@@ -312,16 +315,18 @@ const FirstCards = ({ technologie, questions, User }) => {
                     calculations.maxScore,
                     calculations.userRoleCount
                 ]}
+                categories={["Pass", "Fail", "Not Attempted", "Average Score", "Max Score", "Users"]}
             />
             <Chartcompo
                 name="Performance"
                 length={calculations.avgScore || 0}
                 ChartData={[
-                    calculations.notAttemptedCount,
+                    calculations.passCount,
+                    calculations.userRoleCount,
                     calculations.avgScore,
-                    calculations.maxScore,
-                    calculations.userRoleCount
+                    calculations.maxScore
                 ]}
+                categories={["Passed", "Users", "Average Score", "Max Score"]}
             />
         </div>
     );

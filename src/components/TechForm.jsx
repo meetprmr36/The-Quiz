@@ -18,7 +18,7 @@ const TechForm = ({ formData, setFormData, editingId, onBack, onSave, onReset })
                 </div>
 
                 <p className="text-[var(--lightGray)] text-left text-sm mb-6 max-lg:mb-4 max-lg:text-xs rounded-md">
-                    {editingId//
+                    {editingId
                         ? "Update the technology category"
                         : "Create a new technology category for quiz questions"}
                 </p>
@@ -31,7 +31,7 @@ const TechForm = ({ formData, setFormData, editingId, onBack, onSave, onReset })
                     <input
                         type="text"
                         value={formData.name}
-                        onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}//
+                        onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
                         placeholder="e.g., React.js, Node.js, Python"
                         className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:px-2 max-lg:py-1 max-lg:text-sm"
                     />
@@ -47,8 +47,8 @@ const TechForm = ({ formData, setFormData, editingId, onBack, onSave, onReset })
                                 type="radio"
                                 name="status"
                                 value="Active"
-                                checked={formData.active === 1}//
-                                onChange={() => setFormData(prev => ({ ...prev, active: 1 }))}//
+                                checked={formData.active === 1}
+                                onChange={() => setFormData(prev => ({ ...prev, active: 1 }))}
                                 className="text-blue-600 focus:ring-blue-500"
                             />
                             <span className="text-[var(--lightGray)]">Active</span>
@@ -58,8 +58,8 @@ const TechForm = ({ formData, setFormData, editingId, onBack, onSave, onReset })
                                 type="radio"
                                 name="status"
                                 value="InActive"
-                                checked={formData.active === 0}//
-                                onChange={() => setFormData(prev => ({ ...prev, active: 0 }))}//
+                                checked={formData.active === 0}
+                                onChange={() => setFormData(prev => ({ ...prev, active: 0 }))}
                                 className="text-blue-600 focus:ring-blue-500"
                             />
                             <span className="text-[var(--lightGray)]">Inactive</span>

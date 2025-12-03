@@ -13,13 +13,16 @@ const Chartcompo = (props) => {
                     enabled: true,
                     easing: "easeinout",
                     speed: 800,
-                    animateGradually: { enabled: true, delay: 150 },
-                    dynamicAnimation: { enabled: true, speed: 350 }
+                    animateGradually: { enabled: true, delay: 200 },
+                    dynamicAnimation: { enabled: true, speed: 400 }
                 }
             },
             plotOptions: { bar: { columnWidth: "35%", borderRadius: 3 } },
             dataLabels: { enabled: false },
-            xaxis: { categories: ["Not Attempted", "Average Score", "Max Score", "Users"], labels: { show: false } },
+            xaxis: {
+                categories: props.categories,
+                labels: { show: false }
+            },
             yaxis: { show: false },
             grid: { show: false },
             legend: { show: false },

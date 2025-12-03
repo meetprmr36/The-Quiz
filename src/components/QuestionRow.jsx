@@ -1,6 +1,6 @@
 import React from "react";
 import '../App.css';
-import StatusBadge from "./StatusBadge";
+import StatusBadge from "./Common/StatusBadge";
 import { FaTrash } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 
@@ -21,7 +21,6 @@ const QuestionRow = ({ tech, onDelete, onEdit, technologies }) => {
       <td className="p-3 max-w-32 break-words max-lg:max-w-32 max-lg:text-sm text-center align-middle">
         <div className="flex items-center justify-center gap-3 h-full">
           <button
-            // onClick={() => onEdit?.(tech?.id)}
             onClick={() => onEdit?.(tech)}
             className="Button-style text-[#8b5cf6] hover:underline duration-200"
           >

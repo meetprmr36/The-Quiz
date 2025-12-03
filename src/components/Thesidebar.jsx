@@ -6,10 +6,17 @@ import { } from "react-icons/fa";
 import { IoIosLogOut, IoMdMoon, IoMdSpeedometer } from "react-icons/io";
 import { FaBrain, FaRegUser, FaUserFriends } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
+import { MdEmail } from "react-icons/md";
+import { MdOutlineWorkOutline } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { FaUser } from "react-icons/fa6";
+import { FaExchangeAlt } from "react-icons/fa";
+import NavItem from "./Common/NavItem";
 
 
 const Thesidebar = ({ darkMode, setDarkMode }) => {
     const [showLogout, setShowLogout] = useState(false);
+    const [showAdmin, setShowAdmin] = useState(false);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -20,13 +27,13 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
     };
 
     return (
-        <div className="sidebar Flex-column bg-[var(--white)] text-[var(--black)] shadow-[var(--card-shadow)]  transition-all duration-400">
+        <div className="sidebar Flex-column transition-all duration-400">
             <nav>
                 <div className="Logo-Name text-center p-4 mb-2">
                     <div className="flex flex-col items-center justify-center">
                         <div className="logo-container mb-3">
                             <div className="relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-xl shadow-lg">
-                                <FaBrain className="text-white text-3xl" />
+                                <FaBrain className="text-white text-2xl" />
                                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
                                 <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-green-400 rounded-full"></div>
                             </div>
@@ -45,28 +52,20 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                 </div>
                 <div className="px-3 max-xl:px-0 transition-all duration-400">
                     <div className="toggles Flex-column mb-1">
-                        <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
+                        {/* <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
                             <span className="text-lg"><LuLayoutDashboard /></span>
                             <p className="hidden md:inline">Dashboard</p>
-                        </NavLink>
+                        </NavLink> */}
+                        <NavItem to="/dashboard" icon={IoMdSpeedometer} label="Dashboard" />
                     </div>
                     <div className="toggles Flex-column mb-1">
-                        <NavLink to="/technology" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaEarthAmericas /></span>
-                            <p className="hidden md:inline">Technologies</p>
-                        </NavLink>
+                        <NavItem to="/technology" icon={FaEarthAmericas} label="Technologies" />
                     </div>
                     <div className="toggles Flex-column mb-1">
-                        <NavLink to="/question" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaQuestion /></span>
-                            <p className="hidden md:inline">Questions</p>
-                        </NavLink>
+                        <NavItem to="/question" icon={FaQuestion} label="Questions" />
                     </div>
                     <div className="toggles Flex-column mb-1">
-                        <NavLink to="/User" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span><FaUserFriends /></span>
-                            <p className="hidden md:inline">User</p>
-                        </NavLink>
+                        <NavItem to="/User" icon={FaUserFriends} label="Users" />
                     </div>
                 </div>
             </nav>
@@ -94,14 +93,18 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             <div className="Side mt-auto border-t border-[rgba(255,255,255,0.1)] pt-4 transition-all duration-400">
                 <div className="px-3 max-2xl:px-2 space-y-3">
                     <div className="admin-profile-card">
-                        <div className="flex items-center space-x-3 w-full py-3 px-3 rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(97,99,241,0.1)] border border-transparent hover:border-[rgba(97,99,241,0.3)] max-lg:justify-center">
+                        <button
+                            onClick={() => setShowAdmin(true)}
+                            className="flex items-center space-x-3 w-full py-3 px-3 rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(97,99,241,0.15)] border border-transparent hover:border-[rgba(160, 114, 245, 0.3)] max-lg:justify-center
+                            hover:text-violet-500 active:scale-95">
                             <div className="admin-icon-wrapper">
                                 <FaRegUser className="text-base transition-all duration-300 group-hover:scale-110" />
                             </div>
-                            <button className="max-lg:hidden text-sm font-medium text-[rgba(255,255,255,0.85)] group-hover:text-white transition-colors duration-300">
+                            <span
+                                className="max-lg:hidden text-sm font-medium group-hover:text-white transition-colors duration-300">
                                 Admin User
-                            </button>
-                        </div>
+                            </span>
+                        </button>
                     </div>
 
                     <div className="logout-card">
@@ -119,63 +122,65 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                     </div>
                 </div>
 
-                {/* <div className="px-3 max-2xl:px-2 space-y-2">
-                    <div className="admin-profile-card group">
-                        <div className="glass-shine flex items-center space-x-3 w-full py-3 px-3 rounded-xl transition-all duration-300 bg-gradient-to-br from-[rgba(97,99,241,0.2)] to-[rgba(139,92,246,0.2)] hover:from-[rgba(97,99,241,0.35)] hover:to-[rgba(139,92,246,0.35)] border border-[rgba(139,92,246,0.4)] hover:border-[rgba(139,92,246,0.6)] shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 max-lg:justify-center hover:-translate-y-1">
-                            <div className="admin-icon-wrapper w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-md group-hover:shadow-purple-500/50 transition-all duration-300">
-                                <FaRegUser className="text-sm text-white transition-all duration-300 group-hover:scale-110" />
-                            </div>
-                            <span className="max-lg:hidden text-sm font-semibold text-white group-hover:text-white transition-colors duration-300">
-                                Admin User
-                            </span>
-                        </div>
-                    </div>
-
-                    <div className="logout-card group">
-                        <button
-                            onClick={() => setShowLogout(true)}
-                            className="glass-shine w-full flex items-center space-x-3 py-3 px-3 text-sm rounded-xl transition-all duration-300 bg-gradient-to-br from-[rgba(248,113,113,0.2)] to-[rgba(239,68,68,0.2)] hover:from-[rgba(248,113,113,0.35)] hover:to-[rgba(239,68,68,0.35)] border border-[rgba(248,113,113,0.4)] hover:border-[rgba(248,113,113,0.6)] shadow-lg shadow-red-500/20 hover:shadow-red-500/40 text-white hover:text-white max-lg:justify-center active:scale-95 hover:-translate-y-1"
-                        >
-                            <div className="logout-icon-wrapper w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center shadow-md group-hover:shadow-red-500/50 transition-all duration-300">
-                                <IoIosLogOut className="text-base text-white transition-all duration-300 group-hover:scale-110 group-hover:translate-x-1" />
-                            </div>
-                            <span className="max-lg:hidden font-semibold">
-                                Logout
-                            </span>
-                        </button>
-                    </div>
-                </div> */}
-
             </div>
 
-            {/* {showLogout && (
-                <div className="logout-modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="logout-modal-content bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 max-lg:p-5 max-lg:mx-3">
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 max-lg:w-12 max-lg:h-12">
-                                <IoIosLogOut className="text-red-600 text-2xl" />
+            {showAdmin && (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 animate-fadeIn">
+                    <div className="bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-200 dark:border-gray-700">
+                        <div className="px-4 py-2 text-center">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white m-4">
+                                Account Details
+                            </h3>
+                        </div>
+                        <div className="mx-4 my-2">
+                            <div className="p-2 text-left inline-flex items-center">
+                                <MdEmail className="text-gray-900 dark:text-white mr-2" />
+                                <p className="text-gray-900 dark:text-white m-1">
+                                    Email - Example@gmail
+                                </p>
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-2 max-lg:text-base">Confirm Logout</h3>
-                            <p className="text-gray-600 mb-6 max-lg:text-sm max-sm:text-xs max-md:mb-3">Are you sure you want to logout from your admin session ?</p>
-                            <div className="flex space-x-3">
-                                <button
-                                    onClick={handleLogout}
-                                    // className="flex-1 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 max-lg:py-2 max-lg:px-2"
-                                    className="flex-1 items-center space-x-3 py-3 px-3 text-sm rounded-xl transition-all duration-300 bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(248,113,113,0.15)] border border-transparent hover:border-[rgba(248,113,113,0.4)] text-[rgba(205, 51, 51, 0.7)] hover:text-red-400  active:scale-95"
-                                >
-                                    Logout
-                                </button>
-                                <button
-                                    onClick={() => setShowLogout(false)}
-                                    className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors duration-200 max-lg:py-2 max-lg:px-2"
-                                >
-                                    Cancel
-                                </button>
+                            <div className="p-2 text-left inline-flex items-center">
+                                <FaUser className="text-gray-900 dark:text-white mr-2" />
+                                <p className="text-gray-900 dark:text-white m-1">
+                                    Username - Example
+                                </p>
                             </div>
+                            <div className="p-2 text-left inline-flex items-center">
+                                <RiLockPasswordLine className="text-gray-900 dark:text-white mr-2" />
+                                <p className="text-gray-900 dark:text-white m-1">
+                                    Password - ExamplePassword
+                                </p>
+                            </div>
+                            <div className="p-2 text-left inline-flex items-center">
+                                <MdOutlineWorkOutline className="text-gray-900 dark:text-white mr-2" />
+                                <p className="text-gray-900 dark:text-white m-1">
+                                    Designation - ExampleDesignation
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="p-6 align-center flex gap-3">
+                            <button
+                                onClick={() => setShowAdmin(false)}
+                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-gray-200 border border-gray-700 hover:border-gray-800 shadow-md hover:shadow-lg shadow-gray-700/30 hover:shadow-gray-500/50 active:scale-95 hover:-translate-y-0.5"
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span>Cancel</span>
+                            </button>
+
+                            <button
+                                onClick={() => setShowAdmin(false)}
+                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white hover:border-purple-500 shadow-md hover:shadow-lg shadow-purple-600/30 shadow-md hover:shadow-lg hover:shadow-purple-500/50 active:scale-95 hover:-translate-y-0.5">
+                                <FaExchangeAlt className="w-4 h-4" />
+                                <span>Change</span>
+                            </button>
                         </div>
                     </div>
                 </div>
-            )} */}
+            )}
+
             {showLogout && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 animate-fadeIn">
                     <div className="glass-card bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-200 dark:border-gray-700">

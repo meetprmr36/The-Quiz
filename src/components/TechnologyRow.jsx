@@ -40,9 +40,8 @@
 
 import React from "react";
 import '../App.css';
-import StatusBadge from "./StatusBadge";
-import { FaTrash } from "react-icons/fa6";
-import { FaEdit } from "react-icons/fa";
+import StatusBadge from "./Common/StatusBadge";
+import ActionButton from "./Common/ActionButton";
 
 const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
   const questionCount = questions?.filter(
@@ -61,7 +60,7 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
       </td>
       <td className="p-3 break-words max-lg:text-sm text-center max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
       <td className="p-3 break-words flex justify-center m-auto max-sm:max-w-[200px]">
-        <button
+        {/* <button
           onClick={() => onEdit?.(tech)}
           className="Button-style text-[#8b5cf6] hover:underline"
         >
@@ -74,7 +73,11 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
         >
           <FaTrash />
           <span className="TooltipText">Delete</span>
-        </button>
+        </button> */}
+        <ActionButton 
+        onEdit={() => onEdit?.(tech)} 
+        onDelete={() => onDelete?.(tech?.id)} 
+        tech={tech} />
       </td>
     </tr>
   );

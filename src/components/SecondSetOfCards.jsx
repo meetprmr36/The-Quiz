@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useMemo } from "react";
-import StatusBadge from "./StatusBadge"
+import StatusBadge from "./Common/StatusBadge"
 
 function ProgressUser({ name, score, delay }) {
     const percentage = ((score / 15) * 100).toFixed(0);
@@ -47,11 +47,10 @@ function SecondSetCards({ techList, questions, User }) {
                         key={i}
                         className="secondCard flex flex-col Card-shadow bg-[var(--white)] text-[var(--black)] p-4"
                     >
-                        <div className="h-5 bg-gray-200 rounded w-32 mb-6 animate-pulse"></div>
+                        <div className="h-6 bg-gray-200 rounded w-32 mb-6 animate-pulse"></div>
                         {[1, 2, 3, 4, 5, 6].map((j) => (
                             <div key={j} className="mb-7">
-                                <div className="h-4 bg-gray-300 rounded w-45 mb-2 animate-pulse"></div>
-                                <div className="h-3 bg-gray-200 rounded w-full animate-pulse"></div>
+                                <div className="h-8 bg-gray-300 rounded w-96 mb-2 animate-pulse"></div>
                             </div>
                         ))}
                     </div>
@@ -72,7 +71,7 @@ function SecondSetCards({ techList, questions, User }) {
                             key={idx}
                             name={u.name}
                             score={u.score}
-                            delay={idx * 70}
+                            delay={idx * 100}
                         />
                     ))}
                 </div>
@@ -110,12 +109,12 @@ function SecondSetCards({ techList, questions, User }) {
                     {techList?.slice(-6).map((t) => (
                         <div
                             key={`${t.id}-copy`}
-                            className="h-[45px] rounded-lg bg-[var(--gray)] flex justify-between items-center shadow-sm"
+                            className="h-[45px] px-[15px] rounded-lg bg-[var(--gray)] flex justify-between items-center shadow-sm"
                         >
-                            <p className="text-sm text-[var(--black)] items-center mx-2">
+                            <p className="text-sm text-[var(--black)] items-center">
                                 {t.name}
                             </p>
-                            <div className="flex gap-2 flex-wrap mx-4">
+                            <div className="flex gap-2 flex-wrap ">
                                 <StatusBadge active={t.active} />
                             </div>
                         </div>

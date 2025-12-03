@@ -1,7 +1,4 @@
 import React from 'react';
-import StatusBadge from './StatusBadge';
-import { FaTrash } from "react-icons/fa6";
-import { FaEdit } from "react-icons/fa";
 
 const UserRow = ({ user }) => {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modalmsg = ({ modalmsg, onClose ,onDelete}) => {
+const DeleteMsg = ({ modalmsg, onClose ,onDelete}) => {
     return (
         <div className="Technology-form-model">
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
@@ -25,4 +25,4 @@ const Modalmsg = ({ modalmsg, onClose ,onDelete}) => {
     );
 };
 
-export default Modalmsg;
+export default DeleteMsg;

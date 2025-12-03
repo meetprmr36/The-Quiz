@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TechnologyTable from "./TechnologyTable";
-import AddButton from "./AddButton";
-import Modalmsg from "./Modalmsg";
+import SectionHeader from "./Common/SectionHeader";
+import DeleteMsg from "./Common/DeleteMsg";
 import TechForm from "./TechForm";
 import axios from "axios";
 
@@ -151,39 +151,28 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
       {message && (
         <div
           className={`fixed top-5 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow-md text-white z-[9999] ${message.type === "success"
-            ? "bg-green-500/70"
-            : message.type === "error"
-              ? "bg-red-400/70"
-              : "bg-blue-400"
-            }`}
+            ? "bg-green-500/70": "bg-red-400/70"}`}
         >
           {message.text}
         </div>
       )}
 
-      <div className="my-5">
-        <div className="flex justify-between mb-5 max-lg:mb-0 max-sm:mb-2">
-          <h2 className="text-4xl font-semibold max-lg:text-2xl max-sm:text-xl">
-            Manage Technology
-          </h2>
-        </div>
-        <div className="flex justify-between items-baseline mb-4 max-lg:mb-2 max-sm:items-center">
-          <p className="text-lg items-center text-[var(--lightGray)] max-lg:text-sm max-sm:text-xs max-sm:w-2/4">
-            Create and manage technology categories for your quizzes
-          </p>
-          <AddButton onAdd={() => setShowForm(true)} Name="Add Technology" />
-        </div>
+      <SectionHeader
+        title="Manage Technologies"
+        subtitle="Create and manage technology categories for your quizzes"
+        onAdd={() => setShowForm(true)}
+        Name="Add Technology"
+      />
 
-        <TechnologyTable
-          data={technologies}
-          quest={questions}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
-      </div>
+      <TechnologyTable
+        data={technologies}
+        quest={questions}
+        onDelete={handleDelete}
+        onEdit={handleEdit}
+      />
 
       {showModal && (
-        <Modalmsg modalmsg="Are you sure you want to delete this technology?" onClose={cancelDelete} onDelete={confirmDelete} />
+        <DeleteMsg modalmsg="Are you sure you want to delete this technology?" onClose={cancelDelete} onDelete={confirmDelete} />
       )}
 
       {showForm && (

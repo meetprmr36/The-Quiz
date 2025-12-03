@@ -1,10 +1,9 @@
 import React from "react";
-import '../App.css';
 
 const StatusBadge = ({ active }) => {
   const isActive = active === 1;
-  const colorClass = isActive ? "status-active" : "status-inactive";
-  const text = isActive ? "Active" : "Inactive";
+  // const colorClass = isActive ? "status-active" : "status-inactive";
+  // const text = isActive ? "Active" : "Inactive";
 
   return (
 

@@ -1,4 +1,3 @@
-import '../App.css';
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 
@@ -6,7 +5,7 @@ const AddButton =({ onAdd ,Name})=> {
   return (
     <button
       onClick={onAdd}
-      className="Button-Technology text-white px-2 py-2 rounded-md flex items-center">
+      className="Button-Technology text-white px-2 py-2 rounded-md flex items-center" >
       <span className='px-1'><FaPlus /></span> {Name}
     </button>
   );
