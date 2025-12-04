@@ -11,7 +11,7 @@ const QuestionRow = ({ tech, onDelete, onEdit, technologies }) => {
       <td className="p-3 px-5 max-w-40 break-all hyphens-auto max-lg:max-w-20 max-lg:text-sm max-md:text-xs">
         {tech?.question}
         <span className="tag blue m-1 inline-block">
-          {technologies.find(t => t.id === tech?.techLevel?.[0]?.technology)?.name || "N/A"}
+          {tech.technology || "N/A"}
         </span>
       </td>
       <td className="p-3 max-w-28 break-words max-lg:max-w-16 text-center max-lg:text-sm">

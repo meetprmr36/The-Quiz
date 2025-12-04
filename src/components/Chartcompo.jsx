@@ -35,8 +35,8 @@ const Chartcompo = (props) => {
         <div className="bg-[var(--white)] rounded-xl shadow-sm p-4 flex flex-row max-xl:p-4 max-lg:p-3">
             <div className="flex-1">
                 <h2 className="text-sm font-medium text-[var(--black)] mb-1">{props.name}</h2>
-                <p className="text-4xl my-2 font-semibold text-[var(--black)]">{props.length || 0}</p>
-                <p className="text-xs my-2 text-gray-400">Growth</p>
+                <p className="text-4xl my-2 font-semibold text-[var(--black)]">{props.length}</p>
+                <p className="text-xs my-2 text-gray-400">{props.subText}</p>
             </div>
             <div className="flex-1 flex justify-end items-end">
                 <div className="w-[160px] h-[100px]">

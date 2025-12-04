@@ -30,6 +30,7 @@ const FirstCards = ({ technologie, questions, User }) => {
         const avgScore = User.length > 0
             ? Math.round(User.reduce((sum, u) => sum + (u.score || 0), 0) / User.length)
             : 0;
+        // const thePerformance = (avgScore / 100 * User.length);
         const maxScore = User.length > 0
             ? Math.max(...User.map(u => u.score || 0))
             : 0;
@@ -43,7 +44,8 @@ const FirstCards = ({ technologie, questions, User }) => {
             notAttemptedCount,
             userRoleCount,
             avgScore,
-            maxScore
+            maxScore,
+            // thePerformance
         };
     }, [technologie, questions, User]);
 
@@ -307,6 +309,7 @@ const FirstCards = ({ technologie, questions, User }) => {
             <Chartcompo
                 name="Users"
                 length={User?.length || 0}
+                subText="Users"
                 ChartData={[
                     calculations.passCount,
                     calculations.failCount,
@@ -320,6 +323,8 @@ const FirstCards = ({ technologie, questions, User }) => {
             <Chartcompo
                 name="Performance"
                 length={calculations.avgScore || 0}
+                subText="Score"
+                // length={calculations.thePerformance || 0}
                 ChartData={[
                     calculations.passCount,
                     calculations.userRoleCount,

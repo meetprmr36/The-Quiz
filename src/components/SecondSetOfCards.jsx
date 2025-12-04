@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import StatusBadge from "./Common/StatusBadge"
 
 function ProgressUser({ name, score, delay }) {
@@ -71,7 +71,7 @@ function SecondSetCards({ techList, questions, User }) {
                             key={idx}
                             name={u.name}
                             score={u.score}
-                            delay={idx * 100}
+                            delay={idx * 50}
                         />
                     ))}
                 </div>
@@ -92,7 +92,7 @@ function SecondSetCards({ techList, questions, User }) {
                             </p>
                             <div className="flex gap-2 flex-wrap">
                                 <span className="tag blue">
-                                    {techList?.find(t => t.id === q.techLevel?.[0]?.technology || t._id === q.techLevel?.[0]?.technology)?.name || "N/A"}
+                                    {techList?.find(t => t.name === q.technology)?.name || q.technology || "N/A"}
                                 </span>
                                 <StatusBadge active={q.active} />
                             </div>

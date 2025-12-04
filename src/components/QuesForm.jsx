@@ -1,6 +1,8 @@
 import React from "react";
 import OptionBar from "./OptionBar";
+import FormButton from "./Common/FormButton";
 import { IoIosSave, IoMdClose } from "react-icons/io";
+import { Form } from "react-router-dom";
 
 const QuesForm = ({ formData, setFormData, handleSave, handleReset, handleBack, editingId, suggestions, selectSuggestion,setSuggestions, techList,showMessage }) => {
 
@@ -160,7 +162,7 @@ const QuesForm = ({ formData, setFormData, handleSave, handleReset, handleBack, 
                     </div>
                 </div>
 
-                <div className="flex space-x-3">
+                {/* <div className="flex space-x-3">
                     <button
                         type="submit"
                         onClick={handleSave}
@@ -177,7 +179,8 @@ const QuesForm = ({ formData, setFormData, handleSave, handleReset, handleBack, 
                     >
                         Reset
                     </button>
-                </div>
+                </div> */}
+                <FormButton handleSave={handleSave} handleReset={handleReset} editingId={editingId} />
             </div>
         </div>
     )

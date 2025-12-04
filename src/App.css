@@ -35,10 +35,7 @@ body {
     --gray: #ececec;
     --bitDarkGray: #d5d5d5;
     --lightGray: #959595;
-    /* --sidebar-gradient: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%); */
-    /* --Hovergray: #f1f1f1; */
-    /* --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
-    --card-hover-shadow: 0 8px 32px rgba(39, 39, 68, 0.18); */
+    --card-shadow: 0 4px 24px rgba(39, 39, 68, 0.12);
     --darkblue: #121f47;
     --bitlightblue: #3b82f6;
     --accenthover: #f4efff;
@@ -65,10 +62,8 @@ body {
     --lightGray: #a1a1aa;
     --accenthover: #22163c;
     --accent: #9175ff;
-    /* --sidebar-gradient: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); */
     /* --Hovergray: #1f2937; */
-    /* --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-    --card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.6); */
+    --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     --darkblue: #1e293b;
     --bitlightblue: #003187;
     --red: #f87171;
@@ -1100,7 +1095,7 @@ body {
 }
 
 .tag {
-    font-size: 12px;
+    font-size: 11px;
     padding: 5px 10px;
     border-radius: 8px;
     font-weight: 400;
@@ -1114,7 +1109,6 @@ body {
     letter-spacing: 0.3px;
     border: 1px solid rgba(233, 213, 255, 0.3);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 2px 8px rgba(75, 20, 109, 0.15);
     transition: all 0.3s ease;
 }

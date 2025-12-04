@@ -32,7 +32,8 @@ const TechForm = ({ formData, setFormData, editingId, onBack, onSave, onReset })
                         type="text"
                         value={formData.name}
                         onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        placeholder="e.g., React.js, Node.js, Python"
+                        placeholder="Enter Technology Name"
+                        // placeholder="e.g., React.js, Node.js, Python"
                         className="w-full border border-[var(--lightGray)] rounded-md px-3 py-2 focus:ring-2 focus:ring-[var(--accent)] focus:outline-none bg-[var(--gray)] text-[var(--black)] max-lg:px-2 max-lg:py-1 max-lg:text-sm"
                     />
                 </div>

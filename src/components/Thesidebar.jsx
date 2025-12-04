@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { FaEarthAmericas, FaQuestion } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
-import { } from "react-icons/fa";
 import { IoIosLogOut, IoMdMoon, IoMdSpeedometer } from "react-icons/io";
 import { FaBrain, FaRegUser, FaUserFriends } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
-import { MdEmail } from "react-icons/md";
-import { MdOutlineWorkOutline } from "react-icons/md";
-import { RiLockPasswordLine } from "react-icons/ri";
-import { FaUser } from "react-icons/fa6";
-import { FaExchangeAlt } from "react-icons/fa";
+import LogoutCard from "./LogoutCard";
+import AdminCard from "./AdminCard";
 import NavItem from "./Common/NavItem";
 
 
@@ -34,8 +29,9 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                         <div className="logo-container mb-3">
                             <div className="relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 rounded-xl shadow-lg">
                                 <FaBrain className="text-white text-2xl" />
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div className="absolute -top-1 -left-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+                                <div className="absolute -top-1 -left-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
+                                {/* <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-green-400 rounded-full"></div> */}
                             </div>
                         </div>
 
@@ -52,10 +48,6 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
                 </div>
                 <div className="px-3 max-xl:px-0 transition-all duration-400">
                     <div className="toggles Flex-column mb-1">
-                        {/* <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : undefined}>
-                            <span className="text-lg"><LuLayoutDashboard /></span>
-                            <p className="hidden md:inline">Dashboard</p>
-                        </NavLink> */}
                         <NavItem to="/dashboard" icon={IoMdSpeedometer} label="Dashboard" />
                     </div>
                     <div className="toggles Flex-column mb-1">
@@ -125,104 +117,17 @@ const Thesidebar = ({ darkMode, setDarkMode }) => {
             </div>
 
             {showAdmin && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 animate-fadeIn">
-                    <div className="bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-200 dark:border-gray-700">
-                        <div className="px-4 py-2 text-center">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white m-4">
-                                Account Details
-                            </h3>
-                        </div>
-                        <div className="mx-4 my-2">
-                            <div className="p-2 text-left inline-flex items-center">
-                                <MdEmail className="text-gray-900 dark:text-white mr-2" />
-                                <p className="text-gray-900 dark:text-white m-1">
-                                    Email - Example@gmail
-                                </p>
-                            </div>
-                            <div className="p-2 text-left inline-flex items-center">
-                                <FaUser className="text-gray-900 dark:text-white mr-2" />
-                                <p className="text-gray-900 dark:text-white m-1">
-                                    Username - Example
-                                </p>
-                            </div>
-                            <div className="p-2 text-left inline-flex items-center">
-                                <RiLockPasswordLine className="text-gray-900 dark:text-white mr-2" />
-                                <p className="text-gray-900 dark:text-white m-1">
-                                    Password - ExamplePassword
-                                </p>
-                            </div>
-                            <div className="p-2 text-left inline-flex items-center">
-                                <MdOutlineWorkOutline className="text-gray-900 dark:text-white mr-2" />
-                                <p className="text-gray-900 dark:text-white m-1">
-                                    Designation - ExampleDesignation
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="p-6 align-center flex gap-3">
-                            <button
-                                onClick={() => setShowAdmin(false)}
-                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-gray-200 border border-gray-700 hover:border-gray-800 shadow-md hover:shadow-lg shadow-gray-700/30 hover:shadow-gray-500/50 active:scale-95 hover:-translate-y-0.5"
-                            >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span>Cancel</span>
-                            </button>
-
-                            <button
-                                onClick={() => setShowAdmin(false)}
-                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 text-white hover:border-purple-500 shadow-md hover:shadow-lg shadow-purple-600/30 shadow-md hover:shadow-lg hover:shadow-purple-500/50 active:scale-95 hover:-translate-y-0.5">
-                                <FaExchangeAlt className="w-4 h-4" />
-                                <span>Change</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <AdminCard
+                    onCancel={() => setShowAdmin(false)}
+                    onChange={() => setShowAdmin(false)}
+                />
             )}
 
             {showLogout && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 animate-fadeIn">
-                    <div className="glass-card bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-200 dark:border-gray-700">
-                        <div className="flex justify-center pt-6 pb-4">
-                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-100 to-rose-100 dark:from-red-900/30 dark:to-rose-900/30 flex items-center justify-center shadow-lg">
-                                <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className="px-6 pb-6 text-center">
-                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                                Confirm Logout
-                            </h3>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                                Are you sure you want to logout from your admin session?
-                            </p>
-                        </div>
-
-                        <div className="px-6 pb-6 flex gap-3">
-                            <button
-                                onClick={() => setShowLogout(false)}
-                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 shadow-md hover:shadow-lg active:scale-95 hover:-translate-y-0.5"
-                            >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                <span>Cancel</span>
-                            </button>
-
-                            <button
-                                onClick={handleLogout}
-                                className="glass-shine flex-1 flex items-center justify-center space-x-2 py-3 px-4 text-sm font-semibold rounded-xl transition-all duration-300 bg-gradient-to-br from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white border border-red-600 hover:border-red-700 shadow-lg shadow-red-500/30 hover:shadow-red-500/50 active:scale-95 hover:-translate-y-0.5"
-                            >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                                <span>Logout</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <LogoutCard
+                    onCancel={() => setShowLogout(false)}
+                    onLogout={handleLogout}
+                />
             )}
         </div>
     );

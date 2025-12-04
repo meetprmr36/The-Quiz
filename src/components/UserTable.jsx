@@ -39,6 +39,7 @@ const UserTable = ({ data }) => {
             </div>
         );
     }
+    
     return (
         <div className="max-h-[calc(100vh-190px)] overflow-y-scroll mb-5 shadow-md rounded-lg">
             <table className="w-full border-collapse table-fixed">

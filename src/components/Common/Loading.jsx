@@ -16,7 +16,7 @@ const Loading = ({ Name, Status, Number, Action }) => {
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
                         <tr key={i} className="border-b animate-pulse">
                             <td className="p-3 w-[50%]">
-                                <div className="h-6 bg-gray-200 rounded w-3/4 mb-2"></div>
+                                <div className="h-6 bg-gray-200 rounded w-2/4 mb-2"></div>
                             </td>
                             <td className="p-3 w-[15%] text-center">
                                 <div className="h-6 bg-gray-200 rounded w-1/3 mx-auto"></div>

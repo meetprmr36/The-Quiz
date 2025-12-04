@@ -52,6 +52,8 @@ const Themaincomponent = () => {
     { id: 8, name: "Django", active: 1, createdAt: "2024-01-22" },
     { id: 9, name: "Tailwind CSS", active: 1, createdAt: "2024-01-23" },
     { id: 10, name: "AWS", active: 1, createdAt: "2024-01-24" },
+    { id: 11, name: "React", active: 1, createdAt: "2024-01-25" },
+    { id: 12, name: "Node.js", active: 1, createdAt: "2024-01-26" }
   ]);
 
 
@@ -233,6 +235,146 @@ const Themaincomponent = () => {
         { id: 3, option: "A frontend framework", isCorrect: 0 },
         { id: 4, option: "An email service", isCorrect: 0 }
       ]
+    },
+    {
+      id: 11,
+      technology: "JavaScript",
+      question: "What is a closure?",
+      difficulty: "Medium",
+      active: 1,
+      date: "2024-04-01",
+      options: [
+        { id: 1, option: "A function inside another function", isCorrect: 1 },
+        { id: 2, option: "A loop structure", isCorrect: 0 },
+        { id: 3, option: "An object method", isCorrect: 0 },
+        { id: 4, option: "A type of array", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 12,
+      technology: "React",
+      question: "What is useState used for?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-02",
+      options: [
+        { id: 1, option: "To manage state in functional components", isCorrect: 1 },
+        { id: 2, option: "To fetch data", isCorrect: 0 },
+        { id: 3, option: "To style components", isCorrect: 0 },
+        { id: 4, option: "To connect Redux", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 13,
+      technology: "Node.js",
+      question: "Which module is used to create a server?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-03",
+      options: [
+        { id: 1, option: "http", isCorrect: 1 },
+        { id: 2, option: "fs", isCorrect: 0 },
+        { id: 3, option: "path", isCorrect: 0 },
+        { id: 4, option: "url", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 14,
+      technology: "MongoDB",
+      question: "What is a document in MongoDB?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-04",
+      options: [
+        { id: 1, option: "A record in a collection", isCorrect: 1 },
+        { id: 2, option: "A table", isCorrect: 0 },
+        { id: 3, option: "A schema", isCorrect: 0 },
+        { id: 4, option: "A database", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 15,
+      technology: "HTML",
+      question: "Which tag is used for a hyperlink?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-05",
+      options: [
+        { id: 1, option: "<a>", isCorrect: 1 },
+        { id: 2, option: "<p>", isCorrect: 0 },
+        { id: 3, option: "<div>", isCorrect: 0 },
+        { id: 4, option: "<span>", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 16,
+      technology: "CSS",
+      question: "Which property is used to change text color?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-06",
+      options: [
+        { id: 1, option: "color", isCorrect: 1 },
+        { id: 2, option: "font-style", isCorrect: 0 },
+        { id: 3, option: "background", isCorrect: 0 },
+        { id: 4, option: "text-align", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 17,
+      technology: "React",
+      question: "What is a prop?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-07",
+      options: [
+        { id: 1, option: "Data passed to a component", isCorrect: 1 },
+        { id: 2, option: "A hook", isCorrect: 0 },
+        { id: 3, option: "A state value", isCorrect: 0 },
+        { id: 4, option: "A router", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 18,
+      technology: "JavaScript",
+      question: "Which keyword is used to declare a constant?",
+      difficulty: "Easy",
+      active: 1,
+      date: "2024-04-08",
+      options: [
+        { id: 1, option: "const", isCorrect: 1 },
+        { id: 2, option: "let", isCorrect: 0 },
+        { id: 3, option: "var", isCorrect: 0 },
+        { id: 4, option: "static", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 19,
+      technology: "Git",
+      question: "Which command is used to upload code to GitHub?",
+      difficulty: "Medium",
+      active: 1,
+      date: "2024-04-09",
+      options: [
+        { id: 1, option: "git push", isCorrect: 1 },
+        { id: 2, option: "git pull", isCorrect: 0 },
+        { id: 3, option: "git clone", isCorrect: 0 },
+        { id: 4, option: "git commit", isCorrect: 0 }
+      ]
+    },
+    {
+      id: 20,
+      technology: "API",
+      question: "What does REST stand for?",
+      difficulty: "Medium",
+      active: 1,
+      date: "2024-04-10",
+      options: [
+        { id: 1, option: "Representational State Transfer", isCorrect: 1 },
+        { id: 2, option: "Random Execution Server Tool", isCorrect: 0 },
+        { id: 3, option: "Remote State Transfer", isCorrect: 0 },
+        { id: 4, option: "Real-time Server Tool", isCorrect: 0 }
+      ]
     }
   ]);
 
@@ -241,7 +383,7 @@ const Themaincomponent = () => {
   const [users, setUsers] = useState([
     { id: 1, name: "John Doe", email: "john@example.com", role: "User", status: "Active", date: "2024-01-15", examStatus: "Pass", score: 10 },
     { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", status: "Active", date: "2024-01-16", examStatus: "Fail", score: 8 },
-    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "User", status: "InActive", date: "2024-01-17", examStatus: "Not Attempted", score: null },
+    { id: 3, name: "Alex Johnson", email: "alex@example.com", role: "User", status: "InActive", date: "2024-01-17", examStatus: "Not Attempted", score: 0 },
     { id: 4, name: "Emily Brown", email: "emily@example.com", role: "User", status: "Active", date: "2024-01-18", examStatus: "Pass", score: 13 },
     { id: 5, name: "Michael Lee", email: "michael@example.com", role: "User", status: "Active", date: "2024-01-19", examStatus: "Pass", score: 9 },
     { id: 6, name: "Sophia Wilson", email: "sophia@example.com", role: "User", status: "InActive", date: "2024-01-20", examStatus: "Fail", score: 13 },
@@ -249,6 +391,11 @@ const Themaincomponent = () => {
     { id: 8, name: "Olivia Garcia", email: "olivia@example.com", role: "User", status: "Active", date: "2024-01-22", examStatus: "Pass", score: 10 },
     { id: 9, name: "James Miller", email: "james@example.com", role: "User", status: "InActive", date: "2024-01-23", examStatus: "Not Attempted", score: 6 },
     { id: 10, name: "Ava Davis", email: "ava@example.com", role: "User", status: "Active", date: "2024-01-24", examStatus: "Fail", score: 12 },
+    { id: 11, name: "Liam Brown", email: "liam@example.com", role: "user", status: "Active", date: "2024-01-25", examStatus: "Pass", score: 8 },
+    { id: 12, name: "Sophia Wilson", email: "sophia@example.com", role: "User", status: "Inactive", date: "2024-01-26", examStatus: "Fail", score: 10 },
+    { id: 13, name: "Noah Anderson", email: "noah@example.com", role: "User", status: "Active", date: "2024-01-27", examStatus: "Pass", score: 12 },
+    { id: 14, name: "Emma Martinez", email: "emma@example.com", role: "user", status: "Active", date: "2024-01-28", examStatus: "Pass", score: 15 },
+    { id: 15, name: "Oliver Taylor", email: "oliver@example.com", role: "User", status: "Active", date: "2024-01-29", examStatus: "Fail", score: 14 }
   ]);
   // const [users, setUsers] = useState([]);
   // useEffect(() => {

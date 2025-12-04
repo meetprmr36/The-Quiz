@@ -1,44 +1,3 @@
-// import React from "react";
-// import '../App.css';
-// import StatusBadge from "./StatusBadge";
-// import { FaTrash } from "react-icons/fa6";
-// import { FaEdit } from "react-icons/fa";
-
-
-// const TechnologyRow = ({ tech, onDelete, questions }) => {
-//   return (    
-//     <tr className="Border-bottom hover:bg-[var(--Hovergray)]">
-//       <td className="p-3 px-5 w-45 max-w-50 break-words">{tech.name}</td>
-//       <td className="p-3 w-20 max-w-24 break-words">
-//         <StatusBadge status={tech.status} />
-//       </td>
-//       <td className="p-3 w-15 max-w-30 break-words">{tech.date}</td>
-//       <td className="p-3 w-15 max-w-30 break-words">{tech.date}</td>
-//       <td className="p-3 w-38 max-w-38 break-words">
-//         <button
-//           onClick={() => onEdit?.(tech)}
-//           className="Button-style text-blue-600 hover:underline"
-//         >
-//           <FaEdit />
-//           <span className="TooltipText">Edit</span>
-//         </button>
-//         <button
-//           onClick={() => onDelete?.(tech.id)}
-//           className="Button-style text-red-600 hover:underline"
-//         >
-//           <FaTrash />
-//           <span className="TooltipText">Delete</span>
-//         </button>
-//       </td>
-//     </tr>
-
-//   );
-// };
-
-// export default TechnologyRow;
-
-
-import React from "react";
 import '../App.css';
 import StatusBadge from "./Common/StatusBadge";
 import ActionButton from "./Common/ActionButton";
@@ -48,7 +7,7 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
     q => q.technology?.toLowerCase() === tech.name?.toLowerCase()
   ).length;
 
-  const techNames = questions?.map(q => q.technology);
+  // const techNames = questions?.map(q => q.technology);
 
 
   return (
@@ -60,20 +19,6 @@ const TechnologyRow = ({ tech, onDelete, questions, onEdit }) => {
       </td>
       <td className="p-3 break-words max-lg:text-sm text-center max-sm:text-xs max-sm:max-w-[150px]">{questionCount}</td>
       <td className="p-3 break-words flex justify-center m-auto max-sm:max-w-[200px]">
-        {/* <button
-          onClick={() => onEdit?.(tech)}
-          className="Button-style text-[#8b5cf6] hover:underline"
-        >
-          <FaEdit />
-          <span className="TooltipText">Edit</span>
-        </button>
-        <button
-          onClick={() => onDelete?.(tech?.id)}
-          className="Button-style text-red-600 hover:underline"
-        >
-          <FaTrash />
-          <span className="TooltipText">Delete</span>
-        </button> */}
         <ActionButton 
         onEdit={() => onEdit?.(tech)} 
         onDelete={() => onDelete?.(tech?.id)} 

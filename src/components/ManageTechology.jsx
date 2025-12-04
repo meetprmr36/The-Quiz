@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TechnologyTable from "./TechnologyTable";
 import SectionHeader from "./Common/SectionHeader";
+import ModalMsg from "./Common/ModalMsg";
 import DeleteMsg from "./Common/DeleteMsg";
 import TechForm from "./TechForm";
 import axios from "axios";
@@ -149,12 +150,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
   return (
     <div className="px-6 py-3 bg-[var(--white)] text-[var(--black)] max-lg:px-4 max-lg:py-2 min-h-screen">
       {message && (
-        <div
-          className={`fixed top-5 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded shadow-md text-white z-[9999] ${message.type === "success"
-            ? "bg-green-500/70": "bg-red-400/70"}`}
-        >
-          {message.text}
-        </div>
+        <ModalMsg message={message} />
       )}
 
       <SectionHeader
