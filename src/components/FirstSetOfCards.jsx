@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Chartcompo from "./Chartcompo.jsx";
 import CardName from "./Common/CardName.jsx";
 import Chart from "react-apexcharts";

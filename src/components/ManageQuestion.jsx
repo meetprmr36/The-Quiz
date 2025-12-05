@@ -23,7 +23,7 @@ const ManageQuestion = ({ questions, setQuestions, technologies }) => {
 
   const showMessage = (text, type) => {
     setModalMessage({ text, type });
-    setTimeout(() => setModalMessage(null), 2000);
+    setTimeout(() => setModalMessage(null), 3000);
   };
 
   // const API_BASE = `${import.meta.env.VITE_API_URL}v1/questions`;

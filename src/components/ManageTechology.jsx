@@ -21,7 +21,7 @@ const ManageTechnology = ({ technologies, setTechnologies, questions }) => {
 
   const showMessage = (text, type = "info") => {
     setMessage({ text, type });
-    setTimeout(() => setMessage(null), 2000);
+    setTimeout(() => setMessage(null), 3000);
   };
 
   const handleReset = () => {

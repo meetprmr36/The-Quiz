@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import OptionBar from "./OptionBar";
 import FormButton from "./Common/FormButton";
 import { IoIosSave, IoMdClose } from "react-icons/io";
@@ -11,12 +11,12 @@ const QuesForm = ({ formData, setFormData, handleSave, handleReset, handleBack, 
         const current = formData.options.find((o) => o.id === updatedOption.id);
 
         if (!current.isCorrect && selectedCount >= 2 && updatedOption.isCorrect) {
-            showMessage("You cannot select more than 2 options");
+            showMessage("You cannot select more than 2 options", "info");
             return;
         }
 
         if (current.isCorrect && selectedCount === 0 && !updatedOption.isCorrect) {
-            showMessage("Select at least one option");
+            showMessage("Select at least one option", "info");
             return;
         }
 

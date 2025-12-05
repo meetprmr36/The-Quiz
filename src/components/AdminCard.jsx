@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { MdEmail } from "react-icons/md";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
@@ -8,39 +8,39 @@ import { FaExchangeAlt } from "react-icons/fa";
 const AdminCard = ({ onCancel, onChange }) => {
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 animate-fadeIn">
-            <div className="bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-200 dark:border-gray-700">
-                <div className="px-4 py-6 text-center border-b border-gray-200 dark:border-gray-700">
-                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <div className="bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-scaleIn border border-gray-700">
+                <div className="px-4 py-6 text-center border-b border-gray-700">
+                    <h3 className="text-3xl font-bold text-white">
                         Account Details
                     </h3>
                 </div>
                 <div className="mx-4 my-6 space-y-3">
-                    <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center">
-                        <MdEmail className="text-blue-600 dark:text-blue-400 mr-3 text-xl flex-shrink-0" />
+                    <div className="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200 flex items-center">
+                        <MdEmail className="text-blue-400 mr-3 text-xl flex-shrink-0" />
                         <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">Email</p>
-                            <p className="text-gray-900 dark:text-white font-medium">Example@gmail.com</p>
+                            <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">Email</p>
+                            <p className="text-white font-medium">Example@gmail.com</p>
                         </div>
                     </div>
-                    <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center">
-                        <FaUser className="text-green-600 dark:text-green-400 mr-3 text-xl flex-shrink-0" />
+                    <div className="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200 flex items-center">
+                        <FaUser className="text-green-400 mr-3 text-xl flex-shrink-0" />
                         <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">Username</p>
-                            <p className="text-gray-900 dark:text-white font-medium">Example</p>
+                            <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">Username</p>
+                            <p className="text-white font-medium">Example</p>
                         </div>
                     </div>
-                    <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center">
-                        <RiLockPasswordLine className="text-purple-600 dark:text-purple-400 mr-3 text-xl flex-shrink-0" />
+                    <div className="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200 flex items-center">
+                        <RiLockPasswordLine className="text-purple-400 mr-3 text-xl flex-shrink-0" />
                         <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">Password</p>
-                            <p className="text-gray-900 dark:text-white font-medium">••••••••••••••••</p>
+                            <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">Password</p>
+                            <p className="text-white font-medium">••••••••••••••••</p>
                         </div>
                     </div>
-                    <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center">
-                        <MdOutlineWorkOutline className="text-orange-600 dark:text-orange-400 mr-3 text-xl flex-shrink-0" />
+                    <div className="p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200 flex items-center">
+                        <MdOutlineWorkOutline className="text-orange-400 mr-3 text-xl flex-shrink-0" />
                         <div>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide font-medium">Designation</p>
-                            <p className="text-gray-900 dark:text-white font-medium">ExampleDesignation</p>
+                            <p className="text-xs text-gray-400 uppercase tracking-wide font-medium">Designation</p>
+                            <p className="text-white font-medium">ExampleDesignation</p>
                         </div>
                     </div>
                 </div>
